@@ -698,7 +698,7 @@ textarea.field{min-height:110px;resize:none}
       <div><span data-t="sEv"></span><b id="sEv">0</b></div>
       <div><span data-t="sEvL"></span><b id="sEvL">0</b></div>
     </div>
-    <p class="ver">Vibe Tycoon · v0.29</p>
+    <p class="ver">Vibe Tycoon · v0.30</p>
   </section>
 
   <div class="nav" id="nav"><button data-go="code" class="on"><svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg><span class="lb" data-t="nCode"></span></button><button data-go="proj"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="3"/><path d="M9 7V5.5A1.5 1.5 0 0110.5 4h3A1.5 1.5 0 0115 5.5V7"/></svg><span class="lb" data-t="nProj"></span><i class="dot" id="dotProj"></i></button><button data-go="cases"><svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="12" rx="2"/><path d="M2 9h20M12 9v12M12 9c-2-4-7-5-7-2s5 2 7 2zm0 0c2-4 7-5 7-2s-5 2-7 2z"/></svg><span class="lb" data-t="nCases"></span><i class="dot" id="dotCases"></i></button><button data-go="goals"><svg viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 01-8 0zM8 6H5a3 3 0 003 4.5M16 6h3a3 3 0 01-3 4.5M12 13v4M8.5 21h7M10 17h4"/></svg><span class="lb" data-t="nGoals"></span><i class="dot" id="dotGoals"></i></button><button data-go="book"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M9 3v18M13 8h3M13 12h3"/></svg><span class="lb" data-t="nBook"></span><i class="dot" id="dotBook"></i></button></div>
@@ -1433,11 +1433,11 @@ function renderSync(){const v=$('syncV');if(!v)return;
 function syPush(mode){
   if(!lbOk()||SY.busy||(SY.conflict&&mode!=='force'))return Promise.resolve();
   if(!mode&&S.syncAt&&S.played-(S.syncPlayed||0)<1)return Promise.resolve();
-  SY.busy=true;renderSync();save();const played=S.played;
+  SY.busy=true;renderSync();S.srev=Date.now().toString(36)+Math.random().toString(36).slice(2,7);save();const played=S.played;
   const body=JSON.stringify({init:tg.initData,base:S.syncAt||0,force:mode==='force',data:syData()});
   return fetch(API+'/save',{method:'POST',body,keepalive:body.length<60000,headers:{'Content-Type':'text/plain'}})
     .then(r=>r.json().then(d=>({st:r.status,d})))
-    .then(({st,d})=>{if(st===409){SY.conflict=true;syConflict(d.cloud);return;}if(!d.at)throw 0;S.syncAt=d.at;S.syncPlayed=played;SY.state='ok';SY.at=Date.now();SY.conflict=false;save();})
+    .then(({st,d})=>{if(st===409){setTimeout(()=>syCheck(),50);return;}if(!d.at)throw 0;S.syncAt=d.at;S.syncPlayed=played;SY.state='ok';SY.at=Date.now();SY.conflict=false;save();})
     .catch(()=>{SY.state='err';}).finally(()=>{SY.busy=false;renderSync();});
 }
 function syApply(c){
@@ -1452,10 +1452,14 @@ function syCheck(){
   SY.busy=true;renderSync();
   syFetch().then(c=>{SY.busy=false;
     if(!c.at){if(S.total>0||S.burns>0)syPush('now');else{SY.state='ok';SY.at=Date.now();}return;}
-    if(c.at===S.syncAt){SY.state='ok';SY.at=Date.now();syPush();return;}
+    let cd={};try{cd=JSON.parse(c.data)||{};}catch(e){}
+    // в облаке то, что отправило это же устройство (ответ мог не дойти при закрытии игры)
+    if(c.at===S.syncAt||(cd.srev&&cd.srev===S.srev)){S.syncAt=c.at;SY.state='ok';SY.at=Date.now();save();syPush();return;}
     const real=hadLocal&&(S.total>0||S.burns>0);
     const changed=real&&(!S.syncAt||S.played-(S.syncPlayed||0)>15);
     if(!changed){syApply(c);return;}
+    // почти одинаковый прогресс — молча берём тот, где играли дольше
+    if((cd.burns||0)===(S.burns||0)&&Math.abs((cd.played||0)-S.played)<180){if(S.played>=(cd.played||0)){S.syncAt=c.at;syPush('force');}else syApply(c);return;}
     SY.conflict=true;syConflict(c);
   }).catch(()=>{SY.busy=false;SY.state='err';}).finally(renderSync);
 }
