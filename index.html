@@ -25,7 +25,7 @@ body.th-lime{--page:#c9f53c;--pc:#c9f53c;--on:#0e0f12;--onm:rgba(14,15,18,.6);--
 body.th-violet{--page:linear-gradient(180deg,#8257ff 0%,#6a3df0 55%,#5626d6 100%);--pc:#7347f6;--on:#fff;--onm:rgba(255,255,255,.72);--surf:#fff;--acc:#6a3df0;--accSoft:rgba(255,255,255,.94);--tapbg:#fff;--tapfg:#5626d6;--tapsh:0 14px 30px -12px rgba(30,0,80,.5);--hero:rgba(255,255,255,.14);--topbg:rgba(126,83,255,.88)}
 body.th-coral{--page:linear-gradient(180deg,#ff7a45 0%,#ff4d4d 55%,#ff3d75 100%);--pc:#ff6248;--on:#fff;--onm:rgba(255,255,255,.78);--surf:#fff;--acc:#ff4b3a;--accSoft:rgba(255,255,255,.94);--tapbg:#0e0f12;--tapfg:#fff;--tapsh:0 14px 30px -12px rgba(0,0,0,.5);--hero:rgba(255,255,255,.16);--topbg:rgba(255,110,70,.9)}
 body[class*=th-]::before{display:none}
-body[class*=th-] .hero{box-shadow:0 14px 34px -18px rgba(0,0,0,.45);backdrop-filter:blur(8px)}
+body[class*=th-] .hero{box-shadow:0 14px 34px -18px rgba(0,0,0,.45)}
 body[class*=th-] .hero::after{display:none}
 .veil,.mg{--surf:#f3f4f7;--surf2:#e8eaef}
 .logo,.sh h3,.back,.cd-top b{color:var(--on)}
@@ -65,7 +65,7 @@ button *{pointer-events:none}
 .app{max-width:460px;margin:0 auto;min-height:100vh;padding-top:var(--st);padding-bottom:calc(110px + var(--sb))}
 
 /* header */
-.top{position:sticky;top:0;z-index:20;background:var(--topbg);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;align-items:center;gap:8px;padding:10px 16px}
+.top{position:sticky;top:0;z-index:20;background:var(--topbg);display:flex;align-items:center;gap:8px;padding:10px 16px}
 .logo{flex:1;font-weight:900;font-size:19px;letter-spacing:-.04em}
 .logo span{color:var(--accTxt)}
 .bchip{display:flex;align-items:center;gap:6px;background:var(--surf);border-radius:999px;padding:8px 12px 8px 8px;font-weight:800;font-size:14px;font-variant-numeric:tabular-nums}
@@ -137,6 +137,7 @@ button *{pointer-events:none}
 .term .who .chg{font-size:12px;color:var(--tm);background:var(--tchip);border-radius:999px;padding:6px 10px}
 .prompt{font-family:var(--mono);font-size:16px;line-height:1.5;margin-top:14px;min-height:72px;word-break:break-word}
 .prompt .gh{color:var(--tg)}.prompt .pr{color:var(--tp)}
+.skins .caret,.skins .sk-holo,.skins .sk-holo *{animation:none!important}
 .caret{display:inline-block;width:9px;height:18px;background:var(--tc,var(--acc));vertical-align:-3px;animation:bl 1s steps(1) infinite}
 @keyframes bl{50%{opacity:0}}
 .pb{height:3px;background:var(--tk);border-radius:3px;margin-top:12px;overflow:hidden}.pb i{display:block;height:100%;width:0;background:var(--tbar);transition:width .12s}
@@ -188,7 +189,7 @@ button *{pointer-events:none}
 .t-r{background:linear-gradient(160deg,#eef7ff,#c3e2ff)}
 .t-e{background:linear-gradient(160deg,#f5eeff,#d8c3ff)}
 .t-l{background:linear-gradient(160deg,#fff7e3,#ffd98c)}
-.t-m{background:linear-gradient(130deg,#ffd9ea,#e5dbff 35%,#d4f4ff 65%,#fff0c4);background-size:220% 220%;animation:holo 6s ease infinite}
+.t-m{background:linear-gradient(130deg,#ffd9ea,#e5dbff 35%,#d4f4ff 65%,#fff0c4);background-size:220% 220%;}
 @keyframes holo{50%{background-position:100% 100%}}
 .t-c .rr{color:#6b7280}.t-r .rr{color:#0a6fd1}.t-e .rr{color:#6a2ee0}.t-l .rr{color:#b86a00}.t-m .rr{color:#d1145a}
 
@@ -199,17 +200,20 @@ button *{pointer-events:none}
 .ic.r-e img{box-shadow:0 0 0 2.5px #b48cff,0 8px 22px -8px rgba(155,92,255,.8)}
 .ic.r-l img{box-shadow:0 0 0 3px #ffc04d,0 10px 26px -6px rgba(255,165,20,.8)}
 .ic.r-m img{box-shadow:0 0 0 3px #ff5c9a,0 10px 28px -6px rgba(255,45,117,.85)}
-.ic.r-l::after,.ic.r-m::after{content:"";position:absolute;inset:0;z-index:2;border-radius:23%;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%);background-size:260% 100%;animation:shine 3s infinite;pointer-events:none}
+.ic.r-l::after,.ic.r-m::after{content:"";position:absolute;inset:0;z-index:2;border-radius:23%;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%);background-size:260% 100%;pointer-events:none;opacity:0}
+.res .ic.r-l::after,.res .ic.r-m::after{opacity:1;animation:shine 3s infinite}
 @keyframes shine{0%{background-position:160% 0}55%,100%{background-position:-110% 0}}
 .ic-glow{position:absolute;inset:-22%;border-radius:50%;background:radial-gradient(circle,var(--k) 0,transparent 68%);opacity:.55;z-index:0}
-.ic-rays{position:absolute;inset:-42%;border-radius:50%;background:repeating-conic-gradient(from 0deg,var(--k) 0 9deg,transparent 9deg 24deg);opacity:.32;z-index:0;animation:spin 14s linear infinite;-webkit-mask:radial-gradient(circle,#000 25%,transparent 68%);mask:radial-gradient(circle,#000 25%,transparent 68%)}
+.ic-rays{position:absolute;inset:-42%;border-radius:50%;background:repeating-conic-gradient(from 0deg,var(--k) 0 9deg,transparent 9deg 24deg);opacity:.32;z-index:0;-webkit-mask:radial-gradient(circle,#000 25%,transparent 68%);mask:radial-gradient(circle,#000 25%,transparent 68%)}
 .ic .ic-sp{position:absolute;left:-12%;top:-12%;width:124%;height:124%;z-index:3;overflow:visible;pointer-events:none}
 .ic-v{position:absolute;z-index:4;right:-6%;bottom:-5%;background:#0e0f12;color:#fff;font-weight:800;font-size:max(9px,13cqw);line-height:1;padding:.35em .55em;border-radius:999px;white-space:nowrap;box-shadow:0 0 0 2px #fff}
 .ic.lk img{filter:brightness(0);opacity:.12;box-shadow:none}
 .ico{width:1.15em;height:1.15em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto;vertical-align:-.2em}
 .spin{animation:spin 14s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.twk{animation:twk 1.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.twk{transform-box:fill-box;transform-origin:center}
+.res .twk,.ov .twk{animation:twk 1.8s ease-in-out infinite}
+.res .ic-rays{animation:spin 14s linear infinite}
 @keyframes twk{50%{opacity:.2;transform:scale(.5)}}
 .bob{}
 @keyframes bob{50%{transform:translateY(-3px)}}
@@ -230,6 +234,7 @@ button *{pointer-events:none}
 .pc .tx b{font-size:15.5px;font-weight:800;letter-spacing:-.01em}
 .pe{display:inline-flex;width:26px;height:26px;border-radius:9px;background:var(--accSoft2);color:var(--accTxt);align-items:center;justify-content:center;font-size:14px;margin-right:6px;vertical-align:-4px;box-shadow:0 1px 2px rgba(0,0,0,.06)}
 .pc.bug{box-shadow:0 0 0 2px #ff3b30 inset;animation:bugp 1s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-iteration-count:1!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
 @keyframes bugp{50%{box-shadow:0 0 0 2px rgba(255,59,48,.3) inset}}
 .pc .tx .lv{font-size:11.5px;font-weight:800;color:var(--accTxt);margin-left:5px;white-space:nowrap}
 .pc .tx .inc{font-size:13px;color:var(--mute);font-weight:600;margin-top:2px}
@@ -274,7 +279,7 @@ button *{pointer-events:none}
 .free-t .fi{width:52px;height:52px;flex:0 0 52px}.free-t .fi img{width:100%;height:100%;object-fit:contain}
 .free-t b{display:block;font-weight:800}.free-t small{font-size:12.5px;color:#4b5a86}
 .free-t .tmr{margin-left:auto;font-family:var(--mono);font-weight:700;color:var(--accTxt)}
-.free-t.ready::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.7) 50%,transparent 65%);background-size:250% 100%;animation:shine 2.6s infinite;pointer-events:none}
+.free-t.ready::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.7) 50%,transparent 65%);background-size:250% 100%;animation:shine 2.6s 3;pointer-events:none}
 .free-t .go{margin-left:auto;background:var(--acc);color:var(--accfg);font-weight:800;border-radius:999px;padding:9px 14px;font-size:14px}
 .back{display:inline-flex;align-items:center;gap:6px;font-weight:700;color:var(--mute);font-size:14px;margin-top:8px}
 .cd-top{display:flex;align-items:center;gap:14px;margin-top:12px}
@@ -346,14 +351,15 @@ button *{pointer-events:none}
 .tr .tp{width:26px;font-weight:800;font-size:13px;color:var(--mute);font-variant-numeric:tabular-nums}.tr .tp.t1{color:var(--acc)}
 .tr .ta{width:28px;height:28px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;background:var(--surf2);color:var(--ink)}
 .tr .tn{flex:1;min-width:0;font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:4px}.tr .tn svg{width:13px;height:13px;flex:none;color:var(--acc);fill:currentColor}
-.tr .ts{font-size:13.5px;font-weight:800;font-variant-numeric:tabular-nums}
+.tr .ts{font-size:13.5px;font-weight:800;font-variant-numeric:tabular-nums;text-align:right;display:flex;align-items:center;gap:3px}.tr .ts svg{width:14px;height:14px;color:#ff7a1a}.tr .tw{flex:1;min-width:0}.tr .tw small{display:block;font-size:11.5px;color:var(--mute);font-weight:600;margin-top:1px}
+.topc .th{align-items:center}.tseg button{padding:6px 10px;font-size:12.5px}.tcnt{display:block;margin-top:6px}
 .tall{width:100%;margin-top:10px;padding:12px;border-radius:14px;background:var(--bg);font-weight:700;font-size:14px;color:var(--ink)}
 .sheet .tl{max-height:60vh;overflow:auto;margin-top:8px}
 .note{font-size:12.5px;color:var(--mute);line-height:1.45;margin-top:10px}
 .ver{margin-top:16px;font-size:12px;color:#b3b8c1;text-align:center}
 
 /* nav */
-.nav{position:fixed;left:0;right:0;margin:0 auto;width:max-content;bottom:calc(12px + var(--sb));z-index:30;display:flex;gap:2px;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:999px;padding:5px;box-shadow:0 10px 30px -8px rgba(14,15,18,.25),0 0 0 1px rgba(14,15,18,.05);max-width:calc(100% - 20px)}
+.nav{position:fixed;left:0;right:0;margin:0 auto;width:max-content;bottom:calc(12px + var(--sb));z-index:30;display:flex;gap:2px;background:#fff;border-radius:999px;padding:5px;box-shadow:0 10px 30px -8px rgba(14,15,18,.25),0 0 0 1px rgba(14,15,18,.05);max-width:calc(100% - 20px)}
 .nav button{display:flex;align-items:center;gap:6px;padding:11px 14px;border-radius:999px;font-size:13.5px;font-weight:700;color:#7d828d;position:relative;white-space:nowrap;transition:background .2s,color .2s}
 .nav button svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
 .nav button .lb{max-width:0;overflow:hidden;transition:max-width .25s ease}
@@ -397,7 +403,7 @@ button *{pointer-events:none}
 .qrow:first-of-type{border-top:0}
 .qrow .qi{flex:0 0 38px;height:38px;border-radius:12px;background:var(--accSoft2);color:var(--accTxt);display:flex;align-items:center;justify-content:center;font-size:18px}
 .qrow.qdone .qi{background:#e3f7ec;color:var(--ok)}
-.qrow.ready .qb:not(:disabled){animation:qpulse 1.6s ease-in-out infinite}
+.qrow.ready .qb:not(:disabled){animation:qpulse 1.6s ease-in-out 4}
 @keyframes qpulse{0%,100%{box-shadow:0 0 0 0 rgba(123,77,255,.45)}50%{box-shadow:0 0 0 7px rgba(123,77,255,0)}}
 .qrow .qt{flex:1;min-width:0}
 .qrow .qt b{display:block;font-size:14px;font-weight:800;line-height:1.25}
@@ -672,7 +678,7 @@ textarea.field{min-height:110px;resize:none}
       <div class="gain"><div><b id="gnXp"></b><span id="gnXpT"></span></div><div><b id="gnGrade"></b><span data-t="gainGrade"></span></div><div><b data-t="resets"></b><span data-t="resetsT"></span></div><div><b data-t="stays"></b><span data-t="staysT"></span></div></div>
       <button class="go" id="burnGo" disabled></button>
     </div>
-    <div class="topc" id="topc"><div class="th"><h4 data-t="topT"></h4><small id="topCnt"></small></div><div class="me"><div class="n" id="meRank">#–</div><div><b id="meName"></b><small id="meTotal"></small></div></div><div class="tl" id="topList"></div><button class="tall" id="topAll" data-t="topAll" hidden></button><p class="note" id="topNote"></p></div>
+    <div class="topc" id="topc"><div class="th"><h4 data-t="topT"></h4><div class="seg tseg" id="topBy"><button data-by="s" class="on" data-t="topByS"></button><button data-by="b" data-t="topByB"></button></div></div><div class="me"><div class="n" id="meRank">#–</div><div><b id="meName"></b><small id="meTotal"></small></div></div><div class="tl" id="topList"></div><button class="tall" id="topAll" data-t="topAll" hidden></button><p class="note" id="topNote"></p><small id="topCnt" class="tcnt"></small></div>
     <div class="menu">
       <button id="bDonate"><span style="color:var(--ink);font-weight:700;font-size:15px" data-t="support"></span><span id="starI"></span></button>
       <button id="bFeedback"><span style="color:var(--ink);font-weight:700;font-size:15px" data-t="feedback"></span><span data-t="fbHint"></span></button>
@@ -689,7 +695,7 @@ textarea.field{min-height:110px;resize:none}
       <div><span data-t="sEv"></span><b id="sEv">0</b></div>
       <div><span data-t="sEvL"></span><b id="sEvL">0</b></div>
     </div>
-    <p class="ver">Vibe Tycoon · v0.22</p>
+    <p class="ver">Vibe Tycoon · v0.24</p>
   </section>
 
   <div class="nav" id="nav"><button data-go="code" class="on"><svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg><span class="lb" data-t="nCode"></span></button><button data-go="proj"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="3"/><path d="M9 7V5.5A1.5 1.5 0 0110.5 4h3A1.5 1.5 0 0115 5.5V7"/></svg><span class="lb" data-t="nProj"></span><i class="dot" id="dotProj"></i></button><button data-go="cases"><svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="12" rx="2"/><path d="M2 9h20M12 9v12M12 9c-2-4-7-5-7-2s5 2 7 2zm0 0c2-4 7-5 7-2s-5 2-7 2z"/></svg><span class="lb" data-t="nCases"></span><i class="dot" id="dotCases"></i></button><button data-go="goals"><svg viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 01-8 0zM8 6H5a3 3 0 003 4.5M16 6h3a3 3 0 01-3 4.5M12 13v4M8.5 21h7M10 17h4"/></svg><span class="lb" data-t="nGoals"></span><i class="dot" id="dotGoals"></i></button><button data-go="book"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M9 3v18M13 8h3M13 12h3"/></svg><span class="lb" data-t="nBook"></span><i class="dot" id="dotBook"></i></button></div>
@@ -707,6 +713,7 @@ const tg = window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.i
 if (tg) { try { tg.ready(); tg.expand(); tg.setHeaderColor('#ffffff'); tg.setBackgroundColor('#ffffff'); tg.disableVerticalSwipes && tg.disableVerticalSwipes(); } catch(e){} }
 const haptic = k => { try { tg && (k==='tick' ? tg.HapticFeedback.selectionChanged() : k==='ok' ? tg.HapticFeedback.notificationOccurred('success') : tg.HapticFeedback.impactOccurred(k||'light')); } catch(e){} };
 const $ = id => document.getElementById(id);
+const setTx=(el,v)=>{if(el&&el._tx!==v){el._tx=v;el.textContent=v;}},setSt=(el,k,v)=>{if(!el)return;const c='_s_'+k;if(el[c]!==v){el[c]=v;el.style[k]=v;}};
 let AC=null,MASTER=null,VERB=null,NOISE=null;
 /* Sound set chosen in the sound lab: tap=creamy, prompt/buy/boom=wood, err=kalimba, knock=silent, tick=asmr, reveal/alert/win/lose/claim=retro, volume 97% */
 function sfx(k,arg){
@@ -788,8 +795,8 @@ const BAL={
   {id:'app',cost:1.5e9,inc:1.6e5,tags:['mobile','design']},{id:'saas',cost:1.5e11,inc:4e6,tags:['back','front']},{id:'startup',cost:1.5e13,inc:1e8,tags:['ml','back']},{id:'model',cost:6e14,inc:1.5e9,tags:['ml','code']}],
  R:1.15, msMul:2, miles:[10,25,50,100],
  rmul:{c:1.2,r:1.5,e:2,l:3,m:5}, lvlB:0.2, match:1.3, setm:[1,1,1.05,1.12,1.25], maxLv:5, dupRefund:0.3,
- tapG:1.36, tu:{pow:[10,1.7,999],lim:[40,1.75,20],reg:[60,1.75,20],crit:[150,1.95,15]}, critStep:0.02, critMul:5, promptBonus:5,
- tok:{none:[30,1],c:[50,1.5],r:[80,2],e:[120,3],l:[180,4.5],m:[300,7]}, tokStep:0.15, tokLvl:0.1,
+ tapG:1.36, tu:{pow:[10,1.7,50],lim:[40,1.75,20],reg:[60,1.9,10],crit:[150,1.95,15]}, powCap0:25, powCapB:5, critStep:0.02, critMul:5, promptBonus:5,
+ tok:{none:[30,.5],c:[50,.6],r:[80,.75],e:[120,.9],l:[180,1.05],m:[300,1.2]}, tokStep:0.15, tokLvl:0.1, regStep:0.04, tokRegLvl:0.03,
  cases:[
   {id:'free',price:150,odds:{c:70,r:25,e:5,l:0,m:0},grow:['c','r'],
    pool:['gpt35','haiku','gflash','bard','gemma','llama2','msmall','qwen25','glite','phi3','copilot','whisper','cmdr','aider','llama3','mixtral','lechat','qcoder','gigapro','saudio','dsr1','llama4']},
@@ -808,7 +815,7 @@ const BAL={
  daily:[{t:'money',m:5},{t:'case',c:'free',n:1},{t:'money',m:15},{t:'case',c:'pro',n:1},{t:'money',m:30},{t:'case',c:'pro',n:2},{t:'epic'}],
  qrew:[{t:'case',c:'free',n:1},{t:'money',m:15},{t:'case',c:'pro',n:1}], qbonus:{t:'case',c:'team',n:1}, minFloor:4,
 };/*END BAL*/
-const BALV=2;
+const BALV=3;
 const RORD=['c','r','e','l','m'];
 const RMUL=BAL.rmul;
 const RN={ru:{c:'Обычная',r:'Редкая',e:'Эпическая',l:'Легендарная',m:'Мифическая'},en:{c:'Common',r:'Rare',e:'Epic',l:'Legendary',m:'Mythic'}};
@@ -905,7 +912,7 @@ const T={
   burnConfT:'Выгореть?',burnConfP:'Обнулится всё: деньги, проекты, нейросети и терминал. Ты получишь +{x} опыта (итого +{t}% к доходу).',burnYes:'Выгореть',burnDone:'Отпуск окончен',burnDoneP:'Ты вернулся опытнее. Доход теперь выше навсегда.',
   freeCase:'Бесплатный кейс',freeEvery:'Free tier раз в 15 минут',open:'Открыть',cases:'Кейсы',fixed:'цена растёт с находками',canDrop:'Что может выпасть',models:'моделей',openFor:'Открыть за',pcs:'шт.',needMore:'Не хватает денег',lockedAfter:'после ИИ-стартапа',
   book:'Коллекция',byPower:'сначала сильные',unlocked:'моделей открыто',all:'Все',mine:'Мои',
-  evTitle:{viral:'Пост залетел!',investor:'Пишет инвестор',hack:'Хакатон!',bug:'Баг в проде',outage:'API упал',ph:'Запуск на Product Hunt',deadline:'Горящий дедлайн'},evDesc:{viral:'Доход ×2 на 60 секунд.',investor:'Готов вложить {v} прямо сейчас.',hack:'Тапы ×5 на 30 секунд.',bug:'«{p}» не приносит денег. Чини!',outage:'Нейросети не работают 45 секунд.',ph:'Кейсы −50% на 2 минуты.',deadline:'Отправь 3 промпта за 40 секунд — получишь {v}.'},evBtn:{viral:'Забрать',investor:'Взять',hack:'Участвовать',bug:'Чинить',outage:'Запасной API',ph:'Забрать скидку',deadline:'Принять'},evSkip:'Пропустить',evWait:'Переждать',evFixed:'Баг починен',evDone:'Дедлайн закрыт! +',evFail:'Дедлайн сорван',fxViral:'×2 доход',fxHack:'×5 тап',fxOut:'ИИ офлайн',fxSale:'−50% кейсы',fxBug:'баг',fxDead:'дедлайн',palT:'Палитра',sound:'Звук',on:'вкл',off:'выкл',tut1:'Тапай, чтобы писать код и зарабатывать',tut2:'Купи первый проект — он приносит деньги сам',tut3:'Открой бесплатный кейс — там нейросети',tut4:'Прокачивай терминал, чтобы тапы приносили больше',setW:'сет',setsT:'Сеты семейств',setsSub:'Поставь 2+ модели одного семейства на задачи: 2 → +5%, 3 → +12%, 4+ → +25%.',setsAct:'активен',synT:'Синтез',synSub:'Выбери 3 модели одной редкости — получишь 1 модель следующей. Новые выпадают в приоритете. Выбранные модели исчезнут из коллекции.',synGo:'Синтезировать',synNeed:'Выбери 3',synMore:'Ещё синтез',weekT:'Кейс недели',weekD:'Только модели {b}. Меняется через {d} дн.',goals:'Награды',nGoals:'Награды',dailyT:'Ежедневная награда',streak:'Серия',days:'дн.',dayN:'День',claim:'Забрать',claimed:'Получено',comeBack:'Возвращайся завтра',questsT:'Задания дня',bonusQ:'Бонус за все 3',achT:'Достижения',newIn:'Новые через',caseW:'кейс',epicW:'Эпик+',minW:'мин дохода',dailyPop:'Награда за вход',streakLost:'Серия прервалась — начинаем заново.',tuPow:'Мощность',tuLim:'Лимит',tuReg:'Регенерация',tuCrit:'Крит',tuMax:'МАКС',crit:'КРИТ',limit:'лимит',limitOut:'Лимит исчерпан',limitWait:'ждём токены',tupT:'Прокачка терминала',tupS:'к тапу',profile:'Профиль',skinsT:'Скины терминала',skinOn:'Выбран',skinPick:'Выбрать',skinAfter:'После {n} выгораний',skinAfter1:'После 1 выгорания',newSkin:'Новый скин терминала',bestFree:'Лучшая свободная',stronger:'Сильнее, но занята',movesFrom:'переставить с',casePriceNote:'Цена растёт, когда собираешь и прокачиваешь модели ключевых редкостей этого кейса (выделены в шансах).',qDone:'Задание выполнено — забери награду',balNote:'Экономика обновлена: цены и доходы пересчитаны. Деньги, проекты, модели и прокачка сохранены.',tapOpen:'Открываем…',grade:'Грейд',xp:'Опыт',xpW:'опыта',topT:'Рейтинг',topAll:'Весь рейтинг · топ-100',topPl:'игроков',topSub:'Место по сумме, заработанной за всё время. Звезда — поддержал проект.',topTg:'Рейтинг работает в игре внутри Telegram.',topLoad:'Загружаю рейтинг…',topErr:'Не удалось загрузить рейтинг. Попробуй позже.',topNone:'Ты ещё не в рейтинге: заработай первые деньги.',you:'Ты',support:'Поддержать проект',feedback:'Обратная связь',fbHint:'баги, идеи',reset:'Сбросить прогресс',
+  evTitle:{viral:'Пост залетел!',investor:'Пишет инвестор',hack:'Хакатон!',bug:'Баг в проде',outage:'API упал',ph:'Запуск на Product Hunt',deadline:'Горящий дедлайн'},evDesc:{viral:'Доход ×2 на 60 секунд.',investor:'Готов вложить {v} прямо сейчас.',hack:'Тапы ×5 на 30 секунд.',bug:'«{p}» не приносит денег. Чини!',outage:'Нейросети не работают 45 секунд.',ph:'Кейсы −50% на 2 минуты.',deadline:'Отправь 3 промпта за 40 секунд — получишь {v}.'},evBtn:{viral:'Забрать',investor:'Взять',hack:'Участвовать',bug:'Чинить',outage:'Запасной API',ph:'Забрать скидку',deadline:'Принять'},evSkip:'Пропустить',evWait:'Переждать',evFixed:'Баг починен',evDone:'Дедлайн закрыт! +',evFail:'Дедлайн сорван',fxViral:'×2 доход',fxHack:'×5 тап',fxOut:'ИИ офлайн',fxSale:'−50% кейсы',fxBug:'баг',fxDead:'дедлайн',palT:'Палитра',sound:'Звук',on:'вкл',off:'выкл',tut1:'Тапай, чтобы писать код и зарабатывать',tut2:'Купи первый проект — он приносит деньги сам',tut3:'Открой бесплатный кейс — там нейросети',tut4:'Прокачивай терминал, чтобы тапы приносили больше',setW:'сет',setsT:'Сеты семейств',setsSub:'Поставь 2+ модели одного семейства на задачи: 2 → +5%, 3 → +12%, 4+ → +25%.',setsAct:'активен',synT:'Синтез',synSub:'Выбери 3 модели одной редкости — получишь 1 модель следующей. Новые выпадают в приоритете. Выбранные модели исчезнут из коллекции.',synGo:'Синтезировать',synNeed:'Выбери 3',synMore:'Ещё синтез',weekT:'Кейс недели',weekD:'Только модели {b}. Меняется через {d} дн.',goals:'Награды',nGoals:'Награды',dailyT:'Ежедневная награда',streak:'Серия',days:'дн.',dayN:'День',claim:'Забрать',claimed:'Получено',comeBack:'Возвращайся завтра',questsT:'Задания дня',bonusQ:'Бонус за все 3',achT:'Достижения',newIn:'Новые через',caseW:'кейс',epicW:'Эпик+',minW:'мин дохода',dailyPop:'Награда за вход',streakLost:'Серия прервалась — начинаем заново.',tuPow:'Мощность',tuLim:'Лимит',tuReg:'Реген',tuCrit:'Крит',tuMax:'МАКС',crit:'КРИТ',limit:'лимит',limitOut:'Лимит исчерпан',limitWait:'ждём токены',tupT:'Прокачка терминала',tupS:'к тапу',profile:'Профиль',skinsT:'Скины терминала',skinOn:'Выбран',skinPick:'Выбрать',skinAfter:'После {n} выгораний',skinAfter1:'После 1 выгорания',newSkin:'Новый скин терминала',bestFree:'Лучшая свободная',stronger:'Сильнее, но занята',movesFrom:'переставить с',casePriceNote:'Цена растёт, когда собираешь и прокачиваешь модели ключевых редкостей этого кейса (выделены в шансах).',qDone:'Задание выполнено — забери награду',balNote:'Обновление: у прокачки терминала теперь есть потолок уровней, реген токенов стал медленнее. Лишние уровни вернулись деньгами.',tapOpen:'Открываем…',grade:'Грейд',xp:'Опыт',xpW:'опыта',tuBurnCap:'Выгорание: +{n} ур.',topByS:'Деньги',topByB:'Выгорания',burnsW:'выгораний',topT:'Рейтинг',topAll:'Весь рейтинг · топ-100',topPl:'игроков',topSub:'Место по сумме, заработанной за всё время. Звезда — поддержал проект.',topSubB:'Место по числу выгораний, при равенстве — по деньгам.',topTg:'Рейтинг работает в игре внутри Telegram.',topLoad:'Загружаю рейтинг…',topErr:'Не удалось загрузить рейтинг. Попробуй позже.',topNone:'Ты ещё не в рейтинге: заработай первые деньги.',you:'Ты',support:'Поддержать проект',feedback:'Обратная связь',fbHint:'баги, идеи',reset:'Сбросить прогресс',
   sTotal:'Всего заработано',sTaps:'Нажатий',sCases:'Открыто кейсов',sBurns:'Выгораний',sEv:'Событий отбито',sEvL:'Событий провалено',nCode:'Код',nProj:'Проекты',nCases:'Кейсы',nBook:'Коллекция',
   best:'Лучший выбор',bestCur:'Стоит сейчас · лучший выбор',now:'сейчас',set:'Поставить',others:'Другие варианты',match:'совпадение',deltaNote:'Цифра справа — сколько ты получишь или потеряешь, если поставить эту нейросеть вместо текущей.',manualNote:'Ручной выбор выключит авто-распределение.',remove:'Снять нейросеть',close:'Закрыть',skills:'Нужные навыки — совпадение даёт ×1.3',noOwned:'Пока нет нейросетей. Открой кейс!',
   assign:'Поставить на задачу',assignTo:'Куда поставить',level:'Уровень',power:'Множитель',working:'Работает',idle:'Не задействована',lockedM:'Ещё не открыта',dropIn:'Выпадает из кейсов',needProj:'Сначала купи хотя бы один проект.',
@@ -922,7 +929,7 @@ const T={
   burnConfT:'Burn out?',burnConfP:'Everything resets: money, projects, models and terminal. You get +{x} XP (+{t}% income total).',burnYes:'Burn out',burnDone:'Vacation over',burnDoneP:'You’re back and wiser. Income is permanently higher.',
   freeCase:'Free case',freeEvery:'Free tier every 15 minutes',open:'Open',cases:'Cases',fixed:'price grows with finds',canDrop:'Possible drops',models:'models',openFor:'Open for',pcs:'×',needMore:'Not enough money',lockedAfter:'after AI startup',
   book:'Collection',byPower:'strongest first',unlocked:'models unlocked',all:'All',mine:'Mine',
-  evTitle:{viral:'Your post went viral!',investor:'An investor DMed you',hack:'Hackathon!',bug:'Bug in prod',outage:'API is down',ph:'Product Hunt launch',deadline:'Burning deadline'},evDesc:{viral:'Income ×2 for 60 seconds.',investor:'Ready to put in {v} right now.',hack:'Taps ×5 for 30 seconds.',bug:'“{p}” earns nothing. Fix it!',outage:'Models are offline for 45 seconds.',ph:'Cases −50% for 2 minutes.',deadline:'Send 3 prompts in 40 seconds to get {v}.'},evBtn:{viral:'Claim',investor:'Take it',hack:'Join',bug:'Fix',outage:'Backup API',ph:'Get discount',deadline:'Accept'},evSkip:'Skip',evWait:'Wait it out',evFixed:'Bug fixed',evDone:'Deadline met! +',evFail:'Deadline missed',fxViral:'×2 income',fxHack:'×5 tap',fxOut:'AI offline',fxSale:'−50% cases',fxBug:'bug',fxDead:'deadline',palT:'Palette',sound:'Sound',on:'on',off:'off',tut1:'Tap to write code and earn',tut2:'Buy your first project — it earns on its own',tut3:'Open the free case — that’s where models are',tut4:'Upgrade the terminal so taps earn more',setW:'set',setsT:'Family sets',setsSub:'Assign 2+ models of one family: 2 → +5%, 3 → +12%, 4+ → +25%.',setsAct:'active',synT:'Synthesis',synSub:'Pick 3 models of one rarity to get 1 model of the next. New ones come first. Chosen models leave your collection.',synGo:'Synthesize',synNeed:'Pick 3',synMore:'Synthesize again',weekT:'Case of the week',weekD:'Only {b} models. Rotates in {d} d.',goals:'Rewards',nGoals:'Rewards',dailyT:'Daily reward',streak:'Streak',days:'d',dayN:'Day',claim:'Claim',claimed:'Claimed',comeBack:'Come back tomorrow',questsT:'Daily quests',bonusQ:'Bonus for all 3',achT:'Achievements',newIn:'New in',caseW:'case',epicW:'Epic+',minW:'min income',dailyPop:'Login reward',streakLost:'Your streak broke — starting over.',tuPow:'Power',tuLim:'Limit',tuReg:'Regen',tuCrit:'Crit',tuMax:'MAX',crit:'CRIT',limit:'limit',limitOut:'Limit reached',limitWait:'waiting for tokens',tupT:'Terminal upgrade',tupS:'per tap',profile:'Profile',skinsT:'Terminal skins',skinOn:'Selected',skinPick:'Select',skinAfter:'After {n} burnouts',skinAfter1:'After 1 burnout',newSkin:'New terminal skin',bestFree:'Best free one',stronger:'Stronger, but busy',movesFrom:'move from',casePriceNote:'Price grows as you collect and level models of this case’s key rarities (highlighted in the odds).',qDone:'Quest complete — claim your reward',balNote:'Economy updated: prices and income were recalculated. Your money, projects, models and upgrades are kept.',tapOpen:'Opening…',grade:'Grade',xp:'XP',xpW:'XP',topT:'Leaderboard',topAll:'Full leaderboard · top 100',topPl:'players',topSub:'Ranked by money earned all time. A star means they supported the project.',topTg:'The leaderboard works inside the game in Telegram.',topLoad:'Loading the leaderboard…',topErr:'Could not load the leaderboard. Try again later.',topNone:'You are not ranked yet: earn your first money.',you:'You',support:'Support the project',feedback:'Feedback',fbHint:'bugs, ideas',reset:'Reset progress',
+  evTitle:{viral:'Your post went viral!',investor:'An investor DMed you',hack:'Hackathon!',bug:'Bug in prod',outage:'API is down',ph:'Product Hunt launch',deadline:'Burning deadline'},evDesc:{viral:'Income ×2 for 60 seconds.',investor:'Ready to put in {v} right now.',hack:'Taps ×5 for 30 seconds.',bug:'“{p}” earns nothing. Fix it!',outage:'Models are offline for 45 seconds.',ph:'Cases −50% for 2 minutes.',deadline:'Send 3 prompts in 40 seconds to get {v}.'},evBtn:{viral:'Claim',investor:'Take it',hack:'Join',bug:'Fix',outage:'Backup API',ph:'Get discount',deadline:'Accept'},evSkip:'Skip',evWait:'Wait it out',evFixed:'Bug fixed',evDone:'Deadline met! +',evFail:'Deadline missed',fxViral:'×2 income',fxHack:'×5 tap',fxOut:'AI offline',fxSale:'−50% cases',fxBug:'bug',fxDead:'deadline',palT:'Palette',sound:'Sound',on:'on',off:'off',tut1:'Tap to write code and earn',tut2:'Buy your first project — it earns on its own',tut3:'Open the free case — that’s where models are',tut4:'Upgrade the terminal so taps earn more',setW:'set',setsT:'Family sets',setsSub:'Assign 2+ models of one family: 2 → +5%, 3 → +12%, 4+ → +25%.',setsAct:'active',synT:'Synthesis',synSub:'Pick 3 models of one rarity to get 1 model of the next. New ones come first. Chosen models leave your collection.',synGo:'Synthesize',synNeed:'Pick 3',synMore:'Synthesize again',weekT:'Case of the week',weekD:'Only {b} models. Rotates in {d} d.',goals:'Rewards',nGoals:'Rewards',dailyT:'Daily reward',streak:'Streak',days:'d',dayN:'Day',claim:'Claim',claimed:'Claimed',comeBack:'Come back tomorrow',questsT:'Daily quests',bonusQ:'Bonus for all 3',achT:'Achievements',newIn:'New in',caseW:'case',epicW:'Epic+',minW:'min income',dailyPop:'Login reward',streakLost:'Your streak broke — starting over.',tuPow:'Power',tuLim:'Limit',tuReg:'Regen',tuCrit:'Crit',tuMax:'MAX',crit:'CRIT',limit:'limit',limitOut:'Limit reached',limitWait:'waiting for tokens',tupT:'Terminal upgrade',tupS:'per tap',profile:'Profile',skinsT:'Terminal skins',skinOn:'Selected',skinPick:'Select',skinAfter:'After {n} burnouts',skinAfter1:'After 1 burnout',newSkin:'New terminal skin',bestFree:'Best free one',stronger:'Stronger, but busy',movesFrom:'move from',casePriceNote:'Price grows as you collect and level models of this case’s key rarities (highlighted in the odds).',qDone:'Quest complete — claim your reward',balNote:'Update: terminal upgrades now have a level cap and token regen is slower. Extra levels were refunded as money.',tapOpen:'Opening…',grade:'Grade',xp:'XP',xpW:'XP',tuBurnCap:'Burnout: +{n} lv',topByS:'Money',topByB:'Burnouts',burnsW:'burnouts',topT:'Leaderboard',topAll:'Full leaderboard · top 100',topPl:'players',topSub:'Ranked by money earned all time. A star means they supported the project.',topSubB:'Ranked by burnouts, ties broken by money.',topTg:'The leaderboard works inside the game in Telegram.',topLoad:'Loading the leaderboard…',topErr:'Could not load the leaderboard. Try again later.',topNone:'You are not ranked yet: earn your first money.',you:'You',support:'Support the project',feedback:'Feedback',fbHint:'bugs, ideas',reset:'Reset progress',
   sTotal:'Total earned',sTaps:'Taps',sCases:'Cases opened',sBurns:'Burnouts',sEv:'Events won',sEvL:'Events lost',nCode:'Code',nProj:'Projects',nCases:'Cases',nBook:'Collection',
   best:'Best choice',bestCur:'Current · best choice',now:'now',set:'Assign',others:'Other options',match:'match',deltaNote:'The number on the right is how much you gain or lose by replacing the current model.',manualNote:'Choosing manually turns auto-assign off.',remove:'Remove model',close:'Close',skills:'Skills needed — a match gives ×1.3',noOwned:'No models yet. Open a case!',
   assign:'Assign to a task',assignTo:'Assign to',level:'Level',power:'Multiplier',working:'Working on',idle:'Not assigned',lockedM:'Not unlocked yet',dropIn:'Drops from cases',needProj:'Buy at least one project first.',
@@ -946,7 +953,7 @@ Object.keys(S.slots).forEach(k=>{if(!MB[S.slots[k]])delete S.slots[k];});
 if(!S.fx)S.fx={};
 S.theme='light';
 if(!S.tu)S.tu={pow:S.tl||0,lim:0,reg:0,crit:0};
-['pow','lim','reg','crit'].forEach(k=>{if(typeof S.tu[k]!=='number'||!isFinite(S.tu[k]))S.tu[k]=0;S.tu[k]=Math.min(S.tu[k],BAL.tu[k][2]);});
+['pow','lim','reg','crit'].forEach(k=>{if(typeof S.tu[k]!=='number'||!isFinite(S.tu[k]))S.tu[k]=0;const mx=BAL.tu[k][2];if(S.tu[k]>mx){let r=0;for(let l=mx;l<S.tu[k];l++)r+=BAL.tu[k][0]*Math.pow(BAL.tu[k][1],l);if(isFinite(r))S.money=(S.money||0)+r;S.tu[k]=mx;}});
 if((S.balV||1)<BALV){if(S.total>0)S.balNote=true;S.balV=BALV;}
 window.__S=S;
 const save=()=>{S.last=Date.now();try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}};
@@ -973,7 +980,7 @@ const projInc=p=>(fxOn('bug')&&S.fx.bug.p===p.id)?0:baseInc(p)*slotMult(p.id)*(f
 const income=()=>PROJECTS.reduce((a,p)=>a+projInc(p),0);
 const tapBase=l=>Math.pow(BAL.tapG,l);
 const TU={
- pow:{i:'bolt',k:'tuPow',max:BAL.tu.pow[2],cost:l=>BAL.tu.pow[0]*Math.pow(BAL.tu.pow[1],l)},
+ pow:{i:'bolt',k:'tuPow',get max(){return Math.max(tuL('pow'),Math.min(BAL.tu.pow[2],BAL.powCap0+BAL.powCapB*(S.burns||0)));},cost:l=>BAL.tu.pow[0]*Math.pow(BAL.tu.pow[1],l)},
  lim:{i:'battery',k:'tuLim',max:BAL.tu.lim[2],cost:l=>BAL.tu.lim[0]*Math.pow(BAL.tu.lim[1],l)},
  reg:{i:'refresh',k:'tuReg',max:BAL.tu.reg[2],cost:l=>BAL.tu.reg[0]*Math.pow(BAL.tu.reg[1],l)},
  crit:{i:'target',k:'tuCrit',max:BAL.tu.crit[2],cost:l=>BAL.tu.crit[0]*Math.pow(BAL.tu.crit[1],l)},
@@ -981,7 +988,7 @@ const TU={
 const tuL=k=>S.tu[k]||0;
 const critCh=l=>Math.min(1,BAL.critStep*l);
 const TOK=BAL.tok;
-const tokOf=(id,dl=0,dr=0)=>{const m=id&&S.owned[id]?MB[id]:null,k=m?m.r:'none',f=m?1+BAL.tokLvl*(S.owned[id].lvl-1):1;return {max:Math.round(TOK[k][0]*f*(1+BAL.tokStep*(tuL('lim')+dl))),reg:+(TOK[k][1]*f*(1+BAL.tokStep*(tuL('reg')+dr))).toFixed(2)};};
+const tokOf=(id,dl=0,dr=0)=>{const m=id&&S.owned[id]?MB[id]:null,k=m?m.r:'none',f=m?1+BAL.tokLvl*(S.owned[id].lvl-1):1;return {max:Math.round(TOK[k][0]*f*(1+BAL.tokStep*(tuL('lim')+dl))),reg:+(TOK[k][1]*(m?1+BAL.tokRegLvl*(S.owned[id].lvl-1):1)*(1+BAL.regStep*(tuL('reg')+dr))).toFixed(2)};};
 const tokSpec=()=>tokOf(S.slots.terminal);
 const tokRegen=sec=>{const t=tokSpec();if(S.tok==null)S.tok=t.max;S.tok=Math.min(t.max,S.tok+t.reg*sec);};
 const tapVal=()=>tapBase(S.tu.pow||0)*slotMult('terminal')*G();
@@ -1104,7 +1111,7 @@ function updTU(){
     if(k==='lim')v=mx?`${tk.max}`:`${tk.max} → <b>${tokOf(id,1,0).max}</b>`;
     if(k==='reg')v=mx?`${tk.reg}/${S.lang==='ru'?'с':'s'}`:`${tk.reg} → <b>${tokOf(id,0,1).reg}</b>/${S.lang==='ru'?'с':'s'}`;
     if(k==='crit')v=mx?`${Math.round(critCh(l)*100)}% ×5`:`${Math.round(critCh(l)*100)}% → <b>${Math.round(critCh(l+1)*100)}%</b> ×5`;
-    const H=`${t('lvl')} ${l}`,B=mx?t('tuMax'):`$${fmt(c)}`;
+    const H=`${t('lvl')} ${l}/${D.max}`,B=mx?(k==='pow'&&D.max<BAL.tu.pow[2]?t('tuBurnCap').replace('{n}',BAL.powCapB):t('tuMax')):`$${fmt(c)}`;
     const em=el.querySelector('em'),vv=el.querySelector('.v'),bt=el.querySelector('.buy');
     if(em.textContent!==H)em.textContent=H;if(vv.dataset.h!==v){vv.dataset.h=v;vv.innerHTML=v;}if(bt.textContent!==B)bt.textContent=B;
     const dis=mx||S.money<c;if(bt.disabled!==dis)bt.disabled=dis;el.classList.toggle('max',mx);
@@ -1365,24 +1372,24 @@ function renderMe(){
   $('meName').textContent=u?(u.username?'@'+u.username:u.first_name):t('you');
   $('ava').firstChild.textContent=u&&u.first_name?u.first_name[0].toUpperCase():'?';
   $('meTotal').textContent='$'+fmt(S.total)+' · '+Object.keys(S.owned).length+'/'+MODELS.length;
-  renderTop();
   $('sTotal').textContent='$'+fmt(S.total);$('sTaps').textContent=fmt(S.taps);$('sCases').textContent=fmt(S.cases);$('sBurns').textContent=S.burns;$('sEv').textContent=S.evWon||0;$('sEvL').textContent=S.evLost||0;
 }
 /* ================= LEADERBOARD ================= */
-const LB={data:null,err:false,at:0,sent:-1,busy:false};
+const LB={data:null,err:false,at:0,sent:-1,busy:false,by:'s'};
 const lbOk=()=>!!(API&&tg&&tg.initData);
 function lbPost(){
   if(!lbOk())return Promise.resolve();const sc=Math.floor(S.total);if(sc<=0||sc===LB.sent)return Promise.resolve();LB.sent=sc;
-  return fetch(API+'/score',{method:'POST',keepalive:true,headers:{'X-Init-Data':tg.initData,'Content-Type':'application/json'},body:JSON.stringify({score:sc,burns:S.burns,models:Object.keys(S.owned).length})}).catch(()=>{LB.sent=-1;});
+  return fetch(API+'/score',{method:'POST',keepalive:true,headers:{'X-Init-Data':tg.initData,'Content-Type':'application/json'},body:JSON.stringify({score:sc,burns:S.burns,models:Object.keys(S.owned).length,tz:new Date().getTimezoneOffset(),lang:S.lang,wa:S.wa===1?1:0})}).catch(()=>{LB.sent=-1;});
 }
 function lbLoad(force){
   if(!lbOk()){renderTop();return;}
   if(LB.busy||(!force&&Date.now()-LB.at<20000)){renderTop();return;}
   LB.busy=true;renderTop();
-  lbPost().then(()=>fetch(API+'/top',{headers:{'X-Init-Data':tg.initData}})).then(r=>r.json()).then(d=>{if(!d.top)throw 0;LB.data=d;LB.err=false;LB.at=Date.now();})
-    .catch(()=>{LB.err=true;}).finally(()=>{LB.busy=false;renderTop();});
+  const by=LB.by;lbPost().then(()=>fetch(API+'/top'+(by==='b'?'?by=burns':''),{headers:{'X-Init-Data':tg.initData}})).then(r=>r.json()).then(d=>{if(!d.top)throw 0;if(by!==LB.by)return;LB.data=d;LB.err=false;LB.at=Date.now();})
+    .catch(()=>{LB.err=true;}).finally(()=>{LB.busy=false;if(by!==LB.by)lbLoad(true);else renderTop();});
 }
-function lbRows(list){return list.map((r,i)=>`<div class="tr${r.me?' me':''}"><span class="tp${i<3?' t1':''}">${i+1}</span><span class="ta">${esc((r.n||'?')[0].toUpperCase())}</span><span class="tn">${esc(r.n||'—')}${r.st?I('star'):''}</span><span class="ts">$${fmt(r.s)}</span></div>`).join('');}
+const lbBurn=n=>`${n||0} ${t('burnsW')}`;
+function lbRows(list){const bb=LB.by==='b';return list.map((r,i)=>`<div class="tr${r.me?' me':''}"><span class="tp${i<3?' t1':''}">${i+1}</span><span class="ta">${esc((r.n||'?')[0].toUpperCase())}</span><div class="tw"><span class="tn">${esc(r.n||'—')}${r.st?I('star'):''}</span><small>${bb?'$'+fmt(r.s):lbBurn(r.b)}</small></div><span class="ts">${bb?I('flame')+(r.b||0):'$'+fmt(r.s)}</span></div>`).join('');}
 function renderTop(){
   const d=LB.data,note=$('topNote');
   $('topAll').hidden=!(d&&d.top.length>5);
@@ -1391,10 +1398,15 @@ function renderTop(){
   $('meRank').textContent=d.me?'#'+d.me.rank:'#–';
   $('topCnt').textContent=d.players+' '+t('topPl');
   $('topList').innerHTML=lbRows(d.top.slice(0,5));
-  note.textContent=d.me?t('topSub'):t('topNone');
+  note.textContent=d.me?t(LB.by==='b'?'topSubB':'topSub'):t('topNone');
 }
-$('topAll').onclick=()=>{const d=LB.data;if(!d)return;openS(`<h3>${t('topT')}</h3><p class="sub">${t('topSub')}</p><div class="tl">${lbRows(d.top)}</div><button class="cta gh" id="cls">${t('close')}</button>`);$('cls').onclick=closeS;};
-setInterval(()=>{if(!document.hidden)lbPost();},60000);
+document.querySelectorAll('#topBy button').forEach(b=>b.onclick=()=>{if(LB.by===b.dataset.by)return;LB.by=b.dataset.by;LB.data=null;document.querySelectorAll('#topBy button').forEach(x=>x.classList.toggle('on',x===b));haptic('light');lbLoad(true);});
+$('topAll').onclick=()=>{const d=LB.data;if(!d)return;openS(`<h3>${t('topT')} · ${t(LB.by==='b'?'topByB':'topByS')}</h3><p class="sub">${t(LB.by==='b'?'topSubB':'topSub')}</p><div class="tl">${lbRows(d.top)}</div><button class="cta gh" id="cls">${t('close')}</button>`);$('cls').onclick=closeS;};
+setInterval(()=>{if(document.hidden)return;lbPost();
+  if(!S.waAsk&&S.played>120&&tg&&tg.initData&&tg.requestWriteAccess&&(!tg.isVersionAtLeast||tg.isVersionAtLeast('6.9'))){S.waAsk=1;save();
+    try{tg.requestWriteAccess(ok=>{if(ok){S.wa=1;LB.sent=-1;save();lbPost();}});}catch(e){}}
+},60000);
+setTimeout(()=>{LB.sent=-1;lbPost();},8000);
 document.addEventListener('visibilitychange',()=>{if(document.hidden)lbPost();});
 $('burnGo').onclick=()=>{
   if(!canBurn())return;const x=xpGain();
@@ -1413,7 +1425,7 @@ $('bDonate').onclick=()=>{
   inp.oninput=()=>set(inp.value);g.onclick=()=>{haptic('medium');const n=$('dnote'),say=(k,c)=>{n.textContent=t(k);n.style.color=c||'var(--ink)';};
     if(!API||!tg||!tg.initData||!tg.openInvoice){say('donTg');return;}
     if(g.disabled)return;g.disabled=true;say('donWait','var(--mute)');
-    fetch(API+'/invoice?amount='+amt+'&lang='+L(),{headers:{'X-Init-Data':tg.initData}}).then(r=>r.json()).then(d=>{
+    fetch(API+'/invoice?amount='+amt+'&lang='+S.lang,{headers:{'X-Init-Data':tg.initData}}).then(r=>r.json()).then(d=>{
       if(!d.link)throw 0;
       tg.openInvoice(d.link,st=>{g.disabled=false;
         if(st==='paid'){haptic('ok');sfx('win');S.donated=(S.donated||0)+amt;save();say('donThanks','var(--ok)');}
@@ -1733,37 +1745,39 @@ function update(){
   evTick();coachTick();
   {const tk=tokSpec();if(S.tok==null)S.tok=tk.max;const n=Math.floor(S.tok),N=`${n}/${tk.max}`,Rg=`+${tk.reg}/${S.lang==='ru'?'с':'s'}`;
    if($('tokN').textContent!==N)$('tokN').textContent=N;if($('tokR').textContent!==Rg)$('tokR').textContent=Rg;
-   $('tokB').style.width=(S.tok/tk.max*100)+'%';$('tok').classList.toggle('low',S.tok<tk.max*.15);$('hit').classList.toggle('empty',S.tok<1);
+   setSt($('tokB'),'width',(Math.round(S.tok/tk.max*200)/2)+'%');$('tok').classList.toggle('low',S.tok<tk.max*.15);$('hit').classList.toggle('empty',S.tok<1);
    if(S.tok>tk.max)S.tok=tk.max;}
-  updTU();
+  if(curView==='code')updTU();
   const inc=income(),tv=tapVal();
 
-  $('ips').textContent='$'+fmt(inc);$('ipt').textContent='$'+fmt(tv);$('hitVal').textContent='+$'+fmt(tv);
-  $('xpPill').style.display=S.xp?'':'none';$('xpVal').textContent='+'+S.xp*5+'%';
+  setTx($('ips'),'$'+fmt(inc));setTx($('ipt'),'$'+fmt(tv));setTx($('hitVal'),'+$'+fmt(tv));
+  setSt($('xpPill'),'display',S.xp?'':'none');setTx($('xpVal'),'+'+S.xp*5+'%');
   const op=PROJECTS.filter(p=>lv(p)>0).length,nOwn=Object.keys(S.owned).length;
-  $('hint').textContent=op===0?t('h0'):nOwn===0?t('h1'):op<3?t('h2'):op<7?t('h3'):t('h4');
+  setTx($('hint'),op===0?t('h0'):nOwn===0?t('h1'):op<3?t('h2'):op<7?t('h3'):t('h4'));
 
-  let canP=false;
+  let canP=false;const showP=curView==='proj';
   PROJECTS.forEach(p=>{
     const r=pref[p.id];if(!r)return;
-    const l=lv(p),unl=!r.prev||lv(r.prev)>0,id=S.slots[p.id],m=id&&MB[id]&&l?MB[id]:null;
+    const l=lv(p),unl=!r.prev||lv(r.prev)>0;
+    const n=bulkN(p),c=costN(p,n),ok=unl&&S.money>=c;if(ok)canP=true;
+    if(!showP&&r.k!==undefined)return;
+    const id=S.slots[p.id],m=id&&MB[id]&&l?MB[id]:null;
     r.el.classList.toggle('lock',!unl);
     r.el.classList.toggle('bug',fxOn('bug')&&S.fx.bug.p===p.id);
     const key=(l>0)+'|'+(m?m.id+S.owned[m.id].lvl:'');
     if(r.k!==key){r.k=key;r.ai.className='ai'+(m?'':' empty');r.ai.innerHTML=m?art(m):(l?t('addAi'):I('lock'));}
-    r.lv.textContent=l?t('lvl')+' '+l:'';
+    setTx(r.lv,l?t('lvl')+' '+l:'');
     const ih=l?`<b>$${fmt(projInc(p))}${t('perS')}</b> · ${p.tags.map(x=>SPEC[x][L()]).join(', ')}`:p.tags.map(x=>SPEC[x][L()]).join(', ');if(r.ih!==ih){r.ih=ih;r.inc.innerHTML=ih;}
-    r.boost.className='boost'+(m?'':' no');r.boost.style.display=l?'':'none';
-    {const sm=m?setMultFor(m.id,S.slots):1;r.boost.textContent=m?`${m.name} · +$${fmt(gainOf(m.id,p.id))}${t('perS')}${sm>1?' · '+t('setW')+' +'+Math.round((sm-1)*100)+'%':''}`:t('noModel');}
+    r.boost.classList.toggle('no',!m);setSt(r.boost,'display',l?'':'none');
+    {const sm=m?setMultFor(m.id,S.slots):1;setTx(r.boost,m?`${m.name} · +$${fmt(gainOf(m.id,p.id))}${t('perS')}${sm>1?' · '+t('setW')+' +'+Math.round((sm-1)*100)+'%':''}`:t('noModel'));}
     const nx=MILES.find(x=>x>l),pm=[...MILES].reverse().find(x=>x<=l)||0;
-    r.ms.style.width=nx?((l-pm)/(nx-pm)*100)+'%':'100%';r.ms.parentElement.style.display=l?'':'none';
-    const n=bulkN(p),c=costN(p,n),ok=unl&&S.money>=c;if(ok)canP=true;
+    setSt(r.ms,'width',nx?((l-pm)/(nx-pm)*100)+'%':'100%');setSt(r.ms.parentElement,'display',l?'':'none');
     if(r.buy.disabled!==!ok)r.buy.disabled=!ok;const bh=`$${fmt(c)}<small>×${n}</small>`;if(r.bh!==bh){r.bh=bh;r.buy.innerHTML=bh;}
   });
   const bReady=canBurn();
   $('burnBanner').classList.toggle('ready',bReady);
-  $('burnText').textContent=bReady?t('burnReady').replace('{x}',xpGain()):t('burnBanner').replace('{m}',fmt(BURN_MIN));
-  $('burnBar').style.width=Math.min(100,(op/8*50+Math.min(1,S.run/BURN_MIN)*50))+'%';
+  if(showP){setTx($('burnText'),bReady?t('burnReady').replace('{x}',xpGain()):t('burnBanner').replace('{m}',fmt(BURN_MIN)));
+  setSt($('burnBar'),'width',Math.min(100,Math.round(op/8*50+Math.min(1,S.run/BURN_MIN)*50))+'%');}
 
   const now=Date.now(),freeOk=now>=S.freeAt;
   {const fr=$('freeR'),cls=freeOk?'go':'tmr';let tx=t('open');if(!freeOk){const s=Math.ceil((S.freeAt-now)/1000);tx=String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}if(fr.className!==cls)fr.className=cls;$('freeCard').classList.toggle('ready',freeOk);if(fr.textContent!==tx)fr.textContent=tx;}
@@ -1773,10 +1787,10 @@ function update(){
   $('dotCases').classList.toggle('show',(freeOk||S.money>=casePrice(CASES[0]))&&curView!=='cases'&&curView!=='case');
   $('dotBook').classList.toggle('show',Object.values(S.owned).some(o=>o.new));
   $('dotMe').classList.toggle('show',bReady&&curView!=='me');
-  if(curView==='me')renderMe();
+  if(curView==='me'&&(update._m=(update._m||0)+1)%4===0)renderMe();
   if(!update._g||Date.now()-update._g>1000){update._g=Date.now();$('dotGoals').classList.toggle('show',curView!=='goals'&&goalsClaimable());if(curView==='goals'){const ms=864e5-((Date.now()-new Date().getTimezoneOffset()*60000)%864e5);$('gReset').textContent=t('newIn')+' '+Math.floor(ms/36e5)+':'+String(Math.floor(ms/6e4)%60).padStart(2,'0');const sg=goalsSig();if(qDirty||sg!==update._gs){update._gs=sg;renderGoals();}}}
 }
-function renderAll(){$('sndV').textContent=S.snd===false?t('off'):t('on');renderSets();$('burnI1').innerHTML=I('flame');$('burnI2').innerHTML=I('flame');$('starI').innerHTML=I('star');applyTheme();renderTU();renderSkins();renderTerm();renderTeam();renderProjects();renderCases();renderBook();renderMe();renderPrompt();update();}
+function renderAll(){$('sndV').textContent=S.snd===false?t('off'):t('on');renderSets();$('burnI1').innerHTML=I('flame');$('burnI2').innerHTML=I('flame');$('starI').innerHTML=I('star');applyTheme();renderTU();renderSkins();renderTerm();renderTeam();renderProjects();renderCases();renderBook();renderMe();renderTop();renderPrompt();update();}
 function applyLang(){
   document.documentElement.lang=S.lang;
   document.querySelectorAll('[data-t]').forEach(el=>el.textContent=t(el.dataset.t));
@@ -1799,15 +1813,15 @@ function offline(){
 }
 let lastT=performance.now(),acc=0;
 let dispBal=null;
-function loop(now){const dt=Math.min(1,(now-lastT)/1000);lastT=now;
-  {if(dispBal==null)dispBal=S.money;const d=S.money-dispBal;dispBal=Math.abs(d)<Math.max(.5,Math.abs(S.money)*.002)?S.money:dispBal+d*Math.min(1,dt*9);const f=fmt(Math.max(0,dispBal));if(loop._f!==f){loop._f=f;$('hdrBal').textContent=f;$('bal').textContent='$'+f;}}tokRegen(dt);earn(income()*dt);S.played+=dt;acc+=dt;if(acc>.2){acc=0;update();}requestAnimationFrame(loop);}
+function loop(){const now=performance.now(),dt=Math.min(1,(now-lastT)/1000);lastT=now;if(document.hidden)return;
+  {if(dispBal==null)dispBal=S.money;const d=S.money-dispBal;dispBal=Math.abs(d)<Math.max(.5,Math.abs(S.money)*.002)?S.money:dispBal+d*Math.min(1,dt*9);const f=fmt(Math.max(0,dispBal));if(loop._f!==f){loop._f=f;$('hdrBal').textContent=f;$('bal').textContent='$'+f;}}tokRegen(dt);earn(income()*dt);S.played+=dt;acc+=dt;if(acc>=.25){acc=0;update();}}
 setInterval(()=>{if(!document.hidden)save();},5000);
 document.addEventListener('visibilitychange',()=>{if(document.hidden)save();else{offline();lastT=performance.now();update();}});
 addEventListener('pagehide',save);
 
 if(S.auto)autoAssign();
 [...new Set(MODELS.map(m=>m.f))].forEach(f=>{const i=new Image();i.src=''+f+'.webp';});CASES.forEach(c=>{const i=new Image();i.src=''+c.img+'.webp';});
-applyLang();offline();setTimeout(dailyPopup,600);if(S.balNote){S.balNote=false;save();setTimeout(()=>evToast(I('refresh'),t('balNote'),'good'),1800);}requestAnimationFrame(loop);
+applyLang();offline();setTimeout(dailyPopup,600);if(S.balNote){S.balNote=false;save();setTimeout(()=>evToast(I('refresh'),t('balNote'),'good'),1800);}setInterval(loop,100);
 })();
 </script>
 </body>
