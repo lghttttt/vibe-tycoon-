@@ -370,7 +370,7 @@ button *{pointer-events:none}
 .mga.rev{display:flex;flex-direction:column;gap:6px;padding:10px;overflow:auto}.mga .cl{display:flex;gap:8px;align-items:center;text-align:left;padding:10px 12px;border-radius:12px;background:#fff;font:600 13px var(--mono);color:#1b1d22;white-space:nowrap;overflow:hidden}.mga .cl i{font-style:normal;color:#9aa1ad;width:14px;flex:none}
 .mga.ddos .core{position:absolute;left:calc(50% - 22px);top:calc(50% - 22px);width:44px;height:44px;border-radius:14px;background:#fff;color:var(--acc);font-size:28px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 6px rgba(123,77,255,.15)}.mga .pk{position:absolute;width:44px;height:44px;border-radius:50%;background:#ff3b30;color:#fff;font-size:22px;display:flex;align-items:center;justify-content:center;will-change:transform}.mga .pk.hit{opacity:0;transition:opacity .15s!important}
 .mga.cmd{display:flex;flex-direction:column;gap:12px;padding:14px}.cmdt{background:#0e0f12;color:#c9f53c;border-radius:12px;padding:12px;font:700 14px var(--mono);min-height:44px;word-break:break-all}.cmdt .cur{display:inline-block;width:8px;height:16px;background:#c9f53c;vertical-align:-2px;margin-left:2px}.cmdg{display:flex;flex-wrap:wrap;gap:8px}.mga .tk{padding:10px 12px;border-radius:12px;background:#fff;font:700 14px var(--mono);color:#1b1d22;box-shadow:inset 0 -3px 0 #dfe2e8}.mga .tk:disabled{opacity:.25}.cmdh{font-size:12.5px;color:#5f6470}.cmdh code{font:700 12.5px var(--mono);color:#1b1d22}
-.mga.cache{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:10px;align-content:center}.mga .cc{aspect-ratio:1;border-radius:14px;background:var(--acc);color:transparent;font-size:28px;display:flex;align-items:center;justify-content:center;transition:background .15s}.mga .cc span{opacity:0;transition:opacity .15s}.mga .cc.up{background:#fff;color:var(--acc)}.mga .cc.up span{opacity:1}.mga .cc.ok{background:#e3f7ec;color:var(--ok)}
+.mga.cache{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:10px}.mga .cc{min-height:0;border-radius:14px;background:var(--acc);color:transparent;font-size:28px;display:flex;align-items:center;justify-content:center;transition:background .15s}.mga .cc span{opacity:0;transition:opacity .15s}.mga .cc.up{background:#fff;color:var(--acc)}.mga .cc.up span{opacity:1}.mga .cc.ok{background:#e3f7ec;color:var(--ok)}
 html,body,button,a{touch-action:manipulation}button{-webkit-tap-highlight-color:transparent}.scr{overflow-anchor:none}
 .tall{width:100%;margin-top:10px;padding:12px;border-radius:14px;background:var(--bg);font-weight:700;font-size:14px;color:var(--ink)}
 .sheet .nwg{max-height:56vh;overflow:auto;margin-top:10px}
@@ -721,7 +721,7 @@ textarea.field{min-height:110px;resize:none}
       <div><span data-t="sEv"></span><b id="sEv">0</b></div>
       <div><span data-t="sEvL"></span><b id="sEvL">0</b></div>
     </div>
-    <p class="ver">Vibe Tycoon · v0.37</p>
+    <p class="ver">Vibe Tycoon · v0.38</p>
   </section>
 
   <div class="nav" id="nav"><button data-go="code" class="on"><svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg><span class="lb" data-t="nCode"></span></button><button data-go="proj"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="3"/><path d="M9 7V5.5A1.5 1.5 0 0110.5 4h3A1.5 1.5 0 0115 5.5V7"/></svg><span class="lb" data-t="nProj"></span><i class="dot" id="dotProj"></i></button><button data-go="cases"><svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="12" rx="2"/><path d="M2 9h20M12 9v12M12 9c-2-4-7-5-7-2s5 2 7 2zm0 0c2-4 7-5 7-2s-5 2-7 2z"/></svg><span class="lb" data-t="nCases"></span><i class="dot" id="dotCases"></i></button><button data-go="goals"><svg viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 01-8 0zM8 6H5a3 3 0 003 4.5M16 6h3a3 3 0 01-3 4.5M12 13v4M8.5 21h7M10 17h4"/></svg><span class="lb" data-t="nGoals"></span><i class="dot" id="dotGoals"></i></button><button data-go="book"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M9 3v18M13 8h3M13 12h3"/></svg><span class="lb" data-t="nBook"></span><i class="dot" id="dotBook"></i></button></div>
@@ -1737,12 +1737,12 @@ const MG={
  memleak:{i:'tabs',dur:12,n:['Утечка памяти','Memory leak'],r:['Закрывай вкладки, пока память не кончилась. Продержись 12 секунд.','Close tabs before memory runs out. Survive 12 seconds.'],survive:1},
  merge:{i:'merge',dur:15,n:['Мерж-конфликт','Merge conflict'],r:['Найди строку, которая совпадает с верхней. 5 раундов.','Find the line that matches the top one. 5 rounds.']},
  leak:{i:'key',dur:12,n:['Утёк API-ключ','API key leaked'],r:['Найди утёкший ключ среди замков. 3 раунда.','Find the leaked key among the locks. 3 rounds.']},
- review:{i:'bug',dur:18,n:['Код-ревью перед релизом','Pre-release code review'],r:['В одной строке баг. Найди её. 2 ошибки — провал.','One line has a bug. Find it. 2 mistakes and you fail.']},
+ review:{i:'bug',dur:22,n:['Код-ревью перед релизом','Pre-release code review'],r:['В одной строке баг. Найди её. 3 ошибки — провал.','One line has a bug. Find it. 3 mistakes and you fail.']},
  ddos:{i:'shield',dur:14,n:['DDoS-атака','DDoS attack'],r:['Тапай пакеты, пока они не долетели до сервера. Пропустишь 3 — сервер ляжет.','Tap the packets before they reach the server. Miss 3 and it goes down.'],survive:1},
- cmd:{i:'tap',dur:20,n:['Горит дедлайн','Deadline on fire'],r:['Собери команду из кусочков по порядку. Лишние кусочки — ловушка.','Build the command from pieces in order. Extra pieces are traps.']},
- cache:{i:'layers',dur:25,n:['Кэш развалился','Cache is broken'],r:['Запомни карточки и найди все пары. Ходов ограниченно.','Memorize the cards and find all pairs. Moves are limited.']},
+ cmd:{i:'tap',dur:24,n:['Горит дедлайн','Deadline on fire'],r:['Собери команду из кусочков по порядку. Лишние кусочки — ловушка.','Build the command from pieces in order. Extra pieces are traps.']},
+ cache:{i:'layers',dur:30,n:['Кэш развалился','Cache is broken'],r:['Запомни карточки и найди все пары. Ходов ограниченно.','Memorize the cards and find all pairs. Moves are limited.']},
 };
-const mgTier=()=>Math.min(3,Math.floor((S.evWon||0)/4));
+const mgTier=()=>Math.min(3,Math.floor((S.evWon||0)/6));
 const MGT={start:['Чинить','Fix it'],reward:['Победа','Win'],penalty:['Провал','Fail'],won:['Починено!','Fixed!'],lost:['Провалено','Failed'],ok:['Ок','OK'],ignored:['Событие проигнорировано','Event ignored'],caught:['Поймано','Caught'],watch:['Запоминай…','Memorize…'],repeat:['Повтори','Repeat'],next:['Дальше','Next'],stop:['Стоп!','Stop!'],hits:['Попадания','Hits'],miss:['промахи','misses'],round:['Раунд','Round'],go:['Начать','Start']};
 const mt=k=>MGT[k][L()];
 let EV=null,lastEv='',evHist=[];
@@ -1797,19 +1797,19 @@ function mgOpen(e){
 const shake=el=>{el.classList.remove('shk');void el.offsetWidth;el.classList.add('shk');haptic('heavy');};
 const GAMES={
  bug(A,st,end){
-  const T=mgTier();let got=0;const need=10+T*2;st(`${mt('caught')}: <b>0/${need}</b>`);
-  const spawn=()=>{const b=document.createElement('button');const bad=Math.random()<.3+T*.04;b.className='bugb';b.innerHTML=I(bad?'leaf':'bug');b.classList.add(bad?'leafb':'bugr');
+  const T=mgTier();let got=0;const need=8+T*2;st(`${mt('caught')}: <b>0/${need}</b>`);
+  const spawn=()=>{const b=document.createElement('button');const bad=Math.random()<.24+T*.03;b.className='bugb';b.innerHTML=I(bad?'leaf':'bug');b.classList.add(bad?'leafb':'bugr');
     b.style.left=(8+Math.random()*(A.clientWidth-64))+'px';b.style.top=(8+Math.random()*(A.clientHeight-64))+'px';
     b.onpointerdown=ev=>{ev.preventDefault();if(b.dataset.x)return;b.dataset.x=1;
-      if(bad){got=Math.max(0,got-2);shake(A);}else{got++;haptic('light');}
+      if(bad){got=Math.max(0,got-1);shake(A);}else{got++;haptic('light');}
       b.classList.add('hit');setTimeout(()=>b.remove(),200);st(`${mt('caught')}: <b>${got}/${need}</b>`);if(got>=need)end(true);};
-    A.appendChild(b);setTimeout(()=>{if(b.parentNode)b.remove();},1050-T*120);};
-  spawn();const iv=setInterval(spawn,430-T*40);return ()=>clearInterval(iv);
+    A.appendChild(b);setTimeout(()=>{if(b.parentNode)b.remove();},1200-T*100);};
+  spawn();const iv=setInterval(spawn,460-T*30);return ()=>clearInterval(iv);
  },
  outage(A,st,end){
-  const T=mgTier(),cols=['#2b59ff','#10b265','#ff9500','#ff2d75','#9b5cff','#00b8d9'].slice(0,T>=2?6:4);A.classList.add(T>=2?'grid3':'grid2');
+  const T=mgTier(),cols=['#2b59ff','#10b265','#ff9500','#ff2d75','#9b5cff','#00b8d9'].slice(0,T>=3?6:4);A.classList.add(T>=3?'grid3':'grid2');
   A.innerHTML=cols.map((c,i)=>`<button class="srv" data-i="${i}" style="--c:${c}">${I('server')}</button>`).join('');
-  const tiles=[...A.children],seq=[...Array(5+Math.min(3,T))].map(()=>Math.floor(Math.random()*cols.length)),SP=Math.max(420,620-T*60);let pos=0,ready=false,tm=[];
+  const tiles=[...A.children],seq=[...Array(4+Math.min(3,T))].map(()=>Math.floor(Math.random()*cols.length)),SP=Math.max(480,660-T*50);let pos=0,ready=false,tm=[];
   st(mt('watch'));
   seq.forEach((k,j)=>{tm.push(setTimeout(()=>{tiles[k].classList.add('lit');haptic('tick');},500+j*SP));tm.push(setTimeout(()=>tiles[k].classList.remove('lit'),500+j*SP+SP*.65));});
   tm.push(setTimeout(()=>{ready=true;st(`${mt('repeat')}: <b>0/${seq.length}</b>`);},500+seq.length*SP));
@@ -1818,29 +1818,29 @@ const GAMES={
   return ()=>tm.forEach(clearTimeout);
  },
  crash(A,st,end){
-  const T=mgTier(),N=T>=1?12:9;A.classList.add('grid3');const nums=[...Array(N)].map((_,i)=>i+1).sort(()=>Math.random()-.5);let nxt=1,bad=0;
+  const T=mgTier(),N=T>=2?12:9;A.classList.add('grid3');const nums=[...Array(N)].map((_,i)=>i+1).sort(()=>Math.random()-.5);let nxt=1,bad=0;
   A.innerHTML=nums.map(n=>`<button class="num" data-n="${n}">${n}</button>`).join('');st(`<b>1</b>`);
   [...A.children].forEach(b=>b.onpointerdown=ev=>{ev.preventDefault();const n=+b.dataset.n;
-    if(n===nxt){b.classList.add('ok');nxt++;haptic('light');st(nxt>N?I('check'):`<b>${nxt}</b> · ${['ошибки','mistakes'][L()]} ${bad}/3`);if(nxt>N){end(true);return;}
-      if(T>=2&&nxt%3===1){const rest=[...A.children].filter(x=>!x.classList.contains('ok'));const vals=rest.map(x=>x.dataset.n).sort(()=>Math.random()-.5);rest.forEach((x,i)=>{x.dataset.n=vals[i];x.textContent=vals[i];});}}
-    else if(n>nxt){bad++;shake(b);st(`<b>${nxt}</b> · ${['ошибки','mistakes'][L()]} ${bad}/3`);if(bad>=3)end(false);}});
+    if(n===nxt){b.classList.add('ok');nxt++;haptic('light');st(nxt>N?I('check'):`<b>${nxt}</b> · ${['ошибки','mistakes'][L()]} ${bad}/4`);if(nxt>N){end(true);return;}
+      if(T>=3&&nxt%3===1){const rest=[...A.children].filter(x=>!x.classList.contains('ok'));const vals=rest.map(x=>x.dataset.n).sort(()=>Math.random()-.5);rest.forEach((x,i)=>{x.dataset.n=vals[i];x.textContent=vals[i];});}}
+    else if(n>nxt){bad++;shake(b);st(`<b>${nxt}</b> · ${['ошибки','mistakes'][L()]} ${bad}/4`);if(bad>=4)end(false);}});
  },
  heat(A,st,end){
   A.classList.add('heat');A.innerHTML=`<div class="trk"><i class="zone" id="hz"></i><i class="ndl" id="hn"></i></div><button class="stopb" id="hs">${mt('stop')}</button>`;
-  const T=mgTier();let hits=0,miss=0,x=0,dir=1,sp=1.1+T*.25,zw=20-T*2,zx=0,run=true;const z=$('hz'),n=$('hn');
+  const T=mgTier();let hits=0,miss=0,x=0,dir=1,sp=.9+T*.2,zw=24-T*2,zx=0,run=true;const z=$('hz'),n=$('hn');
   const newZone=()=>{zx=8+Math.random()*(84-zw);z.style.left=zx+'%';z.style.width=zw+'%';};newZone();
-  const upd=()=>st(`${mt('hits')}: <b>${hits}/4</b> · ${mt('miss')}: <b>${miss}/2</b>`);upd();
+  const upd=()=>st(`${mt('hits')}: <b>${hits}/3</b> · ${mt('miss')}: <b>${miss}/2</b>`);upd();
   let raf;const mv=()=>{if(!run)return;x+=dir*sp;if(x>=100){x=100;dir=-1;}if(x<=0){x=0;dir=1;}n.style.left=x+'%';raf=requestAnimationFrame(mv);};mv();
-  $('hs').onpointerdown=ev=>{ev.preventDefault();if(x>=zx&&x<=zx+zw){hits++;haptic('medium');zw=Math.max(8,zw-4);sp+=.4;newZone();z.classList.remove('fl');void z.offsetWidth;z.classList.add('fl');}else{miss++;shake(A);}
-    upd();if(hits>=4)end(true);else if(miss>=2)end(false);};
+  $('hs').onpointerdown=ev=>{ev.preventDefault();if(x>=zx&&x<=zx+zw){hits++;haptic('medium');zw=Math.max(11,zw-4);sp+=.3;newZone();z.classList.remove('fl');void z.offsetWidth;z.classList.add('fl');}else{miss++;shake(A);}
+    upd();if(hits>=3)end(true);else if(miss>=2)end(false);};
   return ()=>{run=false;cancelAnimationFrame(raf);};
  },
  memleak(A,st,end){
   A.innerHTML='<div class="memb"><i id="memI"></i></div>';let mem=0,tabs=[],run=true,last=performance.now(),t0=performance.now();
   const spawn=()=>{const b=document.createElement('button');b.className='tabb';b.innerHTML=I('tabs')+'tab';b.style.left=(8+Math.random()*(A.clientWidth-90))+'px';b.style.top=(30+Math.random()*(A.clientHeight-90))+'px';
     b.onpointerdown=ev=>{ev.preventDefault();tabs=tabs.filter(x=>x!==b);b.remove();haptic('light');};A.appendChild(b);tabs.push(b);};
-  const T=mgTier();spawn();const iv=setInterval(spawn,Math.max(260,380-T*35));
-  let raf;const tick=now=>{if(!run)return;const dt=(now-last)/1000;last=now;mem+=tabs.length*(8+T)*dt;mem=Math.max(0,mem-4*dt);const m=$('memI');if(m){m.style.width=Math.min(100,mem)+'%';m.style.backgroundPosition=(100-Math.min(100,mem))+'% 0';}
+  const T=mgTier();spawn();const iv=setInterval(spawn,Math.max(300,430-T*30));
+  let raf;const tick=now=>{if(!run)return;const dt=(now-last)/1000;last=now;mem+=tabs.length*(7+T*.7)*dt;mem=Math.max(0,mem-4*dt);const m=$('memI');if(m){m.style.width=Math.min(100,mem)+'%';m.style.backgroundPosition=(100-Math.min(100,mem))+'% 0';}
     st(`RAM: <b>${Math.min(100,Math.round(mem))}%</b>`);
     if(mem>=100){end(false);return;}if(now-t0>=12000){end(true);return;}raf=requestAnimationFrame(tick);};raf=requestAnimationFrame(tick);
   return ()=>{run=false;clearInterval(iv);cancelAnimationFrame(raf);};
@@ -1848,7 +1848,7 @@ const GAMES={
  merge(A,st,end){
   A.classList.add('pat');const SYM=[['bolt','#e0a100'],['star','#9b5cff'],['key','#10b265'],['bug','#e5352b'],['cloud','#2b59ff']];let r=0;
   const row=a=>a.map(i=>`<span style="color:${SYM[i][1]}">${I(SYM[i][0])}</span>`).join('');
-  const T=mgTier(),LEN=T>=1?5:4,OPT=T>=2?4:3;
+  const T=mgTier(),LEN=T>=2?5:4,OPT=T>=3?4:3;
   const round=()=>{const tg=[...Array(LEN)].map(()=>Math.floor(Math.random()*5));const opts=[tg];
     while(opts.length<OPT){const o=[...tg],k=Math.floor(Math.random()*LEN);let v;do{v=Math.floor(Math.random()*5);}while(v===o[k]);o[k]=v;if(!opts.some(x=>x.join()===o.join()))opts.push(o);}
     opts.sort(()=>Math.random()-.5);
@@ -1859,7 +1859,7 @@ const GAMES={
  },
  review(A,st,end){
   // Код-ревью: найди строку с багом
-  const T=mgTier(),R=4+(T>=2?1:0);let r=0,mis=0;
+  const T=mgTier(),R=4+(T>=3?1:0);let r=0,mis=0;
   const P=[
    ['const total = items.length;','const total = items.lenght;'],['if (user && user.id) {','if (user && user.id) {{'],['return res.json(data);','return res.josn(data);'],
    ['await db.save(order);','await db.save(order)'],['for (let i = 0; i < n; i++) {','for (let i = 0; i < n; i--) {'],['const sum = a + b;','const sum = a + b +;'],
@@ -1868,10 +1868,10 @@ const GAMES={
    ['git commit -m "fix"','git comit -m "fix"'],['npm install axios','npm instal axios'],['res.status(200).send();','res.status(200).sned();'],['while (queue.length) {','while (queue.length) {;'],
   ];
   const tr=(a,b)=>[a,b][L()];
-  const round=()=>{const n=4+Math.min(2,T);const pick=P.slice().sort(()=>Math.random()-.5).slice(0,n);const bad=Math.floor(Math.random()*n);
+  const round=()=>{const n=4+Math.min(1,T);const pick=P.slice().sort(()=>Math.random()-.5).slice(0,n);const bad=Math.floor(Math.random()*n);
     A.className='mga rev';A.innerHTML=pick.map((p,i)=>`<button class="cl" data-b="${i===bad?1:0}"><i>${i+1}</i>${esc(i===bad?p[1]:p[0])}</button>`).join('');
-    st(`${tr('Раунд','Round')} <b>${r+1}/${R}</b> · ${tr('ошибки','mistakes')} <b>${mis}/2</b>`);
-    A.querySelectorAll('.cl').forEach(b=>b.onpointerdown=ev=>{ev.preventDefault();if(b.dataset.b==='1'){haptic('medium');r++;if(r>=R)end(true);else round();}else{mis++;shake(b);st(`${tr('Раунд','Round')} <b>${r+1}/${R}</b> · ${tr('ошибки','mistakes')} <b>${mis}/2</b>`);if(mis>=2)end(false);}});};
+    st(`${tr('Раунд','Round')} <b>${r+1}/${R}</b> · ${tr('ошибки','mistakes')} <b>${mis}/3</b>`);
+    A.querySelectorAll('.cl').forEach(b=>b.onpointerdown=ev=>{ev.preventDefault();if(b.dataset.b==='1'){haptic('medium');r++;if(r>=R)end(true);else round();}else{mis++;shake(b);st(`${tr('Раунд','Round')} <b>${r+1}/${R}</b> · ${tr('ошибки','mistakes')} <b>${mis}/3</b>`);if(mis>=3)end(false);}});};
   round();
  },
  ddos(A,st,end){
@@ -1882,11 +1882,11 @@ const GAMES={
   const upd=()=>st(`${tr('Сервер','Server')}: <b>${'■'.repeat(hp)}${'□'.repeat(3-hp)}</b> · ${tr('отбито','blocked')} <b>${blocked}</b>`);upd();
   const spawn=()=>{if(!run)return;const p=document.createElement('button');p.className='pk';p.innerHTML=I(Math.random()<.5?'bolt':'globe');
     const side=Math.floor(Math.random()*4),x=side===0?0:side===1?W-44:Math.random()*(W-44),y=side===2?0:side===3?H-44:Math.random()*(H-44);
-    p.style.left=x+'px';p.style.top=y+'px';const t=Math.max(1300,2600-T*350-Math.random()*500);p.style.transition=`transform ${t}ms linear`;A.appendChild(p);
+    p.style.left=x+'px';p.style.top=y+'px';const t=Math.max(1700,3000-T*300-Math.random()*500);p.style.transition=`transform ${t}ms linear`;A.appendChild(p);
     requestAnimationFrame(()=>requestAnimationFrame(()=>{p.style.transform=`translate(${cx-x}px,${cy-y}px)`;}));
     const hit=setTimeout(()=>{if(!p.parentNode||!run)return;p.remove();hp--;shake(A);upd();if(hp<=0)end(false);},t);
     p.onpointerdown=ev=>{ev.preventDefault();clearTimeout(hit);p.classList.add('hit');setTimeout(()=>p.remove(),150);blocked++;haptic('light');upd();};};
-  spawn();const iv=setInterval(spawn,Math.max(320,620-T*90));return ()=>{run=false;clearInterval(iv);};
+  spawn();const iv=setInterval(spawn,Math.max(420,720-T*80));return ()=>{run=false;clearInterval(iv);};
  },
  cmd(A,st,end){
   // Горит дедлайн: собери команду из кусочков в правильном порядке
@@ -1894,26 +1894,26 @@ const GAMES={
   const CM=[['git','add','.'],['git','commit','-m','"fix"'],['npm','run','build'],['git','push','origin','main'],['docker','compose','up','-d'],['npx','prisma','migrate','dev'],['git','checkout','-b','hotfix'],['kubectl','rollout','restart','api'],['npm','i','-D','vite'],['git','rebase','-i','HEAD~3']];
   const R=3,list=CM.slice().sort((a,b)=>(a.length-b.length)||(Math.random()-.5));const q=[list[0],list[3+Math.floor(Math.random()*3)],list[6+Math.floor(Math.random()*4)]];let r=0,pos=0,mis=0;
   const decoys=['--force','sudo','rm','-rf','pull','test','yarn','origin','dev','.env'];
-  const round=()=>{const c=q[r];pos=0;const toks=[...c,...decoys.filter(d=>!c.includes(d)).sort(()=>Math.random()-.5).slice(0,1+T)].sort(()=>Math.random()-.5);
+  const round=()=>{const c=q[r];pos=0;const toks=[...c,...decoys.filter(d=>!c.includes(d)).sort(()=>Math.random()-.5).slice(0,T)].sort(()=>Math.random()-.5);
     A.className='mga cmd';A.innerHTML=`<div class="cmdt">$ <span id="cmdo"></span><span class="cur"></span></div><div class="cmdg">${toks.map(x=>`<button class="tk">${esc(x)}</button>`).join('')}</div><div class="cmdh">${tr('Нужно','Target')}: <code>${esc(c.join(' '))}</code></div>`;
-    if(T>=2)A.querySelector('.cmdh').style.visibility='hidden';
-    const s=()=>st(`${tr('Команда','Command')} <b>${r+1}/${R}</b> · ${tr('ошибки','mistakes')} <b>${mis}/3</b>`);s();
+    if(T>=3)A.querySelector('.cmdh').style.visibility='hidden';
+    const s=()=>st(`${tr('Команда','Command')} <b>${r+1}/${R}</b> · ${tr('ошибки','mistakes')} <b>${mis}/4</b>`);s();
     A.querySelectorAll('.tk').forEach(b=>b.onpointerdown=ev=>{ev.preventDefault();if(b.disabled)return;
       if(b.textContent===c[pos]){b.disabled=true;$('cmdo').textContent+=(pos?' ':'')+c[pos];pos++;haptic('light');if(pos>=c.length){r++;if(r>=R)end(true);else setTimeout(round,250);}}
-      else{mis++;shake(b);s();if(mis>=3)end(false);}});
-    if(T>=2){const h=A.querySelector('.cmdh');h.style.visibility='visible';setTimeout(()=>{if(h.isConnected)h.style.visibility='hidden';},1400);}};
+      else{mis++;shake(b);s();if(mis>=4)end(false);}});
+    if(T>=3){const h=A.querySelector('.cmdh');h.style.visibility='visible';setTimeout(()=>{if(h.isConnected)h.style.visibility='hidden';},2200);}};
   round();
  },
  cache(A,st,end){
   // Кэш: найди все пары
   const T=mgTier(),tr=(a,b)=>[a,b][L()];const ICS=['bolt','star','key','bug','cloud','rocket','shield','cpu','globe'];
-  const pairs=6+(T>=1?1:0)+(T>=3?1:0),cards=ICS.slice(0,pairs).flatMap(x=>[x,x]).sort(()=>Math.random()-.5);
-  A.className='mga cache';A.style.setProperty('--c',pairs>6?4:4);
+  const pairs=6+(T>=2?1:0)+(T>=3?1:0),cards=ICS.slice(0,pairs).flatMap(x=>[x,x]).sort(()=>Math.random()-.5);
+  A.className='mga cache';A.style.gridTemplateRows=`repeat(${Math.ceil(cards.length/4)},minmax(0,1fr))`;
   A.innerHTML=cards.map((x,i)=>`<button class="cc" data-i="${i}"><span>${I(x)}</span></button>`).join('');
-  let open=[],done=0,lock=false,moves=0;const lim=pairs+7-T;
+  let open=[],done=0,lock=false,moves=0;const lim=pairs+10-T;
   const s=()=>st(`${tr('Пары','Pairs')} <b>${done}/${pairs}</b> · ${tr('ходы','moves')} <b>${moves}/${lim}</b>`);s();
   // в начале показываем всё на секунду
-  const all=[...A.children];all.forEach(b=>b.classList.add('up'));lock=true;setTimeout(()=>{all.forEach(b=>b.classList.remove('up'));lock=false;},Math.max(700,1500-T*250));
+  const all=[...A.children];all.forEach(b=>b.classList.add('up'));lock=true;setTimeout(()=>{all.forEach(b=>b.classList.remove('up'));lock=false;},2200-T*300);
   all.forEach(b=>b.onpointerdown=ev=>{ev.preventDefault();if(lock||b.classList.contains('up'))return;b.classList.add('up');open.push(b);haptic('tick');
     if(open.length===2){moves++;const [x,y]=open;open=[];
       if(cards[x.dataset.i]===cards[y.dataset.i]){x.classList.add('ok');y.classList.add('ok');done++;haptic('medium');s();if(done>=pairs)end(true);}
@@ -1921,9 +1921,9 @@ const GAMES={
       if(moves>=lim&&done<pairs)setTimeout(()=>end(false),400);}});
  },
  leak(A,st,end){
-  const T=mgTier(),sizes=[5,6,7].map(x=>Math.min(8,x+(T>=2?1:0)));let r=0;
+  const T=mgTier(),sizes=[4,5,6].map(x=>Math.min(8,x+(T>=3?1:0)));let r=0;
   const round=()=>{const n=sizes[r],tot=n*n,odd=Math.floor(Math.random()*tot);A.style.setProperty('--n',n);A.className='mga gridn';
-    A.innerHTML=[...Array(tot)].map((_,i)=>`<button class="lk" data-o="${i===odd?1:0}">${I(i===odd?'key':'lock',i===odd&&T<1?'kk':'')}</button>`).join('');
+    A.innerHTML=[...Array(tot)].map((_,i)=>`<button class="lk" data-o="${i===odd?1:0}">${I(i===odd?'key':'lock',i===odd&&T<2?'kk':'')}</button>`).join('');
     st(`${mt('round')} <b>${r+1}/3</b>`);
     [...A.children].forEach(b=>b.onpointerdown=ev=>{ev.preventDefault();if(b.dataset.o==='1'){haptic('medium');r++;if(r>=3)end(true);else round();}else shake(b);});};
   round();
