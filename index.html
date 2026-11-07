@@ -693,6 +693,8 @@ textarea.field{min-height:110px;resize:none}
 
 <script>
 (()=>{
+/* Адрес сервера бота (Cloudflare Worker). Пусто = донат выключен. */
+const API='';
 const tg = window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initData !== undefined ? window.Telegram.WebApp : null;
 if (tg) { try { tg.ready(); tg.expand(); tg.setHeaderColor('#ffffff'); tg.setBackgroundColor('#ffffff'); tg.disableVerticalSwipes && tg.disableVerticalSwipes(); } catch(e){} }
 const haptic = k => { try { tg && (k==='tick' ? tg.HapticFeedback.selectionChanged() : k==='ok' ? tg.HapticFeedback.notificationOccurred('success') : tg.HapticFeedback.impactOccurred(k||'light')); } catch(e){} };
@@ -903,7 +905,7 @@ const T={
   rl:{c:'Обычная',r:'Редкая!',e:'Эпическая!',l:'ЛЕГЕНДАРНАЯ',m:'МИФИЧЕСКАЯ'},
   h0:'Жми «Отправить промпт», чтобы писать код. Накопи $15 на первый лендинг.',h1:'Открой бесплатный кейс во вкладке «Кейсы» — там нейросети.',h2:'Нейросети на проектах умножают доход. Авто-распределение уже включено.',h3:'Копи на кейс Pro: там эпики и легенды.',h4:'Открой все 8 проектов, чтобы выгореть и получить постоянный бонус.',
   offT:'Пока тебя не было',offP:'Проекты работали без тебя',offMax:'Без тебя проекты работают вполсилы, максимум 6 часов.',collect:'Забрать',
-  donT:'Поддержать проект',donP:'Игра бесплатная. Если нравится, можно поддержать разработку любой суммой в Telegram Stars.',donBtn:'Поддержать',donProto:'Оплата через Telegram Stars подключится, когда появятся бот и сервер. Сейчас ничего не списывается.',donThanks:'Спасибо! Пока оплата не проводится, но кнопка уже на месте.',
+  donT:'Поддержать проект',donP:'Игра бесплатная. Если нравится, можно поддержать разработку любой суммой в Telegram Stars.',donBtn:'Поддержать',donProto:'Оплата проходит внутри Telegram. Все звёзды идут на развитие игры.',donThanks:'Спасибо за поддержку! Это правда помогает.',donErr:'Не получилось открыть оплату. Попробуй ещё раз чуть позже.',donTg:'Поддержать можно только из игры в Telegram.',donWait:'Открываю оплату…',
   fbT:'Обратная связь',fbP:'Нашёл баг или есть идея? Напиши, мы читаем всё.',bug:'Баг',idea:'Идея',other:'Другое',fbPh:'Что случилось или что добавить?',fbSend:'Отправить',fbOk:'Спасибо, сообщение сохранено.',fbProto:'Пока сообщения хранятся на устройстве. С сервером они будут приходить разработчику в Telegram.',
   rT:'Сбросить прогресс?',rP:'Обнулится всё: деньги, проекты, коллекция, опыт. Отменить нельзя.',rYes:'Сбросить',cancel:'Отмена',min:'мин',h:'ч',d:'д',sentOk:'отправлено'},
  en:{balance:'Balance',perSec:'per second',perTap:'per tap',xpBonus:'from XP',send:'Send prompt',team:'Team',teamSub:'who works on what',terminal:'Terminal',change:'change',noAi:'No model',toTap:'per tap',
@@ -920,7 +922,7 @@ const T={
   rl:{c:'Common',r:'Rare!',e:'Epic!',l:'LEGENDARY',m:'MYTHIC'},
   h0:'Tap “Send prompt” to write code. Save $15 for your first landing page.',h1:'Open the free case in the “Cases” tab — that’s where the models are.',h2:'Models on projects multiply income. Auto-assign is already on.',h3:'Save up for a Pro case: epics and legends live there.',h4:'Unlock all 8 projects to burn out and get a permanent bonus.',
   offT:'While you were away',offP:'Your projects kept working',offMax:'Projects run at half speed while you’re away, up to 6 hours.',collect:'Collect',
-  donT:'Support the project',donP:'The game is free. If you enjoy it, you can support development with any amount of Telegram Stars.',donBtn:'Support',donProto:'Telegram Stars payments go live once the bot and server are ready. Nothing is charged now.',donThanks:'Thank you! No payment is made yet, but the button is in place.',
+  donT:'Support the project',donP:'The game is free. If you enjoy it, you can support development with any amount of Telegram Stars.',donBtn:'Support',donProto:'Payment happens inside Telegram. All Stars go to developing the game.',donThanks:'Thank you for the support! It really helps.',donErr:'Could not open the payment. Please try again a bit later.',donTg:'Donations work only inside the game in Telegram.',donWait:'Opening payment…',
   fbT:'Feedback',fbP:'Found a bug or have an idea? Write it down, we read everything.',bug:'Bug',idea:'Idea',other:'Other',fbPh:'What happened, or what should we add?',fbSend:'Send',fbOk:'Thanks, your message is saved.',fbProto:'Messages are stored on this device for now. With the server they’ll reach the developer in Telegram.',
   rT:'Reset progress?',rP:'Everything resets: money, projects, collection, XP. This can’t be undone.',rYes:'Reset',cancel:'Cancel',min:'min',h:'h',d:'d',sentOk:'sent'}
 };
@@ -1004,7 +1006,7 @@ function art(m,opt={}){
   const lock=opt.lock;
   const fxl=lock?'':(m.r==='l'||m.r==='m'?'<i class="ic-rays"></i><i class="ic-glow"></i>':m.r==='e'?'<i class="ic-glow"></i>':'');
   const sp=lock||m.r==='c'?'':`<svg class="ic-sp" viewBox="0 0 100 100">${spark(92,10,6,'#fff')}${m.r!=='r'?spark(6,30,4,'#fff',.6):''}${m.r==='l'||m.r==='m'?spark(90,88,4,'#fff',1.1):''}</svg>`;
-  return `<div class="ic r-${m.r}${lock?' lk':''}${opt.bob?' bob':''}">${fxl}<img src="icons/${m.f}.webp" alt="" draggable="false" loading="lazy">${sp}${!lock&&m.v?`<span class="ic-v">${esc(m.v)}</span>`:''}</div>`;
+  return `<div class="ic r-${m.r}${lock?' lk':''}${opt.bob?' bob':''}">${fxl}<img src="${m.f}.webp" alt="" draggable="false" loading="lazy">${sp}${!lock&&m.v?`<span class="ic-v">${esc(m.v)}</span>`:''}</div>`;
 }
 function card(m,o={}){
   const lock=o.lock, ow=S.owned[m.id];
@@ -1025,7 +1027,7 @@ function caseSVG(c){
    <text transform="matrix(1 .5 0 1 34 92)" font-family="JetBrains Mono,monospace" font-weight="700" font-size="15" fill="#fff" opacity=".85">&lt;/&gt;</text>
    ${spark(116,24,6,'#fff')}${spark(20,30,4,'#fff',.8)}</g></svg>`;
 }
-const caseImg=c=>`<img src="cases/${c.img}.webp" alt="" draggable="false"${c.hue?` style="filter:hue-rotate(${c.hue}deg) drop-shadow(0 10px 14px rgba(0,0,0,.18))"`:''}>`;
+const caseImg=c=>`<img src="${c.img}.webp" alt="" draggable="false"${c.hue?` style="filter:hue-rotate(${c.hue}deg) drop-shadow(0 10px 14px rgba(0,0,0,.18))"`:''}>`;
 
 /* ================= ASSIGN ================= */
 function autoAssign(){
@@ -1369,9 +1371,17 @@ $('bDonate').onclick=()=>{
   openS(`<h3>${t('donT')}</h3><p class="sub">${t('donP')}</p><div class="chips" id="dch">${[25,50,100,250,500].map(v=>`<button data-a="${v}" class="${v===amt?'on':''}">${v}</button>`).join('')}</div>
    <input class="field" id="damt" type="number" inputmode="numeric" min="1" value="${amt}"><button class="cta" id="dgo">${t('donBtn')} · ${amt} Stars</button><button class="cta gh" id="cls">${t('close')}</button><p class="proto" id="dnote">${t('donProto')}</p>`);
   const inp=$('damt'),g=$('dgo');
-  const set=v=>{amt=Math.max(1,Math.floor(+v||1));g.textContent=`${t('donBtn')} · ${amt} Stars`;sheet.querySelectorAll('#dch button').forEach(b=>b.classList.toggle('on',+b.dataset.a===amt));};
+  const set=v=>{amt=Math.min(2500,Math.max(1,Math.floor(+v||1)));g.textContent=`${t('donBtn')} · ${amt} Stars`;sheet.querySelectorAll('#dch button').forEach(b=>b.classList.toggle('on',+b.dataset.a===amt));};
   sheet.querySelectorAll('#dch button').forEach(b=>b.onclick=()=>{inp.value=b.dataset.a;set(b.dataset.a);});
-  inp.oninput=()=>set(inp.value);g.onclick=()=>{haptic('medium');$('dnote').textContent=t('donThanks');$('dnote').style.color='var(--ink)';};$('cls').onclick=closeS;
+  inp.oninput=()=>set(inp.value);g.onclick=()=>{haptic('medium');const n=$('dnote'),say=(k,c)=>{n.textContent=t(k);n.style.color=c||'var(--ink)';};
+    if(!API||!tg||!tg.initData||!tg.openInvoice){say('donTg');return;}
+    if(g.disabled)return;g.disabled=true;say('donWait','var(--mute)');
+    fetch(API+'/invoice?amount='+amt+'&lang='+L(),{headers:{'X-Init-Data':tg.initData}}).then(r=>r.json()).then(d=>{
+      if(!d.link)throw 0;
+      tg.openInvoice(d.link,st=>{g.disabled=false;
+        if(st==='paid'){haptic('ok');sfx('win');S.donated=(S.donated||0)+amt;save();say('donThanks','var(--ok)');}
+        else if(st==='failed')say('donErr','var(--red)');else say('donProto','var(--mute)');});
+    }).catch(()=>{g.disabled=false;say('donErr','var(--red)');});};$('cls').onclick=closeS;
 };
 $('bFeedback').onclick=()=>{
   let kind='bug';
@@ -1392,9 +1402,9 @@ document.querySelectorAll('#langSeg button').forEach(b=>b.onclick=()=>{S.lang=b.
 function renderSets(){
   const sl=S.slots,act=[];
   const rows=Object.keys(BRN).map(b=>{const mem=MODELS.filter(m=>m.b===b),n=setCount(b,sl),mult=SETM(n);if(mult>1)act.push([b,n,mult]);
-    return `<div class="srow"><div class="sn">${BRN[b][0]}<small>${mem.filter(m=>S.owned[m.id]).length}/${mem.length}</small></div><div class="sm">${mem.map(m=>`<img src="icons/${m.f}.webp" class="${!S.owned[m.id]?'no':(slotOf(m.id)&&openSlots().includes(slotOf(m.id))?'on':'')}" alt="" title="${esc(m.name)}">`).join('')}</div><span class="sb${mult>1?' act':''}">${mult>1?'+'+Math.round((mult-1)*100)+'%':n+'/2'}</span></div>`;}).join('');
+    return `<div class="srow"><div class="sn">${BRN[b][0]}<small>${mem.filter(m=>S.owned[m.id]).length}/${mem.length}</small></div><div class="sm">${mem.map(m=>`<img src="${m.f}.webp" class="${!S.owned[m.id]?'no':(slotOf(m.id)&&openSlots().includes(slotOf(m.id))?'on':'')}" alt="" title="${esc(m.name)}">`).join('')}</div><span class="sb${mult>1?' act':''}">${mult>1?'+'+Math.round((mult-1)*100)+'%':n+'/2'}</span></div>`;}).join('');
   $('setsCard').innerHTML=`<h4>${I('link')}${t('setsT')}</h4><div class="gsub">${t('setsSub')}</div>${rows}`;
-  $('setStrip').innerHTML=act.map(([b,n,m])=>`<span class="setc"><img src="icons/${BRN[b][1]}.webp" alt="">${BRN[b][0]} ×${n} <em>+${Math.round((m-1)*100)}%</em></span>`).join('');
+  $('setStrip').innerHTML=act.map(([b,n,m])=>`<span class="setc"><img src="${BRN[b][1]}.webp" alt="">${BRN[b][0]} ×${n} <em>+${Math.round((m-1)*100)}%</em></span>`).join('');
   $('synBtn').innerHTML=I('flask')+t('synT');
 }
 let synR='c',synPick=[];
@@ -1407,7 +1417,7 @@ function openSynth(){
   openS(`<h3>${I('flask')} ${t('synT')}</h3><p class="sub">${t('synSub')}</p>
    <div class="chips" id="synCh">${RORD.slice(0,3).map(r=>`<button data-sr="${r}" class="${r===synR?'on':''}">${rn(r)} ${counts[r]}</button>`).join('')}</div>
    <div class="synsel">${list.map(m=>`<div class="card sm t-${m.r}${synPick.includes(m.id)?' pick':''}" data-sp="${m.id}" style="--k:${RC[m.r]}">${synPick.includes(m.id)?`<span class="chk">${I('check')}</span>`:''}<div class="art">${art(m)}</div><div class="meta"><div class="nm">${esc(m.name)}</div></div></div>`).join('')||`<p class="note">${t('noOwned')}</p>`}</div>
-   <div class="synsum"><div class="slots">${[0,1,2].map(i=>`<i>${synPick[i]?`<img src="icons/${MB[synPick[i]].f}.webp" alt="">`:''}</i>`).join('')}</div><span class="arr">→</span><span class="to" style="color:${RC[nr]}">${rn(nr)}</span></div>
+   <div class="synsum"><div class="slots">${[0,1,2].map(i=>`<i>${synPick[i]?`<img src="${MB[synPick[i]].f}.webp" alt="">`:''}</i>`).join('')}</div><span class="arr">→</span><span class="to" style="color:${RC[nr]}">${rn(nr)}</span></div>
    <button class="cta" id="synGo" ${synPick.length===3?'':'disabled'}>${synPick.length===3?t('synGo'):t('synNeed')+' · '+synPick.length+'/3'}</button><button class="cta gh" id="cls">${t('close')}</button>`);
   sheet.querySelectorAll('[data-sr]').forEach(b=>b.onclick=()=>{synR=b.dataset.sr;synPick=[];openSynth();});
   sheet.querySelectorAll('[data-sp]').forEach(b=>b.onclick=()=>{const id=b.dataset.sp;if(synPick.includes(id))synPick=synPick.filter(x=>x!==id);else if(synPick.length<3)synPick.push(id);haptic('light');const st=sheet.scrollTop;openSynth();sheet.scrollTop=st;});
@@ -1421,7 +1431,7 @@ function doSynth(){
   const res=grant(w,0);S.synth=(S.synth||0)+1;synPick=[];changed();save();closeS();
   timers.forEach(clearTimeout);timers=[];fxRun++;
   ov.style.setProperty('--glow',RC[nr]);
-  ov.innerHTML=`<div class="flash" id="flash"></div>`+used.map((m,i)=>{const a=i*2.094-1.57;return `<div class="mi" style="--x:${Math.cos(a)*120}px;--y:${Math.sin(a)*120}px;--k:${RC[m.r]}"><img src="icons/${m.f}.webp" alt=""></div>`;}).join('');
+  ov.innerHTML=`<div class="flash" id="flash"></div>`+used.map((m,i)=>{const a=i*2.094-1.57;return `<div class="mi" style="--x:${Math.cos(a)*120}px;--y:${Math.sin(a)*120}px;--k:${RC[m.r]}"><img src="${m.f}.webp" alt=""></div>`;}).join('');
   ov.className='ov on';haptic('medium');
   later(()=>{$('flash').classList.add('go');haptic('heavy');sfx('boom');},1200);
   later(()=>{
@@ -1603,7 +1613,7 @@ function rewLabel(r){
   if(r.t==='case')return `${CB[r.c].n[L()]}${r.n>1?' ×'+r.n:''}`;
   return t('epicW');
 }
-function rewIcon(r){return r.t==='money'?I('coins'):r.t==='case'?`<img src="cases/${CB[r.c].img}.webp" alt="">`:I('star');}
+function rewIcon(r){return r.t==='money'?I('coins'):r.t==='case'?`<img src="${CB[r.c].img}.webp" alt="">`:I('star');}
 function giveReward(r){
   closeS();sfx('claim');
   if(r.t==='money'){const v=minInc(r.m);earn(v);haptic('ok');evToast(I('coins'),'+$'+fmt(v),'good');}
@@ -1759,7 +1769,7 @@ document.addEventListener('visibilitychange',()=>{if(document.hidden)save();else
 addEventListener('pagehide',save);
 
 if(S.auto)autoAssign();
-[...new Set(MODELS.map(m=>m.f))].forEach(f=>{const i=new Image();i.src='icons/'+f+'.webp';});CASES.forEach(c=>{const i=new Image();i.src='cases/'+c.img+'.webp';});
+[...new Set(MODELS.map(m=>m.f))].forEach(f=>{const i=new Image();i.src=''+f+'.webp';});CASES.forEach(c=>{const i=new Image();i.src=''+c.img+'.webp';});
 applyLang();offline();setTimeout(dailyPopup,600);if(S.balNote){S.balNote=false;save();setTimeout(()=>evToast(I('refresh'),t('balNote'),'good'),1800);}requestAnimationFrame(loop);
 })();
 </script>
