@@ -694,7 +694,7 @@ textarea.field{min-height:110px;resize:none}
 <script>
 (()=>{
 /* Адрес сервера бота (Cloudflare Worker). Пусто = донат выключен. */
-const API='';
+const API='https://vibe-tycoon-bot.8ybz8s78np.workers.dev';
 const tg = window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initData !== undefined ? window.Telegram.WebApp : null;
 if (tg) { try { tg.ready(); tg.expand(); tg.setHeaderColor('#ffffff'); tg.setBackgroundColor('#ffffff'); tg.disableVerticalSwipes && tg.disableVerticalSwipes(); } catch(e){} }
 const haptic = k => { try { tg && (k==='tick' ? tg.HapticFeedback.selectionChanged() : k==='ok' ? tg.HapticFeedback.notificationOccurred('success') : tg.HapticFeedback.impactOccurred(k||'light')); } catch(e){} };
