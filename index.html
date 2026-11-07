@@ -371,6 +371,7 @@ button *{pointer-events:none}
 .mga.ddos .core{position:absolute;left:calc(50% - 22px);top:calc(50% - 22px);width:44px;height:44px;border-radius:14px;background:#fff;color:var(--acc);font-size:28px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 6px rgba(123,77,255,.15)}.mga .pk{position:absolute;width:44px;height:44px;border-radius:50%;background:#ff3b30;color:#fff;font-size:22px;display:flex;align-items:center;justify-content:center;will-change:transform}.mga .pk.hit{opacity:0;transition:opacity .15s!important}
 .mga.cmd{display:flex;flex-direction:column;gap:12px;padding:14px}.cmdt{background:#0e0f12;color:#c9f53c;border-radius:12px;padding:12px;font:700 14px var(--mono);min-height:44px;word-break:break-all}.cmdt .cur{display:inline-block;width:8px;height:16px;background:#c9f53c;vertical-align:-2px;margin-left:2px}.cmdg{display:flex;flex-wrap:wrap;gap:8px}.mga .tk{padding:10px 12px;border-radius:12px;background:#fff;font:700 14px var(--mono);color:#1b1d22;box-shadow:inset 0 -3px 0 #dfe2e8}.mga .tk:disabled{opacity:.25}.cmdh{font-size:12.5px;color:#5f6470}.cmdh code{font:700 12.5px var(--mono);color:#1b1d22}
 .mga.cache{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:10px;align-content:center}.mga .cc{aspect-ratio:1;border-radius:14px;background:var(--acc);color:transparent;font-size:28px;display:flex;align-items:center;justify-content:center;transition:background .15s}.mga .cc span{opacity:0;transition:opacity .15s}.mga .cc.up{background:#fff;color:var(--acc)}.mga .cc.up span{opacity:1}.mga .cc.ok{background:#e3f7ec;color:var(--ok)}
+html,body,button,a{touch-action:manipulation}button{-webkit-tap-highlight-color:transparent}.scr{overflow-anchor:none}
 .tall{width:100%;margin-top:10px;padding:12px;border-radius:14px;background:var(--bg);font-weight:700;font-size:14px;color:var(--ink)}
 .sheet .nwg{max-height:56vh;overflow:auto;margin-top:10px}
 .sheet .tl{max-height:60vh;overflow:auto;margin-top:8px}
@@ -720,7 +721,7 @@ textarea.field{min-height:110px;resize:none}
       <div><span data-t="sEv"></span><b id="sEv">0</b></div>
       <div><span data-t="sEvL"></span><b id="sEvL">0</b></div>
     </div>
-    <p class="ver">Vibe Tycoon · v0.36</p>
+    <p class="ver">Vibe Tycoon · v0.37</p>
   </section>
 
   <div class="nav" id="nav"><button data-go="code" class="on"><svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg><span class="lb" data-t="nCode"></span></button><button data-go="proj"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="3"/><path d="M9 7V5.5A1.5 1.5 0 0110.5 4h3A1.5 1.5 0 0115 5.5V7"/></svg><span class="lb" data-t="nProj"></span><i class="dot" id="dotProj"></i></button><button data-go="cases"><svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="12" rx="2"/><path d="M2 9h20M12 9v12M12 9c-2-4-7-5-7-2s5 2 7 2zm0 0c2-4 7-5 7-2s-5 2-7 2z"/></svg><span class="lb" data-t="nCases"></span><i class="dot" id="dotCases"></i></button><button data-go="goals"><svg viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 01-8 0zM8 6H5a3 3 0 003 4.5M16 6h3a3 3 0 01-3 4.5M12 13v4M8.5 21h7M10 17h4"/></svg><span class="lb" data-t="nGoals"></span><i class="dot" id="dotGoals"></i></button><button data-go="book"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M9 3v18M13 8h3M13 12h3"/></svg><span class="lb" data-t="nBook"></span><i class="dot" id="dotBook"></i></button></div>
@@ -738,6 +739,7 @@ const tg = window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.i
 if (tg) { try { const ins=()=>{const r=document.documentElement.style,a=tg.safeAreaInset||{},c=tg.contentSafeAreaInset||{};['top','bottom'].forEach(k=>{if(a[k]!=null)r.setProperty('--tg-safe-area-inset-'+k,a[k]+'px');if(c[k]!=null)r.setProperty('--tg-content-safe-area-inset-'+k,c[k]+'px');});};ins();tg.onEvent&&(tg.onEvent('safeAreaChanged',ins),tg.onEvent('contentSafeAreaChanged',ins),tg.onEvent('fullscreenChanged',ins)); } catch(e){} try { tg.ready(); tg.expand(); tg.setHeaderColor('#ffffff'); tg.setBackgroundColor('#ffffff'); tg.disableVerticalSwipes && tg.disableVerticalSwipes(); } catch(e){} }
 const haptic = k => { try { tg && (k==='tick' ? tg.HapticFeedback.selectionChanged() : k==='ok' ? tg.HapticFeedback.notificationOccurred('success') : tg.HapticFeedback.impactOccurred(k||'light')); } catch(e){} };
 const $ = id => document.getElementById(id);
+const setH=(el,v)=>{if(el&&el._h!==v){el._h=v;el.innerHTML=v;}};
 const setTx=(el,v)=>{if(el&&el._tx!==v){el._tx=v;el.textContent=v;}},setSt=(el,k,v)=>{if(!el)return;const c='_s_'+k;if(el[c]!==v){el[c]=v;el.style[k]=v;}};
 let AC=null,MASTER=null,VERB=null,NOISE=null;
 /* Sound set chosen in the sound lab: tap=creamy, prompt/buy/boom=wood, err=kalimba, knock=silent, tick=asmr, reveal/alert/win/lose/claim=retro, volume 97% */
@@ -1112,7 +1114,7 @@ function renderPrompt(){const p=curPrompt(),n=Math.min(S.pc,p.length);$('prompt'
 function renderTerm(){
   const tm=$('term'),sc='term sk-'+(SKINS.find(k=>k.id===S.skin&&S.burns>=k.need)?S.skin:'classic');if(tm.className!==sc)tm.className=sc;
   const id=S.slots.terminal,m=id&&MB[id];
-  $('termWho').innerHTML=`<div class="mini">${m?art(m):'<div style="width:40px;height:40px;border:2px dashed #3a3e48;border-radius:12px"></div>'}</div><div class="nm"><b>${m?esc(m.name):t('noAi')}</b><small>${t('terminal')}${m?' · +$'+fmt(gainOf(id,'terminal'))+' '+t('toTap'):''} · ${t('limit')} ${tokOf(id).max}</small></div><span class="chg">${t('change')}</span>`;
+  setH($('termWho'),`<div class="mini">${m?art(m):'<div style="width:40px;height:40px;border:2px dashed #3a3e48;border-radius:12px"></div>'}</div><div class="nm"><b>${m?esc(m.name):t('noAi')}</b><small>${t('terminal')}${m?' · +$'+fmt(gainOf(id,'terminal'))+' '+t('toTap'):''} · ${t('limit')} ${tokOf(id).max}</small></div><span class="chg">${t('change')}</span>`);
 }
 function tap(e){
   tokRegen(0);
@@ -1132,15 +1134,16 @@ $('termWho').onclick=()=>pickModel('terminal');
 
 function renderTeam(){
   const ent=openSlots().filter(s=>S.slots[s]);
-  $('team').innerHTML= ent.length ? ent.map(s=>{const id=S.slots[s],m=MB[id];return `<button class="tm t-${m.r}" data-pick="${s}"><div class="art">${art(m)}</div><div class="meta"><b>${slotName(s)}</b><small>+$${fmt(gainOf(id,s))}${s==='terminal'?' '+t('toTap'):t('perS')}</small></div></button>`;}).join('')
-   : `<div class="empty-team" style="flex:1">${t('noOwned')}</div>`;
+  setH($('team'), ent.length ? ent.map(s=>{const id=S.slots[s],m=MB[id];return `<button class="tm t-${m.r}" data-pick="${s}"><div class="art">${art(m)}</div><div class="meta"><b>${slotName(s)}</b><small>+$${fmt(gainOf(id,s))}${s==='terminal'?' '+t('toTap'):t('perS')}</small></div></button>`;}).join('')
+   : `<div class="empty-team" style="flex:1">${t('noOwned')}</div>`);
 }
 
 function renderTU(){
   if($('tokI')&&!$('tokI').innerHTML)$('tokI').innerHTML=I('bolt');
   $('tug').innerHTML=Object.keys(TU).map(k=>`<div class="tu" data-tu="${k}"><div class="h"><i>${I(TU[k].i)}</i>${t(TU[k].k)}<em></em></div><div class="v"></div><button class="buy" data-tub="${k}"></button></div>`).join('');
 }
-document.addEventListener('click',e=>{const b=e.target.closest('[data-tub]');if(!b)return;const k=b.dataset.tub,l=tuL(k),D=TU[k];if(l>=D.max)return;const c=D.cost(l);if(S.money<c)return;S.money-=c;S.tu[k]=l+1;qAdd('tup',1);sfx('buy');haptic('medium');save();renderTerm();renderTeam();update();});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-tub]');if(!b)return;const k=b.dataset.tub,l=tuL(k),D=TU[k];if(l>=D.max)return;const c=D.cost(l);if(S.money<c)return;S.money-=c;S.tu[k]=l+1;qAdd('tup',1);sfx('buy');haptic('medium');update();lazyRender();});
+let _lr=0;function lazyRender(){clearTimeout(_lr);_lr=setTimeout(()=>{save();renderTerm();renderTeam();},300);}
 function updTU(){
   const tk=tokSpec(),id=S.slots.terminal;
   Object.keys(TU).forEach(k=>{
@@ -1172,7 +1175,7 @@ function renderProjects(){
     const el=document.createElement('div');el.className='pc';
     el.innerHTML=`<button class="ai"></button><div class="tx"><b><span class="pe">${I(p.e)}</span>${p.n[L()]}</b><span class="lv"></span><div class="inc"></div><span class="boost"></span><div class="ms"><i></i></div></div><button class="buy"></button>`;
     el.querySelector('.ai').onclick=()=>{if(lv(p)>0)pickModel(p.id);};
-    el.querySelector('.buy').onclick=()=>{const n=bulkN(p),c=costN(p,n);if(S.money<c)return;const first=!lv(p);S.money-=c;S.proj[p.id]=lv(p)+n;qAdd('levels',n);haptic('medium');sfx('buy');{const lb=el.querySelector('.lv');lb.classList.remove('bump');void lb.offsetWidth;lb.classList.add('bump');const rc=el.querySelector('.buy').getBoundingClientRect(),f=document.createElement('div');f.className='float';f.textContent='+'+n+' '+t('lvl');f.style.left=(rc.left+rc.width/2-24)+'px';f.style.top=(rc.top-10)+'px';document.body.appendChild(f);setTimeout(()=>f.remove(),900);}if(first){changed();renderAll();}save();update();};
+    el.querySelector('.buy').onclick=()=>{const n=bulkN(p),c=costN(p,n);if(S.money<c)return;const first=!lv(p);S.money-=c;S.proj[p.id]=lv(p)+n;qAdd('levels',n);haptic('medium');sfx('buy');{const lb=el.querySelector('.lv');lb.classList.remove('bump');void lb.offsetWidth;lb.classList.add('bump');const rc=el.querySelector('.buy').getBoundingClientRect(),f=document.createElement('div');f.className='float';f.textContent='+'+n+' '+t('lvl');f.style.left=(rc.left+rc.width/2-24)+'px';f.style.top=(rc.top-10)+'px';document.body.appendChild(f);setTimeout(()=>f.remove(),900);}if(first){changed();renderAll();save();}else{clearTimeout(_lr);_lr=setTimeout(save,300);}update();};
     box.appendChild(el);
     pref[p.id]={el,ai:el.querySelector('.ai'),lv:el.querySelector('.lv'),inc:el.querySelector('.inc'),boost:el.querySelector('.boost'),ms:el.querySelector('.ms i'),buy:el.querySelector('.buy'),prev:PROJECTS[i-1],k:''};
   });
