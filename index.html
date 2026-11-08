@@ -365,11 +365,11 @@ button *{pointer-events:none}
 .tr .ta{overflow:hidden}.tr .ta img{width:100%;height:100%;object-fit:cover}.tr .ta.tam{width:28px;height:28px;min-width:28px;flex:none;border-radius:9px;box-shadow:0 0 0 1.5px var(--k)}
 .tr .tpre{display:block;font-size:10.5px;font-weight:800;color:var(--accTxt);line-height:1.1}.tr .tbd{display:inline-flex;gap:2px;vertical-align:middle;margin-left:4px}.tr .tbd img{width:16px;height:16px}
 .pe-h{font-size:14px;font-weight:800;margin:16px 0 8px;display:flex;justify-content:space-between}.pe-h small{color:var(--mute);font-weight:700}
-.pe-av{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px;max-height:212px;overflow:auto;padding:3px}
-.pe-av button{aspect-ratio:1;border-radius:13px;overflow:hidden;padding:0;display:flex;align-items:center;justify-content:center;background:var(--surf2);box-shadow:0 0 0 2px var(--k,transparent);font-weight:900;color:#fff}
+.pe-av{display:grid;grid-template-columns:repeat(auto-fill,52px);grid-auto-rows:52px;justify-content:space-between;gap:9px;max-height:244px;overflow-y:auto;padding:4px}
+.pe-av button{width:52px;height:52px;border-radius:14px;overflow:hidden;padding:0;display:flex;align-items:center;justify-content:center;background:var(--surf2);box-shadow:0 0 0 2px var(--k,transparent);font-weight:900;color:#fff}
 .pe-av button.lt{background:linear-gradient(135deg,#ff7ac6,#9b5cff)}.pe-av button img{width:100%;height:100%;object-fit:cover}.pe-av button.on{box-shadow:0 0 0 3px var(--ink)}
 .pe-pr{display:flex;flex-wrap:wrap;gap:6px}.pe-pr button{padding:9px 12px;min-height:38px;border-radius:999px;background:var(--surf2);font-weight:700;font-size:13px;color:var(--ink)}.pe-pr button.on{background:var(--acc);color:var(--accfg)}
-.pe-bd{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}.pe-bd button{aspect-ratio:1;border-radius:14px;background:var(--surf2);padding:6px;display:flex;align-items:center;justify-content:center}.pe-bd button img{width:100%;height:100%}.pe-bd button.on{box-shadow:inset 0 0 0 2.5px var(--acc);background:var(--tapbg)}
+.pe-bd{display:grid;grid-template-columns:repeat(auto-fill,56px);grid-auto-rows:56px;justify-content:space-between;gap:9px}.pe-bd button{width:56px;height:56px;border-radius:14px;background:var(--surf2);padding:6px;display:flex;align-items:center;justify-content:center}.pe-bd button img{width:100%;height:100%}.pe-bd button.on{box-shadow:inset 0 0 0 2.5px var(--acc);background:var(--tapbg)}
 .pe-note{font-size:12.5px;color:var(--mute);margin-top:6px}
 .tl{margin-top:12px}.tr{display:flex;align-items:center;gap:10px;padding:8px 6px;border-top:1px solid var(--line)}.tr.me{background:var(--tapbg);border-radius:12px;border-top-color:transparent}.tr.me+.tr{border-top-color:transparent}
 .tr .tp{width:26px;font-weight:800;font-size:13px;color:var(--mute);font-variant-numeric:tabular-nums}.tr .tp.t1{color:var(--acc)}
@@ -734,7 +734,7 @@ textarea.field{min-height:110px;resize:none}
       <div><span data-t="sEv"></span><b id="sEv">0</b></div>
       <div><span data-t="sEvL"></span><b id="sEvL">0</b></div>
     </div>
-    <p class="ver">Vibe Tycoon · v0.42</p>
+    <p class="ver">Vibe Tycoon · v0.43</p>
   </section>
   <section class="scr" id="s-career">
     <div class="sh"><h3 data-t="careerT"></h3></div>
@@ -1090,8 +1090,9 @@ const caseRel=c=>(c.pool||MODELS).filter(m=>c.grow?c.grow.includes(m.r):c.odds[m
 const casePriceFull=c=>{const own=caseRel(c).filter(m=>S.owned[m.id]);const ex=own.length+BAL.caseLvW*own.reduce((a,m)=>a+S.owned[m.id].lvl-1,0);return round2(c.price*Math.pow(BAL.caseG,ex));};
 const casePrice=c=>casePriceFull(c)*(fxOn('sale')?.5:1)*(perkOn('deepseek')?.85:1);
 
-const SUF=['','K','M','B','T','Qa','Qi','Sx','Sp','Oc','No','Dc'];
-function fmt(n){if(!isFinite(n))return '∞';if(n<1000)return n<10?String(+n.toFixed(1)):Math.floor(n).toString();const e=Math.min(SUF.length-1,Math.floor(Math.log10(n)/3)),v=n/Math.pow(1000,e);return (+(v<10?v.toFixed(2):v<100?v.toFixed(1):Math.floor(v)))+SUF[e];}
+const SUF=['','K','M','B','T','Qa','Qi','Sx','Sp','Oc','No','Dc','Ud','Dd','Td','Qd','Qn','Sd','Spd','Od','Nd','Vg'];
+const sufOf=e=>e<SUF.length?SUF[e]:(i=>String.fromCharCode(97+Math.floor(i/26)%26)+String.fromCharCode(97+i%26))(e-SUF.length);
+function fmt(n){if(!isFinite(n))return '∞';if(n<1000)return n<10?String(+n.toFixed(1)):Math.floor(n).toString();const e=Math.floor(Math.log10(n)/3),v=n/Math.pow(10,3*e);return (+(v<10?v.toFixed(2):v<100?v.toFixed(1):Math.floor(v)))+sufOf(e);}
 const fx=n=>'×'+(+n.toFixed(2));
 const dur=s=>s<3600?Math.max(1,Math.floor(s/60))+' '+t('min'):s<86400?(s/3600).toFixed(1)+' '+t('h'):Math.floor(s/86400)+' '+t('d');
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -1498,7 +1499,7 @@ function renderProf(){
 }
 function openProf(){
   everSync();const P=PR(),n=myName(),gi=gradeIdx(S.xp);S.ach=S.ach||{};
-  const avs=[''].concat(MODELS.filter(m=>S.ever[m.id]).map(m=>m.id).sort((x,y)=>RORD.indexOf(MB[y].r)-RORD.indexOf(MB[x].r)));
+  const seenF={},avs=[''].concat(MODELS.filter(m=>S.ever[m.id]).sort((x,y)=>RORD.indexOf(y.r)-RORD.indexOf(x.r)).filter(m=>m.id===P.a||(!seenF[m.f]&&(seenF[m.f]=1))).map(m=>m.id));
   const pres=[''].concat(GRADES.slice(0,gi+1).map((g,i)=>'g'+i)).concat(Object.keys(PRE).filter(k=>S.ach[k]).map(k=>'a:'+k));
   const bds=ACH.filter(a=>S.ach[a[0]]).map(a=>a[0]);
   const draw=()=>{
