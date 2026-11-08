@@ -734,7 +734,7 @@ textarea.field{min-height:110px;resize:none}
       <div><span data-t="sEv"></span><b id="sEv">0</b></div>
       <div><span data-t="sEvL"></span><b id="sEvL">0</b></div>
     </div>
-    <p class="ver">Vibe Tycoon · v0.49</p>
+    <p class="ver">Vibe Tycoon · v0.50</p>
   </section>
   <section class="scr" id="s-career">
     <div class="sh"><h3 data-t="careerT"></h3></div>
@@ -1880,7 +1880,6 @@ const MG={
  memleak:{i:'tabs',dur:12,n:['Утечка памяти','Memory leak'],r:['Закрывай вкладки, пока память не кончилась. Продержись 12 секунд.','Close tabs before memory runs out. Survive 12 seconds.'],survive:1},
  merge:{i:'merge',dur:15,n:['Мерж-конфликт','Merge conflict'],r:['Найди строку, которая совпадает с верхней. 5 раундов.','Find the line that matches the top one. 5 rounds.']},
  leak:{i:'key',dur:12,n:['Утёк API-ключ','API key leaked'],r:['Найди утёкший ключ среди замков. 3 раунда.','Find the leaked key among the locks. 3 rounds.']},
- review:{i:'bug',dur:22,n:['Код-ревью перед релизом','Pre-release code review'],r:['В одной строке баг. Найди её. 3 ошибки — провал.','One line has a bug. Find it. 3 mistakes and you fail.']},
  ddos:{i:'shield',dur:14,n:['DDoS-атака','DDoS attack'],r:['Тапай пакеты, пока они не долетели до сервера. Пропустишь 3 — сервер ляжет.','Tap the packets before they reach the server. Miss 3 and it goes down.'],survive:1},
  cmd:{i:'tap',dur:24,n:['Горит дедлайн','Deadline on fire'],r:['Собери команду из кусочков по порядку. Лишние кусочки — ловушка.','Build the command from pieces in order. Extra pieces are traps.']},
  cache:{i:'layers',dur:30,n:['Кэш развалился','Cache is broken'],r:['Запомни карточки и найди все пары. Ходов ограниченно.','Memorize the cards and find all pairs. Moves are limited.']},
@@ -2000,37 +1999,6 @@ const GAMES={
     A.querySelectorAll('.opt').forEach(b=>b.onpointerdown=ev=>{ev.preventDefault();if(b.dataset.ok==='1'){haptic('medium');r++;if(r>=5)end(true);else round();}else shake(b);});};
   round();
  },
- review(A,st,end){
-  // Код-ревью: найди строку с багом
-  const T=mgTier(),R=4+(T>=3?1:0);let r=0,mis=0;
-  const P=[
-   ['const total = items.length;','const total = items.lenght;'],['if (user && user.id) {','if (user && user.id) {{'],['return res.json(data);','return res.josn(data);'],
-   ['await db.save(order);','await db.save(order)'],['for (let i = 0; i < n; i++) {','for (let i = 0; i < n; i--) {'],['const sum = a + b;','const sum = a + b +;'],
-   ['import React from "react";','import React form "react";'],['let price = 100;','let price = "100" - ;'],['console.log(result);','consle.log(result);'],
-   ['export default App;','export defualt App;'],['const ok = x === 1;','const ok = x = 1;'],['fetch(url).then(r => r.json())','fetch(url).then(r => r.json)'],
-   ['git commit -m "fix"','git comit -m "fix"'],['npm install axios','npm instal axios'],['res.status(200).send();','res.status(200).sned();'],['while (queue.length) {','while (queue.length) {;'],
-  ];
-  const tr=(a,b)=>[a,b][L()];
-  const round=()=>{const n=4+Math.min(1,T);const pick=P.slice().sort(()=>Math.random()-.5).slice(0,n);const bad=Math.floor(Math.random()*n);
-    A.className='mga rev';A.innerHTML=pick.map((p,i)=>`<button class="cl" data-b="${i===bad?1:0}"><i>${i+1}</i>${esc(i===bad?p[1]:p[0])}</button>`).join('');
-    st(`${tr('Раунд','Round')} <b>${r+1}/${R}</b> · ${tr('ошибки','mistakes')} <b>${mis}/3</b>`);
-    A.querySelectorAll('.cl').forEach(b=>b.onpointerdown=ev=>{ev.preventDefault();if(b.dataset.b==='1'){haptic('medium');r++;if(r>=R)end(true);else round();}else{mis++;shake(b);st(`${tr('Раунд','Round')} <b>${r+1}/${R}</b> · ${tr('ошибки','mistakes')} <b>${mis}/3</b>`);if(mis>=3)end(false);}});};
-  round();
- },
- ddos(A,st,end){
-  // DDoS: тапай пакеты, пока они не долетели до сервера
-  const T=mgTier();let hp=3,run=true,blocked=0;const tr=(a,b)=>[a,b][L()];
-  A.className='mga ddos';A.innerHTML=`<div class="core">${I('server')}</div>`;
-  const W=A.clientWidth,H=A.clientHeight,cx=W/2-22,cy=H/2-22;
-  const upd=()=>st(`${tr('Сервер','Server')}: <b>${'■'.repeat(hp)}${'□'.repeat(3-hp)}</b> · ${tr('отбито','blocked')} <b>${blocked}</b>`);upd();
-  const spawn=()=>{if(!run)return;const p=document.createElement('button');p.className='pk';p.innerHTML=I(Math.random()<.5?'bolt':'globe');
-    const side=Math.floor(Math.random()*4),x=side===0?0:side===1?W-44:Math.random()*(W-44),y=side===2?0:side===3?H-44:Math.random()*(H-44);
-    p.style.left=x+'px';p.style.top=y+'px';const t=Math.max(1700,3000-T*300-Math.random()*500);p.style.transition=`transform ${t}ms linear`;A.appendChild(p);
-    requestAnimationFrame(()=>requestAnimationFrame(()=>{p.style.transform=`translate(${cx-x}px,${cy-y}px)`;}));
-    const hit=setTimeout(()=>{if(!p.parentNode||!run)return;p.remove();hp--;shake(A);upd();if(hp<=0)end(false);},t);
-    p.onpointerdown=ev=>{ev.preventDefault();clearTimeout(hit);p.classList.add('hit');setTimeout(()=>p.remove(),150);blocked++;haptic('light');upd();};};
-  spawn();const iv=setInterval(spawn,Math.max(420,720-T*80));return ()=>{run=false;clearInterval(iv);};
- },
  cmd(A,st,end){
   // Горит дедлайн: собери команду из кусочков в правильном порядке
   const T=mgTier(),tr=(a,b)=>[a,b][L()];
@@ -2039,12 +2007,10 @@ const GAMES={
   const decoys=['--force','sudo','rm','-rf','pull','test','yarn','origin','dev','.env'];
   const round=()=>{const c=q[r];pos=0;const toks=[...c,...decoys.filter(d=>!c.includes(d)).sort(()=>Math.random()-.5).slice(0,T)].sort(()=>Math.random()-.5);
     A.className='mga cmd';A.innerHTML=`<div class="cmdt">$ <span id="cmdo"></span><span class="cur"></span></div><div class="cmdg">${toks.map(x=>`<button class="tk">${esc(x)}</button>`).join('')}</div><div class="cmdh">${tr('Нужно','Target')}: <code>${esc(c.join(' '))}</code></div>`;
-    if(T>=3)A.querySelector('.cmdh').style.visibility='hidden';
     const s=()=>st(`${tr('Команда','Command')} <b>${r+1}/${R}</b> · ${tr('ошибки','mistakes')} <b>${mis}/4</b>`);s();
     A.querySelectorAll('.tk').forEach(b=>b.onpointerdown=ev=>{ev.preventDefault();if(b.disabled)return;
       if(b.textContent===c[pos]){b.disabled=true;$('cmdo').textContent+=(pos?' ':'')+c[pos];pos++;haptic('light');if(pos>=c.length){r++;if(r>=R)end(true);else setTimeout(round,250);}}
-      else{mis++;shake(b);s();if(mis>=4)end(false);}});
-    if(T>=3){const h=A.querySelector('.cmdh');h.style.visibility='visible';setTimeout(()=>{if(h.isConnected)h.style.visibility='hidden';},2200);}};
+      else{mis++;shake(b);s();if(mis>=4)end(false);}});};
   round();
  },
  cache(A,st,end){
