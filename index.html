@@ -404,14 +404,12 @@ html,body,button,a{touch-action:manipulation}button{-webkit-tap-highlight-color:
 .ver{margin-top:16px;font-size:12px;color:#b3b8c1;text-align:center}
 
 /* nav */
-.nav{position:fixed;left:0;right:0;margin:0 auto;width:max-content;bottom:calc(12px + var(--sb));z-index:30;display:flex;gap:1px;background:#fff;border-radius:999px;padding:5px;box-shadow:0 10px 30px -8px rgba(14,15,18,.25),0 0 0 1px rgba(14,15,18,.05);max-width:calc(100% - 20px)}
-.nav button{display:flex;align-items:center;gap:6px;padding:11px 12px;border-radius:999px;font-size:13.5px;font-weight:700;color:#0e0f12;position:relative;white-space:nowrap;transition:background .2s,color .2s}
+.nav{position:fixed;left:0;right:0;margin:0 auto;width:calc(100% - 20px);max-width:440px;box-sizing:border-box;bottom:calc(12px + var(--sb));z-index:30;display:flex;gap:2px;background:#fff;border-radius:999px;padding:5px;box-shadow:0 10px 30px -8px rgba(14,15,18,.25),0 0 0 1px rgba(14,15,18,.05);overflow:hidden}
+.nav button{flex:1 1 0;min-width:0;display:flex;align-items:center;justify-content:center;gap:6px;padding:11px 0;border-radius:999px;font-size:13.5px;font-weight:700;color:#0e0f12;position:relative;white-space:nowrap;transition:background .2s,color .2s}
 .nav button svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
-.nav button .lb{max-width:0;overflow:hidden;transition:max-width .25s ease}
-.nav button.on{background:var(--acc);color:var(--accfg);padding-right:14px}
+.nav button .lb{max-width:0;min-width:0;overflow:hidden;text-overflow:ellipsis;transition:max-width .25s ease}
+.nav button.on{flex:0 1 auto;background:var(--acc);color:var(--accfg);padding:11px 14px 11px 12px}
 .nav button.on .lb{max-width:110px}
-@media(max-width:380px){.nav button{padding:10px 9px}.nav button.on{padding-right:11px}}
-@media(max-width:350px){.nav button{padding:10px 7px}.nav button.on{padding-right:9px}}
 .dot{position:absolute;top:6px;right:7px;width:8px;height:8px;border-radius:50%;background:var(--red);border:2px solid #fff;display:none}
 .dot.show{display:block}
 
@@ -736,7 +734,7 @@ textarea.field{min-height:110px;resize:none}
       <div><span data-t="sEv"></span><b id="sEv">0</b></div>
       <div><span data-t="sEvL"></span><b id="sEvL">0</b></div>
     </div>
-    <p class="ver">Vibe Tycoon · v0.45</p>
+    <p class="ver">Vibe Tycoon · v0.46</p>
   </section>
   <section class="scr" id="s-career">
     <div class="sh"><h3 data-t="careerT"></h3></div>
@@ -1137,17 +1135,24 @@ const caseImg=c=>`<img src="${c.img}.webp" alt="" draggable="false"${c.hue?` sty
 
 /* ================= ASSIGN ================= */
 function autoAssign(){
-  const slots=openSlots();
-  const w=s=>s==='terminal'?tapBase(S.tu.pow||0)*G()*3:baseInc(PB[s]);
-  slots.sort((a,b)=>w(b)-w(a));
-  const ns={},used=new Set();
-  slots.forEach(s=>{let best=null,bg=0;Object.keys(S.owned).forEach(id=>{if(used.has(id))return;const g=gainOf(id,s);if(g>bg){bg=g;best=id;}});if(best){ns[s]=best;used.add(best);}});
-  const val=sl=>Object.entries(sl).reduce((a,[k,id])=>a+w(k)*(power(id,k)*SETM(Object.values(sl).filter(x=>MB[x].b&&MB[x].b===MB[id].b).length)-1),0);
-  let cur=ns,cv=val(cur);const ids=Object.keys(S.owned);
-  for(let it=0;it<4;it++){let imp=false;
-    for(const k of slots)for(const id of ids){if(cur[k]===id)continue;const tt={...cur};Object.keys(tt).forEach(x=>{if(tt[x]===id)delete tt[x];});tt[k]=id;const v=val(tt);if(v>cv+1e-9){cur=tt;cv=v;imp=true;}}
+  // цель — реальный доход: проекты + тапы (по устойчивой скорости токенов), с сетами и умениями семейств
+  const slots=openSlots(),keep=S.slots;
+  const score=sl=>{S.slots=sl;const v=income()+tapVal()*Math.min(4,tokOf(sl.terminal).reg);return v;};
+  // кандидаты: 30 сильнейших + до 5 лучших каждого семейства (ради сетов)
+  const pw=id=>power(id,null),all=Object.keys(S.owned).sort((a,b)=>pw(b)-pw(a)),cand=new Set(all.slice(0,30));
+  const byB={};all.forEach(id=>{const b=MB[id].b;if(b&&(byB[b]=byB[b]||[]).length<5){byB[b].push(id);cand.add(id);}});
+  const ids=[...cand];
+  // старт: жадно, самые доходные слоты получают самые сильные модели
+  const w=s=>s==='terminal'?tapVal()*Math.min(4,tokOf(null).reg):baseInc(PB[s]);
+  S.slots={};const order=slots.slice().sort((a,b)=>w(b)-w(a)),used=new Set();let cur={};
+  order.forEach(s=>{let best=null,bg=-1;ids.forEach(id=>{if(used.has(id))return;const g=w(s)*(power(id,s)-1);if(g>bg){bg=g;best=id;}});if(best){cur[s]=best;used.add(best);}});
+  let cv=score(cur);
+  // улучшаем: перестановки и замены, пока растёт доход
+  for(let it=0;it<8;it++){let imp=false;
+    for(const k of slots)for(const id of ids){if(cur[k]===id)continue;const t={...cur},from=Object.keys(t).find(x=>t[x]===id),prev=t[k];t[k]=id;if(from){if(prev)t[from]=prev;else delete t[from];}
+      const v=score(t);if(v>cv*(1+1e-9)){cur=t;cv=v;imp=true;}}
     if(!imp)break;}
-  S.slots=cur;
+  S.slots=keep;S.slots=cur;
 }
 function assign(slot,id){
   S.auto=false;
