@@ -178,6 +178,7 @@ button *{pointer-events:none}
 .card .rr{font-size:11.5px;font-weight:700;margin-top:2px;opacity:.8}
 .card.sm .nm{font-size:12px}.card.sm .meta{padding:0 9px 9px}.card.sm .rr{font-size:10.5px}
 .card::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--k);z-index:6}
+.card .badge.sh{background:#0e0f12;color:#fff}
 .card .badge{position:absolute;top:9px;left:9px;z-index:7;max-width:calc(100% - 18px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:10.5px;font-weight:800;border-radius:999px;padding:3px 8px;background:rgba(255,255,255,.8);backdrop-filter:blur(6px)}
 .card .badge.new{background:var(--acc);color:var(--accfg)}
 .card .pct{position:absolute;top:9px;right:9px;z-index:7;font-size:10.5px;font-weight:800;background:rgba(255,255,255,.8);border-radius:999px;padding:3px 7px}
@@ -276,6 +277,13 @@ button *{pointer-events:none}
 .cteam{background:linear-gradient(160deg,#ecfdf7,#b9f0de)}
 .cent{background:linear-gradient(160deg,#2a2c33,#0e0f12)}.cent .meta b{color:#fff}.cent .price{background:rgba(255,255,255,.14);color:#fff}
 .cfront{background:linear-gradient(160deg,#ffe6f4,#e5d8ff)}
+.cstudio{background:linear-gradient(160deg,#fffbe6,#ffe9a8)}
+.ceast{background:linear-gradient(160deg,#fff0ee,#ffc9c2)}
+.cleak{background:linear-gradient(160deg,#24332f,#0b1210)}.cleak .meta b{color:#fff}.cleak .price{background:rgba(182,255,0,.16);color:#d8ff8a}
+.qrow .qi img{width:44px;height:44px;display:block}.qrow.ach .qi{background:none!important}.qrow.ach.lock .qi img{filter:grayscale(1);opacity:.45}
+.fpk{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}.fpk button{border-radius:18px;padding:10px;display:flex;flex-direction:column;align-items:center;gap:4px;font-weight:800;font-size:14px;color:#0e0f12}.fpk button img{width:72px;height:72px}.fpk .cent b,.fpk .cleak b{color:#fff}
+.perk{flex:0 0 100%;font-size:12px;font-weight:600;color:var(--mute)}.perk.on{color:var(--accTxt)}
+.shb{display:flex;justify-content:space-between;gap:8px;font-size:13px;font-weight:700;margin:2px 2px 8px;color:var(--ink)}.shb span{color:var(--mute);font-weight:600}
 .free-t{position:relative;overflow:hidden;display:flex;align-items:center;gap:12px;background:var(--accSoft);border-radius:22px;padding:12px 14px;margin-top:4px;width:100%;text-align:left}
 .free-t .fi{width:52px;height:52px;flex:0 0 52px}.free-t .fi img{width:100%;height:100%;object-fit:contain}
 .free-t b{display:block;font-weight:800}.free-t small{font-size:12.5px;color:#4b5a86}
@@ -348,6 +356,21 @@ button *{pointer-events:none}
 .topc .n{font-size:24px;font-weight:900;color:var(--accTxt);min-width:40px}
 .topc b{display:block;font-weight:800}.topc small{font-size:12.5px;color:var(--mute)}
 .topc .th{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}.topc h4{margin:0;font-size:15px;font-weight:800}
+.pfc{background:var(--surf);border-radius:24px;padding:14px;display:flex;align-items:center;gap:12px}
+.pav{width:52px;height:52px;flex:none;border-radius:16px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px;color:#fff;background:linear-gradient(135deg,#ff7ac6,#9b5cff);overflow:hidden;box-shadow:0 0 0 2.5px var(--k,transparent)}
+.pav img{width:100%;height:100%;object-fit:cover}
+.pfw{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}.pfw .pn{font-weight:900;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.pfw .pp{font-size:12.5px;font-weight:800;color:var(--accTxt)}
+.pbd{display:flex;gap:4px;flex-wrap:wrap}.pbd img{width:24px;height:24px}
+.pfc .pfe{flex:none;padding:10px 14px;min-height:44px;border-radius:999px;background:var(--acc);color:var(--accfg);font-weight:800;font-size:13.5px}
+.tr .ta{overflow:hidden}.tr .ta img{width:100%;height:100%;object-fit:cover}.tr .ta.tam{width:28px;height:28px;min-width:28px;flex:none;border-radius:9px;box-shadow:0 0 0 1.5px var(--k)}
+.tr .tpre{display:block;font-size:10.5px;font-weight:800;color:var(--accTxt);line-height:1.1}.tr .tbd{display:inline-flex;gap:2px;vertical-align:middle;margin-left:4px}.tr .tbd img{width:16px;height:16px}
+.pe-h{font-size:14px;font-weight:800;margin:16px 0 8px;display:flex;justify-content:space-between}.pe-h small{color:var(--mute);font-weight:700}
+.pe-av{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px;max-height:212px;overflow:auto;padding:3px}
+.pe-av button{aspect-ratio:1;border-radius:13px;overflow:hidden;padding:0;display:flex;align-items:center;justify-content:center;background:var(--surf2);box-shadow:0 0 0 2px var(--k,transparent);font-weight:900;color:#fff}
+.pe-av button.lt{background:linear-gradient(135deg,#ff7ac6,#9b5cff)}.pe-av button img{width:100%;height:100%;object-fit:cover}.pe-av button.on{box-shadow:0 0 0 3px var(--ink)}
+.pe-pr{display:flex;flex-wrap:wrap;gap:6px}.pe-pr button{padding:9px 12px;min-height:38px;border-radius:999px;background:var(--surf2);font-weight:700;font-size:13px;color:var(--ink)}.pe-pr button.on{background:var(--acc);color:var(--accfg)}
+.pe-bd{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}.pe-bd button{aspect-ratio:1;border-radius:14px;background:var(--surf2);padding:6px;display:flex;align-items:center;justify-content:center}.pe-bd button img{width:100%;height:100%}.pe-bd button.on{box-shadow:inset 0 0 0 2.5px var(--acc);background:var(--tapbg)}
+.pe-note{font-size:12.5px;color:var(--mute);margin-top:6px}
 .tl{margin-top:12px}.tr{display:flex;align-items:center;gap:10px;padding:8px 6px;border-top:1px solid var(--line)}.tr.me{background:var(--tapbg);border-radius:12px;border-top-color:transparent}.tr.me+.tr{border-top-color:transparent}
 .tr .tp{width:26px;font-weight:800;font-size:13px;color:var(--mute);font-variant-numeric:tabular-nums}.tr .tp.t1{color:var(--acc)}
 .tr .ta{width:28px;height:28px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;background:var(--surf2);color:var(--ink)}
@@ -445,7 +468,7 @@ html,body,button,a{touch-action:manipulation}button{-webkit-tap-highlight-color:
 .setc img{width:22px;height:22px;border-radius:7px}
 .setc em{font-style:normal;color:var(--ok)}
 .synb{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:999px;background:var(--acc);color:var(--accfg);font-weight:800;font-size:13.5px}
-.srow{display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid #efeaf8}
+.srow{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding:10px 0;border-top:1px solid #efeaf8}
 .srow:first-of-type{border-top:0}
 .srow .sn{flex:0 0 86px;font-weight:800;font-size:13.5px}
 .srow .sn small{display:block;font-size:11px;color:var(--mute);font-weight:600}
@@ -711,10 +734,11 @@ textarea.field{min-height:110px;resize:none}
       <div><span data-t="sEv"></span><b id="sEv">0</b></div>
       <div><span data-t="sEvL"></span><b id="sEvL">0</b></div>
     </div>
-    <p class="ver">Vibe Tycoon · v0.40</p>
+    <p class="ver">Vibe Tycoon · v0.42</p>
   </section>
   <section class="scr" id="s-career">
     <div class="sh"><h3 data-t="careerT"></h3></div>
+    <div class="pfc"><div class="pav" id="pfAva"></div><div class="pfw"><span class="pp" id="pfPre"></span><span class="pn" id="pfName"></span><div class="pbd" id="pfBd"></div></div><button class="pfe" id="pfEdit" data-t="pfEdit"></button></div>
     <div class="grade"><div class="r1"><div class="gi" id="gIco"></div><div><small data-t="grade"></small><b id="gName"></b><small id="gXp"></small></div></div><div class="ladder" id="ladder"></div></div>
     <div class="burnc">
       <h4><span class="bi" id="burnI2"></span><span data-t="burn"></span></h4>
@@ -830,16 +854,15 @@ const BAL={
  tapG:1.36, tu:{pow:[10,1.7,50],lim:[40,1.75,20],reg:[60,1.9,10],crit:[150,1.95,15]}, powCap0:25, powCapB:5, tapGap:50, critStep:0.02, critMul:5, promptBonus:5,
  tok:{none:[30,.5],c:[50,.6],r:[80,.75],e:[120,.9],l:[180,1.05],m:[300,1.2]}, tokStep:0.15, tokLvl:0.1, regStep:0.04, tokRegLvl:0.03,
  cases:[
-  {id:'free',price:150,odds:{c:70,r:25,e:5,l:0,m:0},grow:['c','r'],
-   pool:['gpt35','haiku','gflash','bard','gemma','llama2','msmall','qwen25','glite','phi3','copilot','whisper','cmdr','aider','llama3','mixtral','lechat','qcoder','gigapro','saudio','dsr1','llama4']},
-  {id:'pro',price:3e4,odds:{c:35,r:43,e:17,l:5,m:0},grow:['r','e'],
-   pool:['gpt35','haiku','gflash','copilot','phi3','aider','gpt4o','gpro','dsv3','grok2','llama3','mixtral','lechat','qcoder','ctab','gigapro','windsurf','bolt','sdxl','pplx','eleven','saudio','sonnet','cpro','cline','kimi','banana','grok3','mlarge','grokh','codex']},
-  {id:'team',price:4.5e8,odds:{c:0,r:42,e:40,l:15,m:3},grow:['e','l'],
-   pool:['gpt4o','gpro','ctab','windsurf','bolt','pplx','eleven','sdxl','o1','sonnet','banana','dsr1','grok3','llama4','mlarge','cpro','mj','lovable','replit','cline','suno','kimi','opus','devin','sora','codex','gdeep']},
-  {id:'ent',price:1.5e10,odds:{c:0,r:0,e:60,l:32,m:8},grow:['l','m'],
-   pool:['o1','sonnet','replit','lovable','mj','suno','dsr1','o3','opus','gultra','grokh','devin','sora','codex','gpt5','mythos']},
-  {id:'front',price:8e12,need:'startup',odds:{c:0,r:0,e:45,l:40,m:15},grow:['l','m'],
-   pool:['o1','sonnet','kimi','dsr1','o3','opus','gultra','codex','gpt5','mythos','gdeep']}],
+  {id:'free',price:150,odds:{c:70,r:25,e:5,l:0,m:0},grow:['c','r'],pool:['bard','gemma','llama2','phi3','msmall','cmdr','llama3','mixtral','falcon','llama4']},
+  {id:'pro',price:3e4,odds:{c:40,r:45,e:15,l:0,m:0},grow:['r','e'],pool:['gpt35','haiku','gflash','glite','gpt4o','lechat','pplx','grok2','mettai','sonnet']},
+  {id:'team',price:4.5e8,odds:{c:12,r:40,e:36,l:12,m:0},grow:['e','l'],pool:['aider','copilot','ctab','windsurf','bolt','cpro','cline','replit','lovable','kcomp','devin','kagent']},
+  {id:'studio',price:3e9,odds:{c:8,r:40,e:37,l:15,m:0},grow:['e','l'],pool:['whisper','sdxl','saudio','eleven','ideogram','kandinsky','banana','mj','suno','runway','sd35','sora','veo','svideo']},
+  {id:'ent',price:1.5e10,odds:{c:0,r:25,e:45,l:30,m:0},grow:['e','l'],pool:['gpro','gigapro','embed','o1','mlarge','watsonx','opus','o3','gultra','codex','gigamax','magistral']},
+  {id:'east',price:4e11,odds:{c:6,r:40,e:36,l:18,m:0},grow:['e','l'],pool:['qwen25','dsv3','qcoder','hunyuan','minimax','qvl','dscoder','dsr1','kimi','glm','qmax','dsr2']},
+  {id:'front',price:8e12,need:'startup',odds:{c:0,r:0,e:45,l:40,m:15},grow:['l','m'],pool:['grok3','g3pro','grokh','behemoth','gpt5','mythos','gdeep','grok5']},
+  {id:'leak',price:2e14,needB:3,odds:{c:0,r:0,e:35,l:40,m:25},grow:['l','m'],pool:['qstar','strawberri','orion','agi','skynett','gpt6']}],
+ pity:8, shard:{c:1,r:2,e:4,l:8,m:16}, shCost:{c:12,r:24,e:48,l:96,m:192}, poolB:0.03, perkN:3, freePick:['free','pro','team','studio','ent'],
  weekPrice:4.5e6, caseG:1.15, caseLvW:0.5, caseRelMin:5, freeCD:2400, freeCase:'team',
  ev:{win:300,lose:60,ignore:30,every:300},
  burnReq:[[7,8e14],[8,2e16],[8,2e17]], burnG:8, xpK:5, xpPct:0.05,
@@ -847,7 +870,7 @@ const BAL={
  daily:[{t:'money',m:5},{t:'case',c:'free',n:1},{t:'money',m:15},{t:'case',c:'pro',n:1},{t:'money',m:30},{t:'case',c:'pro',n:2},{t:'epic'}],
  qrew:[{t:'case',c:'free',n:1},{t:'money',m:15},{t:'case',c:'pro',n:1}], qbonus:{t:'case',c:'team',n:1}, minFloor:4,
 };/*END BAL*/
-const BALV=5;
+const BALV=6;
 const RORD=['c','r','e','l','m'];
 const RMUL=BAL.rmul;
 const RN={ru:{c:'Обычная',r:'Редкая',e:'Эпическая',l:'Легендарная',m:'Мифическая'},en:{c:'Common',r:'Rare',e:'Epic',l:'Legendary',m:'Mythic'}};
@@ -868,12 +891,20 @@ const MODELS=[
  ['windsurf','Windserf','windsurf','r','',['code','front']],['bolt','Bolt.nyet','bolt-new','r','',['front','mobile']],['sdxl','Stabl Diffuzion XL','stable-diffusion','r','XL',['design']],['pplx','Perplexxity','perplexity','r','',['bots','back']],['eleven','Elevn Lebs','elevenlabs','r','',['media']],['saudio','Stabl Audio','stable-audio','r','',['media']],
  ['mj','Midjorney v7','midjourney','e','v7',['design','front']],['lovable','Lovabel','lovable','e','',['front','design','mobile']],['replit','Replitt Agent','replit-agent','e','',['front','back','mobile']],['cline','Klain','cline','e','',['code']],['suno','Soono v5','suno','e','v5',['media']],['kimi','Kimee K2','kimi','e','K2',['code','ml']],
  ['devin','Devvin','devin','l','',['code','back','mobile']],['sora','Sorra 2','sora','l','2',['media','design']],['codex','Kodexx','codex','l','',['code','back']],
+ ['falcon','Falkon 40B','falcon','r','40B',['ml','back']],['mettai','Mett AI','meta-ai','r','',['bots','media']],
+ ['kagent','Kursor Agent','cursor','l','Agent',['code','front','back','mobile']],['kcomp','Kursor Composer','cursor','e','Composer',['code','front']],
+ ['ideogram','Ideogramm','ideogram','r','',['design']],['kandinsky','Kandinskiy','kandinsky','r','',['design','media']],['runway','Runwai Gen-4','runway','e','Gen-4',['media','design']],['sd35','Stabl Diffuzion 3.5','stable-diffusion','e','3.5',['design','front']],['veo','Vio 4','veo','l','4',['media','design','front']],['svideo','Stabl Video','stable-video','l','',['media','design']],
+ ['embed','Kohere Embed','cohere','r','Embed',['back','ml']],['watsonx','Wotson X','watsonx','e','X',['back','bots']],['gigamax','GigaChad Max','gigachat','l','Max',['bots','back','ml']],['magistral','Magistrall','mistral','l','',['back','code','ml']],
+ ['hunyuan','Hunyuann','hunyuan','r','',['media','bots']],['minimax','MiniMaxx','minimax','r','',['media','front']],['qvl','Kwen VL','qwen','r','VL',['design','ml']],['dscoder','DeepSik Coder','deepseek','r','Coder',['code','back']],['glm','GLAM 4.5','zhipu','e','4.5',['code','bots']],['qmax','Kwen Max','qwen','l','Max',['code','ml','back','front']],['dsr2','DeepSik R2','deepseek','l','R2',['ml','back','code']],
+ ['g3pro','Gemenai 3 Pro','gemini','e','3 Pro',['front','ml','mobile']],['behemoth','Lamba Behemoth','llama','l','Behemoth',['ml','bots','back']],['grok5','Grokk 5','grok','m','5',['bots','ml','media','back']],
+ ['qstar','Q-Star','q-star','e','',['ml','code']],['strawberri','Strawberri','strawberri','l','',['ml','code','back']],['orion','Orion','orion','l','',['ml','front','back']],['agi','AGI Preview','agi-preview','m','',['code','front','back','ml','mobile']],['skynett','Skynett','skynett','m','',['ml','bots','media','back']],['gpt6','ChadGPT 6 leak','gpt','m','6',['code','front','back','bots','ml','design']],
 ].map(([id,name,f,r,v,s])=>({id,name,f,r,v,s}));
-const BRAND={gpt:'openai','openai-o-series':'openai',sora:'openai',codex:'openai',whisper:'openai',claude:'anthropic',gemini:'google',bard:'google',gemma:'google','nano-banana':'google',llama:'meta',mistral:'mistral',mixtral:'mistral','le-chat':'mistral',deepseek:'deepseek',grok:'xai',qwen:'alibaba',cursor:'cursor',gigachat:'sber','stable-diffusion':'stability','stable-audio':'stability'};
+const BRAND={gpt:'openai','openai-o-series':'openai',sora:'openai',codex:'openai',whisper:'openai',claude:'anthropic',gemini:'google',bard:'google',gemma:'google','nano-banana':'google',llama:'meta',mistral:'mistral',mixtral:'mistral','le-chat':'mistral',deepseek:'deepseek',grok:'xai',qwen:'alibaba',cursor:'cursor',gigachat:'sber','stable-diffusion':'stability','stable-audio':'stability','meta-ai':'meta',kandinsky:'sber','stable-video':'stability',veo:'google','q-star':'openai',strawberri:'openai',orion:'openai'};
 const BRN={openai:['ChadGPT','gpt'],anthropic:['Clawd','claude'],google:['Gemenai','gemini'],meta:['Lamba','llama'],mistral:['Mistrall','mistral'],deepseek:['DeepSik','deepseek'],xai:['Grokk','grok'],alibaba:['Kwen','qwen'],cursor:['Kursor','cursor'],sber:['GigaChad','gigachat'],stability:['Stabl','stable-diffusion']};
 MODELS.forEach(m=>m.b=BRAND[m.f]||null);
 const MB=Object.fromEntries(MODELS.map(m=>[m.id,m]));
 const SETM=n=>BAL.setm[Math.min(n,BAL.setm.length-1)];
+const PERKS={openai:['Тапы +25%, крит +5%','Taps +25%, crit +5%'],anthropic:['Проекты с кодом и бэкендом +20%','Code and backend projects +20%'],google:['10% шанс редкости выше в кейсах','10% chance of a higher rarity in cases'],meta:['Офлайн-доход +50%','Offline income +50%'],mistral:['Прокачка проектов −10%','Project upgrades −10%'],deepseek:['Кейсы −15%','Cases −15%'],xai:['Награды событий ×1.5','Event rewards ×1.5'],alibaba:['Опыт за выгорание +25%','Burnout XP +25%'],cursor:['Реген токенов +30%','Token regen +30%'],sber:['Бонус команды ×2','Team bonus ×2'],stability:['Синтез: 30% шанс +1 уровень','Synthesis: 30% chance of +1 level']};
 
 const PROJECTS=[
  {id:'landing',e:'globe',cost:15,inc:0.4,tags:['front','design'],n:['Лендинг','Landing page']},
@@ -889,14 +920,17 @@ PROJECTS.forEach(p=>{const b=BAL.proj.find(x=>x.id===p.id);p.cost=b.cost;p.inc=b
 const PB=Object.fromEntries(PROJECTS.map(p=>[p.id,p]));
 
 const CASES=[
- {id:'free',img:'free-tier',price:100,cls:'cfree',col:['#f4f6fa','#cbd1dc','#a9b1bf','#8b93a3','#9aa1ad'],odds:{c:70,r:25,e:4.5,l:.5,m:0},n:['Free tier','Free tier'],d:['Все обычные, часть редких и пара эпиков. Легендарок нет.','All commons, some rares and a couple of epics. No legendaries.']},
- {id:'pro',img:'pro',price:2500,cls:'cpro',col:['#9db9ff','#3d6bff','#2147d6','#ffffff','#2b59ff'],odds:{c:35,r:42,e:17,l:5,m:1},n:['Pro подписка','Pro plan'],d:['Все редкие, часть эпиков и две легенды.','Every rare, some epics and two legendaries.']},
- {id:'team',img:'team',price:60000,cls:'cteam',col:['#98f2da','#19c29a','#0d8a6e','#ffd21f','#19c29a'],odds:{c:10,r:40,e:35,l:12,m:3},n:['Team','Team'],d:['Все эпики, четыре легенды и один миф.','Every epic, four legendaries and one mythic.']},
- {id:'ent',img:'enterprise',price:1.5e6,cls:'cent',col:['#55575f','#1d1e23','#0b0c0f','#ffb020','#ffb020'],odds:{c:0,r:25,e:45,l:24,m:6},n:['Enterprise','Enterprise'],d:['Все легендарные и два мифа. Позвоните в отдел продаж.','Every legendary and two mythics. Contact sales.']},
- {id:'front',img:'frontier-lab',price:4e7,cls:'cfront',need:'startup',col:['#ffd6f1','#ff6ac1','#9b5cff','#ffffff','#ff2d75'],odds:{c:0,r:0,e:50,l:38,m:12},n:['Frontier Lab','Frontier Lab'],d:['Все мифические. Только эпики и выше.','Every mythic. Epic and above only.']},
+ {id:'free',img:'free-tier',price:100,cls:'cfree',col:['#f4f6fa','#cbd1dc','#a9b1bf','#8b93a3','#9aa1ad'],odds:{c:70,r:25,e:4.5,l:.5,m:0},n:['Free tier','Free tier'],d:['Опенсорс-малыши.','Small open-source models.']},
+ {id:'pro',img:'pro',price:2500,cls:'cpro',col:['#9db9ff','#3d6bff','#2147d6','#ffffff','#2b59ff'],odds:{c:35,r:42,e:17,l:5,m:1},n:['Pro подписка','Pro plan'],d:['Чат-ассистенты.','Chat assistants.']},
+ {id:'team',img:'team',price:60000,cls:'cteam',col:['#98f2da','#19c29a','#0d8a6e','#ffd21f','#19c29a'],odds:{c:10,r:40,e:35,l:12,m:3},n:['Team','Team'],d:['Кодинг-агенты.','Coding agents.']},
+ {id:'studio',img:'studio',price:0,cls:'cstudio',col:['#fff3c4','#ffd23f','#f0a500','#ffffff','#ffb800'],odds:{},n:['Студия','Studio'],d:['Картинки, видео и звук.','Images, video and sound.']},
+ {id:'ent',img:'enterprise',price:1.5e6,cls:'cent',col:['#55575f','#1d1e23','#0b0c0f','#ffb020','#ffb020'],odds:{c:0,r:25,e:45,l:24,m:6},n:['Enterprise','Enterprise'],d:['Большие лаборатории. Позвоните в отдел продаж.','Big labs. Contact sales.']},
+ {id:'east',img:'east-release',price:0,cls:'ceast',col:['#ffd9d4','#ff5a4a','#c01818','#ffe0a0','#ff3b30'],odds:{},n:['Восточный релиз','East Release'],d:['Китайские лаборатории.','Chinese labs.']},
+ {id:'front',img:'frontier-lab',price:4e7,cls:'cfront',need:'startup',col:['#ffd6f1','#ff6ac1','#9b5cff','#ffffff','#ff2d75'],odds:{c:0,r:0,e:50,l:38,m:12},n:['Frontier Lab','Frontier Lab'],d:['Флагманы. Только эпики и выше.','Flagships. Epic and above only.']},
+ {id:'leak',img:'weights-leak',price:0,cls:'cleak',col:['#d8ff8a','#b6ff00','#1d3b33','#ffffff','#b6ff00'],odds:{},n:['Утечка весов','Weights Leak'],d:['Слухи и утечки. Только эпики и выше.','Rumours and leaks. Epic and above only.']},
 ];
 (function(){
-  const order=['anthropic','openai','google','xai','meta','mistral'];
+  const order=['anthropic','openai','google','xai','meta','mistral','deepseek','alibaba','cursor','sber','stability'];
   const dI=Math.floor((Date.now()-new Date().getTimezoneOffset()*60000)/864e5),wI=Math.floor((dI+3)/7),b=order[wI%order.length];
   const pool=MODELS.filter(m=>m.b===b),W={c:40,r:34,e:18,l:6.5,m:1.5},have=RORD.filter(r=>pool.some(m=>m.r===r)),tot=have.reduce((a,r)=>a+W[r],0),odds={};
   RORD.forEach(r=>odds[r]=have.includes(r)?+(W[r]/tot*100).toFixed(1):0);
@@ -905,7 +939,8 @@ const CASES=[
     n:[`${BRN[b][0]} · неделя`,`${BRN[b][0]} week`],d:[`Только модели ${BRN[b][0]}. Меняется через ${left} дн.`,`Only ${BRN[b][0]} models. Rotates in ${left} d.`]});
 })();
 const CB=Object.fromEntries(CASES.map(c=>[c.id,c]));
-BAL.cases.forEach(b=>{const c=CB[b.id];c.price=b.price;c.odds=b.odds;c.grow=b.grow;if(b.need)c.need=b.need;c.pool=b.pool.map(id=>MB[id]);});
+BAL.cases.forEach(b=>{const c=CB[b.id];c.price=b.price;c.odds=b.odds;c.grow=b.grow;if(b.need)c.need=b.need;if(b.needB)c.needB=b.needB;c.pool=b.pool.map(id=>MB[id]);});
+const POOLC=CASES.filter(c=>c.id!=='week');const CASEOF=Object.fromEntries(POOLC.flatMap(c=>c.pool.map(m=>[m.id,c])));
 const FREE_CASE=()=>CASES.find(c=>c.id===BAL.freeCase)||CASES[0];
 const FREE_CD=BAL.freeCD*1000, MAXLV=BAL.maxLv, OFFLINE_CAP=BAL.offCap, MILES=BAL.miles;
 const burnReq=(n=S.burns||0)=>{const L=BAL.burnReq.length,r=BAL.burnReq[Math.min(n,L-1)];return {p:r[0],m:r[1]*Math.pow(BAL.burnG,Math.max(0,n-L+1))};};
@@ -944,9 +979,9 @@ const T={
   projects:'Проекты',auto:'Авто-распределение',autoSub:'Одним нажатием расставит нейросети туда, где они дают больше всего денег.',autoGo:'Распределить',autoDone:'Нейросети переставлены · +$',autoSame:'Расстановка уже лучшая',lvl:'ур.',perS:'/с',addAi:'+ ИИ',noModel:'Нейросеть не стоит',buy:'Купить',
   burn:'Выгорание',burnDesc:'Уходишь в отпуск — и теряешь всё: деньги, проекты, нейросети, прокачку терминала. Но возвращаешься опытнее: каждый пункт опыта даёт +5% ко всему доходу навсегда. Первое выгорание — после 7 проектов, каждое следующее требует больше денег.',req1:'Открыто проектов',reqEarn:'Заработано за забег',gainXp:'к доходу навсегда',gainGrade:'грейд после выгорания',resets:'Сбросится',resetsT:'деньги, проекты, все нейросети, терминал',stays:'Останется',staysT:'опыт, грейд, скины терминала',burnGo:'Выгореть и начать заново',burnEarly:'Пока рано',burnLeftP:'ещё проектов: ',burnBanner:'Открой {p} проектов и заработай ${m} за забег. Сбросится всё, но опыт даст постоянный бонус к доходу.',burnReady:'Готово! Выгорание даст +{x} опыта. Нажми, чтобы перейти.',
   burnConfT:'Выгореть?',burnConfP:'Обнулится всё: деньги, проекты, нейросети и терминал. Ты получишь +{x} опыта (итого +{t}% к доходу).',burnYes:'Выгореть',burnDone:'Отпуск окончен',burnDoneP:'Ты вернулся опытнее. Доход теперь выше навсегда.',
-  freeCase:'Бесплатный кейс',freeEvery:'Кейс Team раз в 40 минут',open:'Открыть',cases:'Кейсы',fixed:'цена растёт с находками',canDrop:'Что может выпасть',models:'моделей',openFor:'Открыть за',pcs:'шт.',needMore:'Не хватает денег',lockedAfter:'после ИИ-стартапа',
+  freeCase:'Бесплатный кейс',freeEvery:'Кейс Team раз в 40 минут',lockedBurn:'после {n} выгораний',dupSh:'Макс. уровень → +{n} осколков',pityIn:'новая через {n}',poolFull:'собран',dropOnly:'Выпадает только в кейсе «{c}»',buySh:'Купить за {n} осколков',freePickT:'Бесплатный кейс',pfEdit:'Настроить',pfT:'Профиль',pfS:'Так тебя видят в рейтинге и команде. Всё по желанию.',pfAva:'Аватар',pfAvaS:'любая модель, что у тебя была',pfPre:'Префикс',pfPreS:'грейд или титул за достижение',pfNone:'Без префикса',pfBd:'Значки',pfBdS:'полученные награды',pfBdNo:'Забери награды на вкладке «Награды» — они появятся здесь.',pfSave:'Готово',pfReset:'Сбросить',perkOn:'Умение активно: ',perkOff:'С 3 моделей: ',freePickS:'Выбери, какой открыть.',poolDone:'Кейс «{c}» собран: +3% к доходу навсегда',open:'Открыть',cases:'Кейсы',fixed:'цена растёт с находками',canDrop:'Что может выпасть',models:'моделей',openFor:'Открыть за',pcs:'шт.',needMore:'Не хватает денег',lockedAfter:'после ИИ-стартапа',
   book:'Коллекция',byPower:'сначала сильные',unlocked:'моделей открыто',all:'Все',mine:'Мои',
-  evTitle:{viral:'Пост залетел!',investor:'Пишет инвестор',hack:'Хакатон!',bug:'Баг в проде',outage:'API упал',ph:'Запуск на Product Hunt',deadline:'Горящий дедлайн'},evDesc:{viral:'Доход ×2 на 60 секунд.',investor:'Готов вложить {v} прямо сейчас.',hack:'Тапы ×5 на 30 секунд.',bug:'«{p}» не приносит денег. Чини!',outage:'Нейросети не работают 45 секунд.',ph:'Кейсы −50% на 2 минуты.',deadline:'Отправь 3 промпта за 40 секунд — получишь {v}.'},evBtn:{viral:'Забрать',investor:'Взять',hack:'Участвовать',bug:'Чинить',outage:'Запасной API',ph:'Забрать скидку',deadline:'Принять'},evSkip:'Пропустить',evWait:'Переждать',evFixed:'Баг починен',evDone:'Дедлайн закрыт! +',evFail:'Дедлайн сорван',fxViral:'×2 доход',fxHack:'×5 тап',fxOut:'ИИ офлайн',fxSale:'−50% кейсы',fxBug:'баг',fxDead:'дедлайн',palT:'Палитра',sound:'Звук',on:'вкл',off:'выкл',tut1:'Тапай, чтобы писать код и зарабатывать',tut2:'Купи первый проект — он приносит деньги сам',tut3:'Открой бесплатный кейс — там нейросети',tut4:'Прокачивай терминал, чтобы тапы приносили больше',setW:'сет',setsT:'Сеты семейств',setsSub:'Поставь 2+ модели одного семейства на задачи: 2 → +5%, 3 → +12%, 4+ → +25%.',setsOn:'Активны: ',setsNone:'Активных сетов пока нет. Нажми, чтобы раскрыть.',newT:'Новые модели',newSee:'Посмотреть',newP:'Эти модели ты получил недавно. Метка NEW снята.',setsAct:'активен',synT:'Синтез',synSub:'Выбери 3 модели одной редкости — получишь 1 модель следующей. Новые выпадают в приоритете. Выбранные модели исчезнут из коллекции.',synLvNote:'Уровень не пропадает: новая модель получит средний уровень трёх выбранных. Если она уже есть, уровни прибавятся, а сверх 5-го вернутся деньгами.',synGo:'Синтезировать',synNeed:'Выбери 3',synMore:'Ещё синтез',weekT:'Кейс недели',weekD:'Только модели {b}. Меняется через {d} дн.',goals:'Награды',nGoals:'Награды',dailyT:'Ежедневная награда',streak:'Серия',days:'дн.',dayN:'День',claim:'Забрать',claimed:'Получено',comeBack:'Возвращайся завтра',questsT:'Задания дня',bonusQ:'Бонус за все 3',achT:'Достижения',newIn:'Новые через',caseW:'кейс',epicW:'Эпик+',minW:'мин дохода',dailyPop:'Награда за вход',streakLost:'Серия прервалась — начинаем заново.',tuPow:'Мощность',tuLim:'Лимит',tuReg:'Реген',tuCrit:'Крит',tuMax:'МАКС',crit:'КРИТ',limit:'лимит',limitOut:'Лимит исчерпан',limitWait:'ждём токены',tupT:'Прокачка терминала',tupS:'к тапу',profile:'Профиль',skinsT:'Скины терминала',skinOn:'Выбран',skinPick:'Выбрать',skinAfter:'После {n} выгораний',skinAfter1:'После 1 выгорания',newSkin:'Новый скин терминала',bestFree:'Лучшая свободная',stronger:'Сильнее, но занята',movesFrom:'переставить с',casePriceNote:'Цена растёт, когда собираешь и прокачиваешь модели ключевых редкостей этого кейса (выделены в шансах).',qDone:'Задание выполнено — забери награду',balNote:'Обновление баланса: поздние проекты и дорогие кейсы стали дешевле, первое выгорание доступно раньше, каждое следующее требует больше денег.',tapOpen:'Открываем…',grade:'Грейд',xp:'Опыт',xpW:'опыта',tuBurnCap:'Выгорание: +{n} ур.',topByS:'Деньги',topByB:'Выгорания',burnsW:'выгораний',teamT:'Команда',teamInv:'Пригласить друга',teamFull:'Команда собрана',teamEmpty:'Свободное место',teamYou:'ты',teamLeave:'Покинуть команду',teamLeaveT:'Покинуть команду?',teamLeaveP:'Бонус команды пропадёт. Вернуться можно по новому приглашению.',teamLeaveY:'Покинуть',teamNote:'Каждый участник даёт всей команде +1% к доходу. Максимум 5 человек и +5%.',teamSolo:'Позови друзей по своей ссылке: вместе с первым другом команда даст +2% к доходу, а с пятью участниками +5%.',teamTg:'Команды работают в игре внутри Telegram.',teamJoined:'Ты в команде! Бонус +{b}% к доходу',teamIsFull:'Эта команда уже заполнена',teamShare:'Залетай в Vibe Tycoon — idle-игру про вайбкодинг. Вступай в мою команду: бонус к доходу всем участникам.',kickT:'Игра открыта на другом устройстве',kickP:'Играть можно только на одном устройстве. Прогресс сохраняется там, это окно закроется.',kickHere:'Играть здесь',giftT:'Подарок от разработчика!',syncT0:'Облачное сохранение',syncLoaded:'Прогресс загружен из облака',syncOk:'сохранено',syncErr:'нет связи',syncOff:'только в Telegram',syncWait:'сохраняю…',syncT:'Два разных прогресса',syncP:'В облаке и на этом устройстве разный прогресс — похоже, ты играл на двух устройствах. Выбери, какой оставить. Второй будет заменён.',syncCloud:'В облаке',syncLocal:'На этом устройстве',syncKeep:'Оставить этот',syncSaved:'Сохранено',playedW:'в игре',topT:'Рейтинг',topAll:'Весь рейтинг · топ-100',topPl:'игроков',topSub:'Место по сумме, заработанной за всё время. Звезда — поддержал проект.',topSubB:'Место по числу выгораний, при равенстве — по деньгам.',topTg:'Рейтинг работает в игре внутри Telegram.',topLoad:'Загружаю рейтинг…',topErr:'Не удалось загрузить рейтинг. Попробуй позже.',topNone:'Ты ещё не в рейтинге: заработай первые деньги.',you:'Ты',support:'Поддержать проект',feedback:'Обратная связь',fbHint:'баги, идеи',reset:'Сбросить прогресс',
+  evTitle:{viral:'Пост залетел!',investor:'Пишет инвестор',hack:'Хакатон!',bug:'Баг в проде',outage:'API упал',ph:'Запуск на Product Hunt',deadline:'Горящий дедлайн'},evDesc:{viral:'Доход ×2 на 60 секунд.',investor:'Готов вложить {v} прямо сейчас.',hack:'Тапы ×5 на 30 секунд.',bug:'«{p}» не приносит денег. Чини!',outage:'Нейросети не работают 45 секунд.',ph:'Кейсы −50% на 2 минуты.',deadline:'Отправь 3 промпта за 40 секунд — получишь {v}.'},evBtn:{viral:'Забрать',investor:'Взять',hack:'Участвовать',bug:'Чинить',outage:'Запасной API',ph:'Забрать скидку',deadline:'Принять'},evSkip:'Пропустить',evWait:'Переждать',evFixed:'Баг починен',evDone:'Дедлайн закрыт! +',evFail:'Дедлайн сорван',fxViral:'×2 доход',fxHack:'×5 тап',fxOut:'ИИ офлайн',fxSale:'−50% кейсы',fxBug:'баг',fxDead:'дедлайн',palT:'Палитра',sound:'Звук',on:'вкл',off:'выкл',tut1:'Тапай, чтобы писать код и зарабатывать',tut2:'Купи первый проект — он приносит деньги сам',tut3:'Открой бесплатный кейс — там нейросети',tut4:'Прокачивай терминал, чтобы тапы приносили больше',setW:'сет',setsT:'Сеты семейств',setsSub:'Поставь 2+ модели одного семейства на задачи: 2 → +5%, 3 → +12% и умение семейства, 4+ → +25%.',setsOn:'Активны: ',setsNone:'Активных сетов пока нет. Нажми, чтобы раскрыть.',newT:'Новые модели',newSee:'Посмотреть',newP:'Эти модели ты получил недавно. Метка NEW снята.',setsAct:'активен',synT:'Синтез',synSub:'Выбери 3 модели одной редкости — получишь 1 модель следующей. Новые выпадают в приоритете. Выбранные модели исчезнут из коллекции.',synLvNote:'Уровень не пропадает: новая модель получит средний уровень трёх выбранных. Если она уже есть, уровни прибавятся, а сверх 5-го вернутся деньгами.',synGo:'Синтезировать',synNeed:'Выбери 3',synMore:'Ещё синтез',weekT:'Кейс недели',weekD:'Только модели {b}. Меняется через {d} дн.',goals:'Награды',nGoals:'Награды',dailyT:'Ежедневная награда',streak:'Серия',days:'дн.',dayN:'День',claim:'Забрать',claimed:'Получено',comeBack:'Возвращайся завтра',questsT:'Задания дня',bonusQ:'Бонус за все 3',achT:'Достижения',newIn:'Новые через',caseW:'кейс',epicW:'Эпик+',minW:'мин дохода',dailyPop:'Награда за вход',streakLost:'Серия прервалась — начинаем заново.',tuPow:'Мощность',tuLim:'Лимит',tuReg:'Реген',tuCrit:'Крит',tuMax:'МАКС',crit:'КРИТ',limit:'лимит',limitOut:'Лимит исчерпан',limitWait:'ждём токены',tupT:'Прокачка терминала',tupS:'к тапу',profile:'Профиль',skinsT:'Скины терминала',skinOn:'Выбран',skinPick:'Выбрать',skinAfter:'После {n} выгораний',skinAfter1:'После 1 выгорания',newSkin:'Новый скин терминала',bestFree:'Лучшая свободная',stronger:'Сильнее, но занята',movesFrom:'переставить с',casePriceNote:'Цена растёт, когда собираешь и прокачиваешь модели ключевых редкостей этого кейса (выделены в шансах).',qDone:'Задание выполнено — забери награду',balNote:'Большое обновление: 84 модели и 3 новых кейса, у каждого кейса свои модели. Повторы на 5-м уровне дают осколки — за них покупаешь недостающую модель. Собери кейс целиком — +3% к доходу навсегда. У семейств появились умения. За то, что играл до обновления, — значок «Бета-тестер» в наградах.',tapOpen:'Открываем…',grade:'Грейд',xp:'Опыт',xpW:'опыта',tuBurnCap:'Выгорание: +{n} ур.',topByS:'Деньги',topByB:'Выгорания',burnsW:'выгораний',teamT:'Команда',teamInv:'Пригласить друга',teamFull:'Команда собрана',teamEmpty:'Свободное место',teamYou:'ты',teamLeave:'Покинуть команду',teamLeaveT:'Покинуть команду?',teamLeaveP:'Бонус команды пропадёт. Вернуться можно по новому приглашению.',teamLeaveY:'Покинуть',teamNote:'Каждый участник даёт всей команде +1% к доходу. Максимум 5 человек и +5%.',teamSolo:'Позови друзей по своей ссылке: вместе с первым другом команда даст +2% к доходу, а с пятью участниками +5%.',teamTg:'Команды работают в игре внутри Telegram.',teamJoined:'Ты в команде! Бонус +{b}% к доходу',teamIsFull:'Эта команда уже заполнена',teamShare:'Залетай в Vibe Tycoon — idle-игру про вайбкодинг. Вступай в мою команду: бонус к доходу всем участникам.',kickT:'Игра открыта на другом устройстве',kickP:'Играть можно только на одном устройстве. Прогресс сохраняется там, это окно закроется.',kickHere:'Играть здесь',giftT:'Подарок от разработчика!',syncT0:'Облачное сохранение',syncLoaded:'Прогресс загружен из облака',syncOk:'сохранено',syncErr:'нет связи',syncOff:'только в Telegram',syncWait:'сохраняю…',syncT:'Два разных прогресса',syncP:'В облаке и на этом устройстве разный прогресс — похоже, ты играл на двух устройствах. Выбери, какой оставить. Второй будет заменён.',syncCloud:'В облаке',syncLocal:'На этом устройстве',syncKeep:'Оставить этот',syncSaved:'Сохранено',playedW:'в игре',topT:'Рейтинг',topAll:'Весь рейтинг · топ-100',topPl:'игроков',topSub:'Место по сумме, заработанной за всё время. Звезда — поддержал проект.',topSubB:'Место по числу выгораний, при равенстве — по деньгам.',topTg:'Рейтинг работает в игре внутри Telegram.',topLoad:'Загружаю рейтинг…',topErr:'Не удалось загрузить рейтинг. Попробуй позже.',topNone:'Ты ещё не в рейтинге: заработай первые деньги.',you:'Ты',support:'Поддержать проект',feedback:'Обратная связь',fbHint:'баги, идеи',reset:'Сбросить прогресс',
   sTotal:'Всего заработано',sTaps:'Нажатий',sCases:'Открыто кейсов',sBurns:'Выгораний',sEv:'Событий отбито',sEvL:'Событий провалено',nCode:'Код',nProj:'Проекты',nCases:'Кейсы',nBook:'Коллекция',nCareer:'Карьера',careerT:'Карьера',
   best:'Лучший выбор',bestCur:'Стоит сейчас · лучший выбор',now:'сейчас',set:'Поставить',others:'Другие варианты',match:'совпадение',deltaNote:'Цифра справа — сколько ты получишь или потеряешь, если поставить эту нейросеть вместо текущей.',manualNote:'Ручной выбор выключит авто-распределение.',remove:'Снять нейросеть',close:'Закрыть',skills:'Нужные навыки — совпадение даёт ×1.3',noOwned:'Пока нет нейросетей. Открой кейс!',
   assign:'Поставить на задачу',assignTo:'Куда поставить',level:'Уровень',power:'Множитель',working:'Работает',idle:'Не задействована',lockedM:'Ещё не открыта',dropIn:'Выпадает из кейсов',needProj:'Сначала купи хотя бы один проект.',
@@ -961,9 +996,9 @@ const T={
   projects:'Projects',auto:'Auto-assign',autoSub:'One tap puts your models where they earn the most.',autoGo:'Assign',autoDone:'Models reassigned · +$',autoSame:'Already the best setup',lvl:'lv.',perS:'/s',addAi:'+ AI',noModel:'No model assigned',buy:'Buy',
   burn:'Burnout',burnDesc:'You take a vacation and lose everything: money, projects, models, terminal upgrades. But you come back wiser: each XP point gives +5% to all income forever. The first burnout needs 7 projects; each next one needs more money.',req1:'Projects unlocked',reqEarn:'Earned this run',gainXp:'income forever',gainGrade:'grade after burnout',resets:'Resets',resetsT:'money, projects, all models, terminal',stays:'Stays',staysT:'XP, grade, terminal skins',burnGo:'Burn out and start over',burnEarly:'Not yet',burnLeftP:'projects left: ',burnBanner:'Unlock {p} projects and earn ${m} in one run. Everything resets, but XP gives a permanent income bonus.',burnReady:'Ready! Burnout gives +{x} XP. Tap to open.',
   burnConfT:'Burn out?',burnConfP:'Everything resets: money, projects, models and terminal. You get +{x} XP (+{t}% income total).',burnYes:'Burn out',burnDone:'Vacation over',burnDoneP:'You’re back and wiser. Income is permanently higher.',
-  freeCase:'Free case',freeEvery:'A Team case every 40 minutes',open:'Open',cases:'Cases',fixed:'price grows with finds',canDrop:'Possible drops',models:'models',openFor:'Open for',pcs:'×',needMore:'Not enough money',lockedAfter:'after AI startup',
+  freeCase:'Free case',freeEvery:'A Team case every 40 minutes',lockedBurn:'after {n} burnouts',dupSh:'Max level → +{n} shards',pityIn:'new in {n}',poolFull:'complete',dropOnly:'Drops only from the {c} case',buySh:'Buy for {n} shards',freePickT:'Free case',pfEdit:'Customize',pfT:'Profile',pfS:'This is how others see you in the leaderboard and team. All optional.',pfAva:'Avatar',pfAvaS:'any model you have ever had',pfPre:'Prefix',pfPreS:'grade or achievement title',pfNone:'No prefix',pfBd:'Badges',pfBdS:'claimed rewards',pfBdNo:'Claim rewards on the Rewards tab and they will show up here.',pfSave:'Done',pfReset:'Reset',perkOn:'Skill active: ',perkOff:'With 3 models: ',freePickS:'Pick which one to open.',poolDone:'{c} case complete: +3% income forever',open:'Open',cases:'Cases',fixed:'price grows with finds',canDrop:'Possible drops',models:'models',openFor:'Open for',pcs:'×',needMore:'Not enough money',lockedAfter:'after AI startup',
   book:'Collection',byPower:'strongest first',unlocked:'models unlocked',all:'All',mine:'Mine',
-  evTitle:{viral:'Your post went viral!',investor:'An investor DMed you',hack:'Hackathon!',bug:'Bug in prod',outage:'API is down',ph:'Product Hunt launch',deadline:'Burning deadline'},evDesc:{viral:'Income ×2 for 60 seconds.',investor:'Ready to put in {v} right now.',hack:'Taps ×5 for 30 seconds.',bug:'“{p}” earns nothing. Fix it!',outage:'Models are offline for 45 seconds.',ph:'Cases −50% for 2 minutes.',deadline:'Send 3 prompts in 40 seconds to get {v}.'},evBtn:{viral:'Claim',investor:'Take it',hack:'Join',bug:'Fix',outage:'Backup API',ph:'Get discount',deadline:'Accept'},evSkip:'Skip',evWait:'Wait it out',evFixed:'Bug fixed',evDone:'Deadline met! +',evFail:'Deadline missed',fxViral:'×2 income',fxHack:'×5 tap',fxOut:'AI offline',fxSale:'−50% cases',fxBug:'bug',fxDead:'deadline',palT:'Palette',sound:'Sound',on:'on',off:'off',tut1:'Tap to write code and earn',tut2:'Buy your first project — it earns on its own',tut3:'Open the free case — that’s where models are',tut4:'Upgrade the terminal so taps earn more',setW:'set',setsT:'Family sets',setsSub:'Assign 2+ models of one family: 2 → +5%, 3 → +12%, 4+ → +25%.',setsOn:'Active: ',setsNone:'No active sets yet. Tap to expand.',newT:'New models',newSee:'View',newP:'You got these recently. The NEW mark is cleared.',setsAct:'active',synT:'Synthesis',synSub:'Pick 3 models of one rarity to get 1 model of the next. New ones come first. Chosen models leave your collection.',synLvNote:'Levels are kept: the new model gets the average level of the three. If you already own it, levels add up, and anything past 5 comes back as money.',synGo:'Synthesize',synNeed:'Pick 3',synMore:'Synthesize again',weekT:'Case of the week',weekD:'Only {b} models. Rotates in {d} d.',goals:'Rewards',nGoals:'Rewards',dailyT:'Daily reward',streak:'Streak',days:'d',dayN:'Day',claim:'Claim',claimed:'Claimed',comeBack:'Come back tomorrow',questsT:'Daily quests',bonusQ:'Bonus for all 3',achT:'Achievements',newIn:'New in',caseW:'case',epicW:'Epic+',minW:'min income',dailyPop:'Login reward',streakLost:'Your streak broke — starting over.',tuPow:'Power',tuLim:'Limit',tuReg:'Regen',tuCrit:'Crit',tuMax:'MAX',crit:'CRIT',limit:'limit',limitOut:'Limit reached',limitWait:'waiting for tokens',tupT:'Terminal upgrade',tupS:'per tap',profile:'Profile',skinsT:'Terminal skins',skinOn:'Selected',skinPick:'Select',skinAfter:'After {n} burnouts',skinAfter1:'After 1 burnout',newSkin:'New terminal skin',bestFree:'Best free one',stronger:'Stronger, but busy',movesFrom:'move from',casePriceNote:'Price grows as you collect and level models of this case’s key rarities (highlighted in the odds).',qDone:'Quest complete — claim your reward',balNote:'Balance update: late projects and pricey cases are cheaper, the first burnout comes sooner, and each next one needs more money.',tapOpen:'Opening…',grade:'Grade',xp:'XP',xpW:'XP',tuBurnCap:'Burnout: +{n} lv',topByS:'Money',topByB:'Burnouts',burnsW:'burnouts',teamT:'Team',teamInv:'Invite a friend',teamFull:'Team is full',teamEmpty:'Open slot',teamYou:'you',teamLeave:'Leave the team',teamLeaveT:'Leave the team?',teamLeaveP:'You will lose the team bonus. You can come back with a new invite.',teamLeaveY:'Leave',teamNote:'Each member gives the whole team +1% income. Up to 5 people and +5%.',teamSolo:'Invite friends with your link: with your first friend the team gives +2% income, with five members +5%.',teamTg:'Teams work inside the game in Telegram.',teamJoined:'You joined a team! +{b}% income',teamIsFull:'That team is already full',teamShare:'Join me in Vibe Tycoon, an idle game about vibecoding. Join my team: everyone gets an income bonus.',kickT:'The game is open on another device',kickP:'You can play on one device at a time. Progress is saved there, this window will close.',kickHere:'Play here',giftT:'A gift from the developer!',syncT0:'Cloud save',syncLoaded:'Progress loaded from the cloud',syncOk:'saved',syncErr:'offline',syncOff:'Telegram only',syncWait:'saving…',syncT:'Two different saves',syncP:'Your cloud save and this device differ — looks like you played on two devices. Pick the one to keep. The other will be replaced.',syncCloud:'In the cloud',syncLocal:'On this device',syncKeep:'Keep this one',syncSaved:'Saved',playedW:'played',topT:'Leaderboard',topAll:'Full leaderboard · top 100',topPl:'players',topSub:'Ranked by money earned all time. A star means they supported the project.',topSubB:'Ranked by burnouts, ties broken by money.',topTg:'The leaderboard works inside the game in Telegram.',topLoad:'Loading the leaderboard…',topErr:'Could not load the leaderboard. Try again later.',topNone:'You are not ranked yet: earn your first money.',you:'You',support:'Support the project',feedback:'Feedback',fbHint:'bugs, ideas',reset:'Reset progress',
+  evTitle:{viral:'Your post went viral!',investor:'An investor DMed you',hack:'Hackathon!',bug:'Bug in prod',outage:'API is down',ph:'Product Hunt launch',deadline:'Burning deadline'},evDesc:{viral:'Income ×2 for 60 seconds.',investor:'Ready to put in {v} right now.',hack:'Taps ×5 for 30 seconds.',bug:'“{p}” earns nothing. Fix it!',outage:'Models are offline for 45 seconds.',ph:'Cases −50% for 2 minutes.',deadline:'Send 3 prompts in 40 seconds to get {v}.'},evBtn:{viral:'Claim',investor:'Take it',hack:'Join',bug:'Fix',outage:'Backup API',ph:'Get discount',deadline:'Accept'},evSkip:'Skip',evWait:'Wait it out',evFixed:'Bug fixed',evDone:'Deadline met! +',evFail:'Deadline missed',fxViral:'×2 income',fxHack:'×5 tap',fxOut:'AI offline',fxSale:'−50% cases',fxBug:'bug',fxDead:'deadline',palT:'Palette',sound:'Sound',on:'on',off:'off',tut1:'Tap to write code and earn',tut2:'Buy your first project — it earns on its own',tut3:'Open the free case — that’s where models are',tut4:'Upgrade the terminal so taps earn more',setW:'set',setsT:'Family sets',setsSub:'Assign 2+ models of one family: 2 → +5%, 3 → +12% plus the family skill, 4+ → +25%.',setsOn:'Active: ',setsNone:'No active sets yet. Tap to expand.',newT:'New models',newSee:'View',newP:'You got these recently. The NEW mark is cleared.',setsAct:'active',synT:'Synthesis',synSub:'Pick 3 models of one rarity to get 1 model of the next. New ones come first. Chosen models leave your collection.',synLvNote:'Levels are kept: the new model gets the average level of the three. If you already own it, levels add up, and anything past 5 comes back as money.',synGo:'Synthesize',synNeed:'Pick 3',synMore:'Synthesize again',weekT:'Case of the week',weekD:'Only {b} models. Rotates in {d} d.',goals:'Rewards',nGoals:'Rewards',dailyT:'Daily reward',streak:'Streak',days:'d',dayN:'Day',claim:'Claim',claimed:'Claimed',comeBack:'Come back tomorrow',questsT:'Daily quests',bonusQ:'Bonus for all 3',achT:'Achievements',newIn:'New in',caseW:'case',epicW:'Epic+',minW:'min income',dailyPop:'Login reward',streakLost:'Your streak broke — starting over.',tuPow:'Power',tuLim:'Limit',tuReg:'Regen',tuCrit:'Crit',tuMax:'MAX',crit:'CRIT',limit:'limit',limitOut:'Limit reached',limitWait:'waiting for tokens',tupT:'Terminal upgrade',tupS:'per tap',profile:'Profile',skinsT:'Terminal skins',skinOn:'Selected',skinPick:'Select',skinAfter:'After {n} burnouts',skinAfter1:'After 1 burnout',newSkin:'New terminal skin',bestFree:'Best free one',stronger:'Stronger, but busy',movesFrom:'move from',casePriceNote:'Price grows as you collect and level models of this case’s key rarities (highlighted in the odds).',qDone:'Quest complete — claim your reward',balNote:'Big update: 84 models and 3 new cases, each case has its own models. Duplicates at level 5 give shards — use them to buy a missing model. Complete a case for +3% income forever. Families now have skills. You played before the update, so the Beta tester badge is waiting in Rewards.',tapOpen:'Opening…',grade:'Grade',xp:'XP',xpW:'XP',tuBurnCap:'Burnout: +{n} lv',topByS:'Money',topByB:'Burnouts',burnsW:'burnouts',teamT:'Team',teamInv:'Invite a friend',teamFull:'Team is full',teamEmpty:'Open slot',teamYou:'you',teamLeave:'Leave the team',teamLeaveT:'Leave the team?',teamLeaveP:'You will lose the team bonus. You can come back with a new invite.',teamLeaveY:'Leave',teamNote:'Each member gives the whole team +1% income. Up to 5 people and +5%.',teamSolo:'Invite friends with your link: with your first friend the team gives +2% income, with five members +5%.',teamTg:'Teams work inside the game in Telegram.',teamJoined:'You joined a team! +{b}% income',teamIsFull:'That team is already full',teamShare:'Join me in Vibe Tycoon, an idle game about vibecoding. Join my team: everyone gets an income bonus.',kickT:'The game is open on another device',kickP:'You can play on one device at a time. Progress is saved there, this window will close.',kickHere:'Play here',giftT:'A gift from the developer!',syncT0:'Cloud save',syncLoaded:'Progress loaded from the cloud',syncOk:'saved',syncErr:'offline',syncOff:'Telegram only',syncWait:'saving…',syncT:'Two different saves',syncP:'Your cloud save and this device differ — looks like you played on two devices. Pick the one to keep. The other will be replaced.',syncCloud:'In the cloud',syncLocal:'On this device',syncKeep:'Keep this one',syncSaved:'Saved',playedW:'played',topT:'Leaderboard',topAll:'Full leaderboard · top 100',topPl:'players',topSub:'Ranked by money earned all time. A star means they supported the project.',topSubB:'Ranked by burnouts, ties broken by money.',topTg:'The leaderboard works inside the game in Telegram.',topLoad:'Loading the leaderboard…',topErr:'Could not load the leaderboard. Try again later.',topNone:'You are not ranked yet: earn your first money.',you:'You',support:'Support the project',feedback:'Feedback',fbHint:'bugs, ideas',reset:'Reset progress',
   sTotal:'Total earned',sTaps:'Taps',sCases:'Cases opened',sBurns:'Burnouts',sEv:'Events won',sEvL:'Events lost',nCode:'Code',nProj:'Projects',nCases:'Cases',nBook:'Collection',nCareer:'Career',careerT:'Career',
   best:'Best choice',bestCur:'Current · best choice',now:'now',set:'Assign',others:'Other options',match:'match',deltaNote:'The number on the right is how much you gain or lose by replacing the current model.',manualNote:'Choosing manually turns auto-assign off.',remove:'Remove model',close:'Close',skills:'Skills needed — a match gives ×1.3',noOwned:'No models yet. Open a case!',
   assign:'Assign to a task',assignTo:'Assign to',level:'Level',power:'Multiplier',working:'Working on',idle:'Not assigned',lockedM:'Not unlocked yet',dropIn:'Drops from cases',needProj:'Buy at least one project first.',
@@ -995,6 +1030,8 @@ if(!S.fx)S.fx={};
 S.theme='light';
 if(!S.tu)S.tu={pow:S.tl||0,lim:0,reg:0,crit:0};
 ['pow','lim','reg','crit'].forEach(k=>{if(typeof S.tu[k]!=='number'||!isFinite(S.tu[k]))S.tu[k]=0;const mx=BAL.tu[k][2];if(S.tu[k]>mx){let r=0;for(let l=mx;l<S.tu[k];l++)r+=BAL.tu[k][0]*Math.pow(BAL.tu[k][1],l);if(isFinite(r))S.money=(S.money||0)+r;S.tu[k]=mx;}});
+everSync();
+if((S.balV||1)<6&&(S.total>0||S.cases>0)){S.beta=1;if(Object.keys(S.owned).length>=54)S.c54=1;}
 if((S.balV||1)<BALV){if(S.total>0)S.balNote=true;S.balV=BALV;}
 window.__S=S;
 const save=()=>{if(window.__noSave)return;S.last=Date.now();try{localStorage.setItem(UKEY,JSON.stringify(S));}catch(e){}};
@@ -1005,7 +1042,7 @@ const rn=r=>RN[S.lang][r];
 /* ================= MATH ================= */
 const lv=p=>S.proj[p.id]||0;
 const msMult=l=>MILES.reduce((m,x)=>l>=x?m*BAL.msMul:m,1);
-const G=()=>(1+BAL.xpPct*S.xp)*(1+(S.teamB||0));
+const G=()=>(1+BAL.xpPct*S.xp)*(1+(S.teamB||0)*(perkOn('sber')?2:1))*(1+BAL.poolB*Object.keys(S.pools||{}).length);
 const slotTags=s=>s==='terminal'?['code']:PB[s].tags;
 const slotName=s=>s==='terminal'?t('terminal'):PB[s].n[L()];
 const isMatch=(id,s)=>MB[id].s.some(x=>slotTags(s).includes(x));
@@ -1013,11 +1050,12 @@ const power=(id,s)=>{const o=S.owned[id];if(!o)return 1;return RMUL[MB[id].r]*(1
 const fxOn=k=>!!(S.fx[k]&&S.fx[k].until>Date.now());
 const setCount=(b,sl)=>{if(!b)return 0;const op=openSlots();return Object.keys(sl).filter(k=>op.includes(k)&&S.owned[sl[k]]&&MB[sl[k]].b===b).length;};
 const setMultFor=(id,sl)=>SETM(setCount(MB[id].b,sl));
+const perkOn=b=>setCount(b,S.slots)>=BAL.perkN;
 const slotMult=s=>{if(fxOn('outage'))return 1;const id=S.slots[s];return id&&S.owned[id]?power(id,s)*setMultFor(id,S.slots):1;};
 const baseInc=p=>p.inc*lv(p)*msMult(lv(p))*G();
 const slotBase=s=>s==='terminal'?tapBase(S.tu.pow||0)*G():baseInc(PB[s]);
 const gainOf=(id,s)=>slotBase(s)*(power(id,s)-1);
-const projInc=p=>(fxOn('bug')&&S.fx.bug.p===p.id)?0:baseInc(p)*slotMult(p.id)*(fxOn('viral')?2:1);
+const projInc=p=>(fxOn('bug')&&S.fx.bug.p===p.id)?0:baseInc(p)*slotMult(p.id)*(fxOn('viral')?2:1)*(perkOn('anthropic')&&p.tags.some(x=>x==='code'||x==='back')?1.2:1);
 const income=()=>PROJECTS.reduce((a,p)=>a+projInc(p),0);
 const tapBase=l=>Math.pow(BAL.tapG,l);
 const TU={
@@ -1027,28 +1065,30 @@ const TU={
  crit:{i:'target',k:'tuCrit',max:BAL.tu.crit[2],cost:l=>BAL.tu.crit[0]*Math.pow(BAL.tu.crit[1],l)},
 };
 const tuL=k=>S.tu[k]||0;
-const critCh=l=>Math.min(1,BAL.critStep*l);
+const critCh=l=>Math.min(1,BAL.critStep*l+(perkOn('openai')?.05:0));
 const TOK=BAL.tok;
-const tokOf=(id,dl=0,dr=0)=>{const m=id&&S.owned[id]?MB[id]:null,k=m?m.r:'none',f=m?1+BAL.tokLvl*(S.owned[id].lvl-1):1;return {max:Math.round(TOK[k][0]*f*(1+BAL.tokStep*(tuL('lim')+dl))),reg:+(TOK[k][1]*(m?1+BAL.tokRegLvl*(S.owned[id].lvl-1):1)*(1+BAL.regStep*(tuL('reg')+dr))).toFixed(2)};};
+const tokOf=(id,dl=0,dr=0)=>{const m=id&&S.owned[id]?MB[id]:null,k=m?m.r:'none',f=m?1+BAL.tokLvl*(S.owned[id].lvl-1):1;return {max:Math.round(TOK[k][0]*f*(1+BAL.tokStep*(tuL('lim')+dl))),reg:+(TOK[k][1]*(m?1+BAL.tokRegLvl*(S.owned[id].lvl-1):1)*(1+BAL.regStep*(tuL('reg')+dr))*(perkOn('cursor')?1.3:1)).toFixed(2)};};
 const tokSpec=()=>tokOf(S.slots.terminal);
 const tokRegen=sec=>{const t=tokSpec();if(S.tok==null)S.tok=t.max;S.tok=Math.min(t.max,S.tok+t.reg*sec);};
-const tapVal=()=>tapBase(S.tu.pow||0)*slotMult('terminal')*G();
+const tapVal=()=>tapBase(S.tu.pow||0)*slotMult('terminal')*G()*(perkOn('openai')?1.25:1);
 const R=BAL.R;
-const costN=(p,n)=>p.cost*Math.pow(R,lv(p))*(Math.pow(R,n)-1)/(R-1);
-const maxN=p=>Math.max(0,Math.floor(Math.log(S.money*(R-1)/(p.cost*Math.pow(R,lv(p)))+1)/Math.log(R)));
+const pCost=p=>p.cost*(perkOn('mistral')?.9:1);
+const costN=(p,n)=>pCost(p)*Math.pow(R,lv(p))*(Math.pow(R,n)-1)/(R-1);
+const maxN=p=>Math.max(0,Math.floor(Math.log(S.money*(R-1)/(pCost(p)*Math.pow(R,lv(p)))+1)/Math.log(R)));
 let bulk='1';
 const bulkN=p=>bulk==='max'?Math.max(1,maxN(p)):+bulk;
 const slotOf=id=>Object.keys(S.slots).find(k=>S.slots[k]===id);
 const openSlots=()=>['terminal',...PROJECTS.filter(p=>lv(p)>0).map(p=>p.id)];
 const allOpen=()=>PROJECTS.filter(p=>lv(p)>0).length>=burnReq().p;
-const xpGain=()=>Math.floor(BAL.xpK*Math.sqrt(S.run/BURN_MIN()));
+const xpGain=()=>Math.floor(BAL.xpK*Math.sqrt(S.run/BURN_MIN())*(perkOn('alibaba')?1.25:1));
 const canBurn=()=>allOpen()&&S.run>=BURN_MIN()&&xpGain()>0;
 const gradeIdx=x=>{let i=0;GRADES.forEach((g,j)=>{if(x>=g[0])i=j;});return i;};
-const caseLocked=c=>c.need&&!lv(PB[c.need]);
+const caseLocked=c=>!!((c.need&&!lv(PB[c.need]))||(c.needB&&(S.burns||0)<c.needB));
+const lockTxt=c=>c.needB?t('lockedBurn').replace('{n}',c.needB):t('lockedAfter');
 const round2=n=>{if(n<100)return Math.round(n);const e=Math.pow(10,Math.floor(Math.log10(n))-1);return Math.round(n/e)*e;};
 const caseRel=c=>(c.pool||MODELS).filter(m=>c.grow?c.grow.includes(m.r):c.odds[m.r]>=BAL.caseRelMin);
 const casePriceFull=c=>{const own=caseRel(c).filter(m=>S.owned[m.id]);const ex=own.length+BAL.caseLvW*own.reduce((a,m)=>a+S.owned[m.id].lvl-1,0);return round2(c.price*Math.pow(BAL.caseG,ex));};
-const casePrice=c=>casePriceFull(c)*(fxOn('sale')?.5:1);
+const casePrice=c=>casePriceFull(c)*(fxOn('sale')?.5:1)*(perkOn('deepseek')?.85:1);
 
 const SUF=['','K','M','B','T','Qa','Qi','Sx','Sp','Oc','No','Dc'];
 function fmt(n){if(!isFinite(n))return '∞';if(n<1000)return n<10?String(+n.toFixed(1)):Math.floor(n).toString();const e=Math.min(SUF.length-1,Math.floor(Math.log10(n)/3)),v=n/Math.pow(1000,e);return (+(v<10?v.toFixed(2):v<100?v.toFixed(1):Math.floor(v)))+SUF[e];}
@@ -1230,7 +1270,7 @@ function pickSlot(id){
 }
 function showModel(id){
   const m=MB[id],o=S.owned[id];
-  if(!o){openS(`<div class="md">${card(m,{lock:true})}<p class="sub" style="margin-top:12px">${t('lockedM')}. ${t('dropIn')}.</p><div class="kv"><div>${t('power')}<b>${fx(RMUL[m.r])}</b></div><div>${rn(m.r)}<b>${m.s.length} ${S.lang==='ru'?'навыка':'skills'}</b></div></div><button class="cta gh" id="cls">${t('close')}</button></div>`);$('cls').onclick=closeS;return;}
+  if(!o){const cs=CASEOF[id],cost=BAL.shCost[m.r],sh=S.shards||0;openS(`<div class="md">${card(m,{lock:true})}<p class="sub" style="margin-top:12px">${t('lockedM')}. ${cs?t('dropOnly').replace('{c}',cs.n[L()]):t('dropIn')}.</p>${cs?`<button class="cta" id="mBuy" ${sh>=cost?'':'disabled'}>${t('buySh').replace('{n}',cost)} · ◆ ${sh}</button>`:''}<div class="kv"><div>${t('power')}<b>${fx(RMUL[m.r])}</b></div><div>${rn(m.r)}<b>${m.s.length} ${S.lang==='ru'?'навыка':'skills'}</b></div></div><button class="cta gh" id="cls">${t('close')}</button></div>`);$('cls').onclick=closeS;if($('mBuy'))$('mBuy').onclick=()=>{if((S.shards||0)<cost||S.owned[id])return;S.shards-=cost;S.owned[id]={lvl:1,new:true};S.got=S.got||{};S.got[m.r]=true;pityAfter(cs,{k:'new'});poolCheck();haptic('ok');sfx('claim');changed();save();renderAll();if(curView==='case')showCase();showModel(id);};return;}
   if(o.new){o.new=false;save();}
   const s=slotOf(id);
   openS(`<div class="md">${card(m,{bob:true,lvd:true})}
@@ -1250,7 +1290,7 @@ document.addEventListener('click',e=>{
 const cref={};
 function renderCases(){
   $('freeIco').innerHTML=caseImg(FREE_CASE());
-  $('caseGrid').innerHTML=CASES.map(c=>{const lk=caseLocked(c);return `<button class="case ${c.cls}${lk?' lk':''}" data-case="${c.id}">${c.id==='week'?`<span class="wk">${t('weekT')}</span>`:''}${lk?`<span class="lkb">${I('lock')} ${t('lockedAfter')}</span>`:''}${fxOn('sale')&&!lk?'<span class="sale">−50%</span>':''}<div class="art">${caseImg(c)}</div><div class="meta"><b>${c.n[L()]}</b><span class="price">${fxOn('sale')?'<s>$'+fmt(casePriceFull(c))+'</s>':''}$${fmt(casePrice(c))}</span></div></button>`;}).join('');
+  $('caseGrid').innerHTML=CASES.map(c=>{const lk=caseLocked(c);return `<button class="case ${c.cls}${lk?' lk':''}" data-case="${c.id}">${c.id==='week'?`<span class="wk">${t('weekT')}</span>`:''}${lk?`<span class="lkb">${I('lock')} ${lockTxt(c)}</span>`:''}${fxOn('sale')&&!lk?'<span class="sale">−50%</span>':''}<div class="art">${caseImg(c)}</div><div class="meta"><b>${c.n[L()]}</b><span class="price">${fxOn('sale')?'<s>$'+fmt(casePriceFull(c))+'</s>':''}$${fmt(casePrice(c))}</span></div></button>`;}).join('');
 }
 let CUR=CASES[0],MULT=1;
 document.addEventListener('click',e=>{const b=e.target.closest('[data-case]');if(b){const c=CB[b.dataset.case];if(caseLocked(c))return;CUR=c;showCase();}});
@@ -1265,7 +1305,7 @@ function showCase(){
   const pool=(c.pool||MODELS).filter(m=>c.odds[m.r]).sort((a,b)=>RORD.indexOf(b.r)-RORD.indexOf(a.r));
   const pick=[...pool].sort(()=>Math.random()-.5).slice(0,5).sort((a,b)=>RORD.indexOf(a.r)-RORD.indexOf(b.r));
   $('cdPrev').innerHTML=pick.map(m=>card(m,{sm:true})).join('');
-  $('cdCount').textContent=pool.length+' '+t('models');
+  {const own=(c.pool||[]).filter(m=>S.owned[m.id]).length,pl=pityLeft(c);$('cdCount').textContent=c.pool&&c.id!=='week'?`${own}/${c.pool.length} · ${pl?t('pityIn').replace('{n}',pl):t('poolFull')} · ◆ ${S.shards||0}`:pool.length+' '+t('models');}
   $('cdPool').innerHTML=pool.map(m=>{const n=(c.pool||MODELS).filter(x=>x.r===m.r).length,pc=c.odds[m.r]/n,o=!!S.owned[m.id];return card(m,{sm:true,lock:!o,pct:(pc<1?pc.toFixed(2):pc.toFixed(1))+'%',attr:`data-model="${m.id}"`});}).join('');
   setMult(MULT);go('case');
 }
@@ -1276,13 +1316,22 @@ $('cdOpen').onclick=()=>buyOpen(CUR,MULT);
 function buyOpen(c,n){const p=casePrice(c)*n;if(S.money<p)return;S.money-=p;openCase(c,n,false);}
 
 function roll(c,minR){let x=Math.random()*100,r='c';if(minR){const os={};RORD.forEach(k=>{if(RORD.indexOf(k)>=RORD.indexOf(minR)&&c.odds[k])os[k]=c.odds[k];});const tot=Object.values(os).reduce((a,b)=>a+b,0);x=Math.random()*tot;c={odds:os,pool:c.pool};}for(const k of RORD){if(!c.odds[k])continue;r=k;x-=c.odds[k];if(x<0)break;}const p=(c.pool||MODELS).filter(m=>m.r===r);return p[Math.floor(Math.random()*p.length)];}
-const ofR=r=>{const p=MODELS.filter(m=>m.r===r);return p[Math.floor(Math.random()*p.length)];};
+const ofR=(r,c)=>{let p=((c&&c.pool)||MODELS).filter(m=>m.r===r);if(!p.length)p=MODELS.filter(m=>m.r===r);return p[Math.floor(Math.random()*p.length)];};
+function rollP(c,minR){
+  let w=roll(c,minR);
+  if(perkOn('google')&&Math.random()<.1){const w2=roll(c,minR);if(RORD.indexOf(w2.r)>RORD.indexOf(w.r))w=w2;}
+  if(c.id!=='week'&&c.pool){S.pity=S.pity||{};if((S.pity[c.id]||0)>=BAL.pity){const mi=minR?RORD.indexOf(minR):0,un=c.pool.filter(m=>!S.owned[m.id]&&c.odds[m.r]&&RORD.indexOf(m.r)>=mi);if(un.length)w=un[Math.floor(Math.random()*un.length)];}}
+  return w;}
+function pityAfter(c,r){if(c.id==='week'||!c.pool)return;S.pity=S.pity||{};S.pity[c.id]=r.k==='new'?0:(S.pity[c.id]||0)+1;}
+const pityLeft=c=>c.pool&&c.pool.some(m=>!S.owned[m.id])?Math.max(1,BAL.pity+1-((S.pity||{})[c.id]||0)):0;
+function addSh(n){S.shards=(S.shards||0)+n;S.shTot=(S.shTot||0)+n;}
+function poolCheck(){S.pools=S.pools||{};POOLC.forEach(c=>{if(!S.pools[c.id]&&c.pool.every(m=>S.owned[m.id])){S.pools[c.id]=1;setTimeout(()=>{haptic('ok');sfx('win');evToast(`<img src="pool-${c.id==='front'?'frontier':c.id==='ent'?'enterprise':c.id}.webp" alt="" style="width:30px;height:30px">`,t('poolDone').replace('{c}',c.n[L()]),'good');},900);}});}
 function grant(m,price){
   S.got=S.got||{};S.got[m.r]=true;
   const o=S.owned[m.id];
   if(!o){S.owned[m.id]={lvl:1,new:true};return {k:'new'};}
   if(o.lvl<MAXLV){o.lvl++;return {k:'up',l:o.lvl};}
-  const r=price*BAL.dupRefund;earn(r);return {k:'max',v:r};
+  const v=BAL.shard[m.r];addSh(v);return {k:'sh',v};
 }
 
 /* ================= OPENING ================= */
@@ -1292,8 +1341,7 @@ function burst(col,n){for(let i=0;i<n;i++){const s=document.createElement('i');s
 function openCase(c,n,free,minR){
   timers.forEach(clearTimeout);timers=[];fxRun++;
   const unitP=casePrice(c);
-  const wins=[...Array(n)].map(()=>roll(c,minR));qAdd('cases',n);
-  const res=wins.map(w=>grant(w,unitP));
+  const wins=[],res=[];for(let i=0;i<n;i++){const w=rollP(c,minR),r=grant(w,unitP);pityAfter(c,r);wins.push(w);res.push(r);}qAdd('cases',n);poolCheck();
   S.cases+=n;changed();save();update();
   const best=wins.reduce((a,b)=>RORD.indexOf(b.r)>RORD.indexOf(a.r)?b:a);
   ov.style.setProperty('--glow',c.col[4]);
@@ -1313,7 +1361,7 @@ function openCase(c,n,free,minR){
     $('flash').classList.add('go');
     const W=n===1?128:84,H=n===1?170:108,STEP=W+10,N=44,WI=37;
     $('stage').outerHTML=`<div class="lanes">${wins.map(w=>{
-      const items=[...Array(N)].map((_,i)=>i===WI?w:(Math.abs(i-WI)<3&&Math.random()<.5?ofR(RORD[Math.min(4,RORD.indexOf(w.r)+1)]):roll(c)));
+      const items=[...Array(N)].map((_,i)=>i===WI?w:(Math.abs(i-WI)<3&&Math.random()<.5?ofR(RORD[Math.min(4,RORD.indexOf(w.r)+1)],c):roll(c)));
       return `<div class="lane"><div class="strip" style="--w:${W}px;--h:${H}px">${items.map((m,i)=>`<div class="rc t-${m.r}${i===WI?' win':''}" style="--k:${RC[m.r]}">${art(m)}<span>${esc(m.name)}</span></div>`).join('')}</div><i class="mk"></i></div>`;}).join('')}</div>`;
     const lanes=[...ov.querySelectorAll('.lane')];
     lanes.forEach((ln,i)=>{
@@ -1328,7 +1376,7 @@ function openCase(c,n,free,minR){
     later(finish,end+1000);
   },2900);
 }
-function stLine(r){return r.k==='new'?t('isNew')+(r.l>1?` · ${t('lvl')} ${r.l}`:''):r.k==='up'?t('dupUp').replace('{l}',r.l):t('dupMax')+fmt(r.v);}
+function stLine(r){return r.k==='new'?t('isNew')+(r.l>1?` · ${t('lvl')} ${r.l}`:''):r.k==='up'?t('dupUp').replace('{l}',r.l):r.k==='sh'?t('dupSh').replace('{n}',r.v):t('dupMax')+fmt(r.v);}
 function showResult(wins,res,best,c,n,unitP){
   ov.classList.remove('quake');ov.style.setProperty('--glow',RC[best.r]);
   const price=casePrice(c)*n;
@@ -1337,7 +1385,7 @@ function showResult(wins,res,best,c,n,unitP){
     ov.innerHTML=`<div class="res" style="--k:${RC[w.r]}"><div class="rlabel">${t('rl')[w.r]}</div><div class="bigc"><div class="rays2"></div>${card(w,{bob:true,badge:r.k==='new'?'<span class="badge new">NEW</span>':''})}</div><div class="stt">${stLine(r)}</div>
       <div class="btns"><button id="rClose">${t('take')}</button><button class="p" id="rAgain">${t('again')} · $${fmt(price)}</button></div></div>`;
   } else {
-    ov.innerHTML=`<div class="res" style="--k:${RC[best.r]}"><div class="rlabel">${n} ${t('opened')}</div><div class="rg">${wins.map((w,i)=>card(w,{sm:true,badge:res[i].k==='new'?'<span class="badge new">NEW</span>':res[i].k==='up'?`<span class="badge">${t('lvl')} ${res[i].l}</span>`:''})).join('')}</div>
+    ov.innerHTML=`<div class="res" style="--k:${RC[best.r]}"><div class="rlabel">${n} ${t('opened')}</div><div class="rg">${wins.map((w,i)=>card(w,{sm:true,badge:res[i].k==='new'?'<span class="badge new">NEW</span>':res[i].k==='up'?`<span class="badge">${t('lvl')} ${res[i].l}</span>`:res[i].k==='sh'?`<span class="badge sh">+${res[i].v} ◆</span>`:''})).join('')}</div>
       <div class="btns"><button id="rClose">${t('takeAll')}</button><button class="p" id="rAgain">${t('again')} ×${n} · $${fmt(price)}</button></div></div>`;
   }
   celebrate(best.r);sfx('reveal',best.r);
@@ -1427,16 +1475,57 @@ function renderMe(){
   $('burnGo').disabled=!ok;$('burnGo').textContent=ok?t('burnGo'):`${t('burnEarly')}${op<need?' · '+t('burnLeftP')+(need-op):''}`;
   const u=tg&&tg.initDataUnsafe&&tg.initDataUnsafe.user;
   $('meName').textContent=u?(u.username?'@'+u.username:u.first_name):t('you');
-  $('ava').firstChild.textContent=u&&u.first_name?u.first_name[0].toUpperCase():'?';
+  if(!MB[PR().a])$('ava').firstChild.textContent=u&&u.first_name?u.first_name[0].toUpperCase():'?';
+  renderProf();
   $('meTotal').textContent='$'+fmt(S.total)+' · '+Object.keys(S.owned).length+'/'+MODELS.length;
   $('sTotal').textContent='$'+fmt(S.total);$('sTaps').textContent=fmt(S.taps);$('sCases').textContent=fmt(S.cases);$('sBurns').textContent=S.burns;$('sEv').textContent=S.evWon||0;$('sEvL').textContent=S.evLost||0;
 }
+/* ================= PROFILE ================= */
+const PRE={ev10:['Пожарный','Firefighter'],case250:['Распаковщик','Unboxer'],b1:['Миллиардер','Billionaire'],burn5:['Ветеран','Veteran'],synth25:['Алхимик','Alchemist'],coll54:['Коллекционер','Collector'],beta:['Бета-тестер','Beta tester'],founder:['Фаундер','Founder'],tap10k:['Кликер','Clicker'],mythic:['Везунчик','Lucky'],crit25:['Снайпер','Sniper'],team5:['Капитан','Captain'],shards:['Ювелир','Jeweller'],set:['Семьянин','Family guy']};
+const PR=()=>{S.prof=S.prof||{a:'',p:'',b:[]};return S.prof;};
+function everSync(){S.ever=S.ever||{};for(const k in S.owned)S.ever[k]=1;}
+const preTxt=c=>{if(!c)return '';if(c[0]==='g'){const g=GRADES[+c.slice(1)];return g?g[1+L()]:'';}if(c.slice(0,2)==='a:'){const x=PRE[c.slice(2)];return x?x[L()]:'';}return '';};
+const achById=id=>ACH.find(a=>a[0]===id);
+const bdHTML=b=>(b||[]).map(achById).filter(Boolean).map(a=>`<img src="${achImg(a)}" alt="">`).join('');
+const avaStyle=a=>MB[a]?`--k:${RC[MB[a].r]}`:'';
+const avaIn=(a,n)=>MB[a]?`<img src="${MB[a].f}.webp" alt="">`:esc((n||'?')[0].toUpperCase());
+const myName=()=>{const u=tg&&tg.initDataUnsafe&&tg.initDataUnsafe.user;return u?(u.first_name||u.username||t('you')):t('you');};
+function renderProf(){
+  const P=PR(),n=myName(),av=$('pfAva');if(!av)return;
+  setH(av,avaIn(P.a,n));av.setAttribute('style',avaStyle(P.a));
+  setTx($('pfPre'),preTxt(P.p));$('pfPre').hidden=!P.p;setTx($('pfName'),n);setH($('pfBd'),bdHTML(P.b));
+  const ha=$('ava');if(ha){if(MB[P.a]){if(!ha.querySelector('img.pa')){ha.firstChild.textContent='';ha.insertAdjacentHTML('afterbegin','<img class="pa" alt="" style="width:100%;height:100%;border-radius:50%;object-fit:cover">');}ha.querySelector('img.pa').src=`${MB[P.a].f}.webp`;}else{const im=ha.querySelector('img.pa');if(im)im.remove();}}
+}
+function openProf(){
+  everSync();const P=PR(),n=myName(),gi=gradeIdx(S.xp);S.ach=S.ach||{};
+  const avs=[''].concat(MODELS.filter(m=>S.ever[m.id]).map(m=>m.id).sort((x,y)=>RORD.indexOf(MB[y].r)-RORD.indexOf(MB[x].r)));
+  const pres=[''].concat(GRADES.slice(0,gi+1).map((g,i)=>'g'+i)).concat(Object.keys(PRE).filter(k=>S.ach[k]).map(k=>'a:'+k));
+  const bds=ACH.filter(a=>S.ach[a[0]]).map(a=>a[0]);
+  const draw=()=>{
+    openS(`<h3>${t('pfT')}</h3><p class="sub">${t('pfS')}</p>
+    <div class="pfc" style="background:var(--surf2);margin-top:12px"><div class="pav" style="${avaStyle(P.a)}">${avaIn(P.a,n)}</div><div class="pfw">${P.p?`<span class="pp">${preTxt(P.p)}</span>`:''}<span class="pn">${esc(n)}</span><div class="pbd">${bdHTML(P.b)}</div></div></div>
+    <div class="pe-h">${t('pfAva')}<small>${t('pfAvaS')}</small></div>
+    <div class="pe-av">${avs.map(id=>`<button data-pa="${id}" class="${id?'':'lt'}${P.a===id?' on':''}" style="${avaStyle(id)}" aria-label="${id?esc(MB[id].name):'A'}">${avaIn(id,n)}</button>`).join('')}</div>
+    <div class="pe-h">${t('pfPre')}<small>${t('pfPreS')}</small></div>
+    <div class="pe-pr">${pres.map(c=>`<button data-pp="${c}" class="${P.p===c?'on':''}">${c?preTxt(c):t('pfNone')}</button>`).join('')}</div>
+    <div class="pe-h">${t('pfBd')}<small>${P.b.length}/3</small></div>
+    ${bds.length?`<div class="pe-bd">${bds.map(id=>`<button data-pb="${id}" class="${P.b.includes(id)?'on':''}" aria-label="${esc(achById(id)[2][L()])}"><img src="${achImg(achById(id))}" alt=""></button>`).join('')}</div>`:`<p class="pe-note">${t('pfBdNo')}</p>`}
+    <button class="cta" id="pfOk" style="margin-top:16px">${t('pfSave')}</button><button class="cta gh" id="pfRs">${t('pfReset')}</button>`);
+    sheet.querySelectorAll('[data-pa]').forEach(b=>b.onclick=()=>{P.a=b.dataset.pa;haptic('tick');draw();});
+    sheet.querySelectorAll('[data-pp]').forEach(b=>b.onclick=()=>{P.p=b.dataset.pp;haptic('tick');draw();});
+    sheet.querySelectorAll('[data-pb]').forEach(b=>b.onclick=()=>{const id=b.dataset.pb,i=P.b.indexOf(id);if(i>=0)P.b.splice(i,1);else if(P.b.length<3)P.b.push(id);else{haptic('error');return;}haptic('tick');draw();});
+    $('pfOk').onclick=()=>{closeS();profDone();};$('pfRs').onclick=()=>{P.a='';P.p='';P.b=[];draw();};
+  };
+  draw();
+}
+function profDone(){save();renderProf();LB.sent=-1;LB.at=0;lbLoad(true);TM.at=0;tmLoad(true);}
+$('pfEdit').onclick=()=>{haptic('light');openProf();};
 /* ================= LEADERBOARD ================= */
 const LB={data:null,err:false,at:0,sent:-1,busy:false,by:'s'};
 const lbOk=()=>!!(API&&tg&&tg.initData);
 function lbPost(){
   if(!lbOk())return Promise.resolve();const sc=Math.floor(S.total);if(sc<=0||sc===LB.sent)return Promise.resolve();LB.sent=sc;
-  return fetch(API+'/score',{method:'POST',keepalive:true,headers:{'X-Init-Data':tg.initData,'Content-Type':'application/json'},body:JSON.stringify({score:sc,burns:S.burns,models:Object.keys(S.owned).length,tz:new Date().getTimezoneOffset(),lang:S.lang,wa:S.wa===1?1:0})}).catch(()=>{LB.sent=-1;});
+  return fetch(API+'/score',{method:'POST',keepalive:true,headers:{'X-Init-Data':tg.initData,'Content-Type':'application/json'},body:JSON.stringify({score:sc,burns:S.burns,models:Object.keys(S.owned).length,tz:new Date().getTimezoneOffset(),lang:S.lang,wa:S.wa===1?1:0,prof:PR()})}).catch(()=>{LB.sent=-1;});
 }
 function lbLoad(force){
   if(!lbOk()){renderTop();return;}
@@ -1446,7 +1535,8 @@ function lbLoad(force){
     .catch(()=>{LB.err=true;}).finally(()=>{LB.busy=false;if(by!==LB.by)lbLoad(true);else renderTop();});
 }
 const lbBurn=n=>`${n||0} ${t('burnsW')}`;
-function lbRows(list){const bb=LB.by==='b';return list.map((r,i)=>`<div class="tr${r.me?' me':''}"><span class="tp${i<3?' t1':''}">${i+1}</span><span class="ta">${esc((r.n||'?')[0].toUpperCase())}</span><div class="tw"><span class="tn">${esc(r.n||'—')}${r.st?I('star'):''}</span><small>${bb?'$'+fmt(r.s):lbBurn(r.b)}</small></div><span class="ts">${bb?I('flame')+(r.b||0):'$'+fmt(r.s)}</span></div>`).join('');}
+const lbAva=r=>{const a=r.pr&&r.pr.a;return MB[a]?`<span class="ta tam" style="${avaStyle(a)}">${avaIn(a)}</span>`:`<span class="ta">${esc((r.n||'?')[0].toUpperCase())}</span>`;};
+function lbRows(list){const bb=LB.by==='b';return list.map((r,i)=>`<div class="tr${r.me?' me':''}"><span class="tp${i<3?' t1':''}">${i+1}</span>${lbAva(r)}<div class="tw">${r.pr&&r.pr.p&&preTxt(r.pr.p)?`<span class="tpre">${preTxt(r.pr.p)}</span>`:''}<span class="tn">${esc(r.n||'—')}${r.st?I('star'):''}${r.pr&&r.pr.b&&r.pr.b.length?`<span class="tbd">${bdHTML(r.pr.b)}</span>`:''}</span><small>${bb?'$'+fmt(r.s):lbBurn(r.b)}</small></div><span class="ts">${bb?I('flame')+(r.b||0):'$'+fmt(r.s)}</span></div>`).join('');}
 function renderTop(){
   const d=LB.data,note=$('topNote');
   $('topAll').hidden=!(d&&d.top.length>5);
@@ -1568,7 +1658,7 @@ function renderTeamC(){
   inv.hidden=false;
   const mem=tm?tm.members:[{n:(tg.initDataUnsafe.user||{}).first_name||t('you'),me:1}],max=tm?tm.max:5;
   $('teamBon').textContent=tm&&tm.bonus?'+'+tm.bonus+'%':'';
-  $('teamList').innerHTML=mem.map(m=>`<div class="tr${m.me?' me':''}"><span class="ta">${esc((m.n||'?')[0].toUpperCase())}</span><div class="tw"><span class="tn">${esc(m.n||'—')}${m.me?` <small style="display:inline;color:var(--mute)">· ${t('teamYou')}</small>`:''}</span></div></div>`).join('')
+  $('teamList').innerHTML=mem.map(m=>`<div class="tr${m.me?' me':''}">${lbAva(m.me?{n:m.n,pr:PR()}:m)}<div class="tw">${(m.me?PR().p:m.pr&&m.pr.p)?`<span class="tpre">${preTxt(m.me?PR().p:m.pr.p)}</span>`:''}<span class="tn">${esc(m.n||'—')}${m.me?` <small style="display:inline;color:var(--mute)">· ${t('teamYou')}</small>`:''}</span></div></div>`).join('')
     +Array.from({length:Math.max(0,max-mem.length)},()=>`<div class="tr emp"><span class="ta"></span><div class="tw"><span class="tn">${t('teamEmpty')}</span></div></div>`).join('');
   const full=mem.length>=max;inv.disabled=full||!(d&&d.link);setTx(inv,full?t('teamFull'):t('teamInv'));
   $('teamNote').textContent=tm?t('teamNote'):t('teamSolo');
@@ -1647,7 +1737,7 @@ document.addEventListener('visibilitychange',()=>{if(document.hidden)lbPost();})
 $('burnGo').onclick=()=>{
   if(!canBurn())return;const x=xpGain();
   openS(`<h3>${t('burnConfT')}</h3><p class="sub" style="margin-top:8px">${t('burnConfP').replace('{x}',x).replace('{t}',(S.xp+x)*5)}</p><button class="cta" id="by" style="background:linear-gradient(90deg,#ffb020,#ff3d3d)">${t('burnYes')}</button><button class="cta gh" id="bn">${t('cancel')}</button>`);
-  $('by').onclick=()=>{S.xp+=x;S.burns++;S.money=0;S.run=0;S.proj={};S.pc=0;S.owned={};S.slots={};S.tl=0;S.tu={pow:0,lim:0,reg:0,crit:0};S.tok=null;S.freeAt=0;S.fx={};S.auto=true;S.pi=0;EV=null;$('evHost').innerHTML='';document.querySelectorAll('.mg').forEach(x=>x.remove());save();haptic('ok');
+  $('by').onclick=()=>{everSync();S.xp+=x;S.burns++;S.money=0;S.run=0;S.proj={};S.pc=0;S.owned={};S.slots={};S.tl=0;S.tu={pow:0,lim:0,reg:0,crit:0};S.tok=null;S.freeAt=0;S.fx={};S.auto=true;S.pi=0;EV=null;$('evHost').innerHTML='';document.querySelectorAll('.mg').forEach(x=>x.remove());save();haptic('ok');
     const nk=SKINS.find(k=>k.need===S.burns);if(nk)S.skin=nk.id;openS(`<h3>${t('burnDone')}</h3><p class="sub">${t('burnDoneP')}</p><div class="big">+${S.xp*5}%</div>${nk?`<p class="sub" style="color:var(--ink);font-weight:700">${I('brush')} ${t('newSkin')}: ${nk.n[L()]}</p>`:''}<button class="cta" id="bk">OK</button>`);$('bk').onclick=()=>{closeS();go('code');};renderAll();};
   $('bn').onclick=closeS;
 };
@@ -1689,7 +1779,7 @@ document.querySelectorAll('#langSeg button').forEach(b=>b.onclick=()=>{S.lang=b.
 function renderSets(){
   const sl=S.slots,act=[];
   const rows=Object.keys(BRN).map(b=>{const mem=MODELS.filter(m=>m.b===b),n=setCount(b,sl),mult=SETM(n);if(mult>1)act.push([b,n,mult]);
-    return `<div class="srow"><div class="sn">${BRN[b][0]}<small>${mem.filter(m=>S.owned[m.id]).length}/${mem.length}</small></div><div class="sm">${mem.map(m=>`<img src="${m.f}.webp" class="${!S.owned[m.id]?'no':(slotOf(m.id)&&openSlots().includes(slotOf(m.id))?'on':'')}" alt="" title="${esc(m.name)}">`).join('')}</div><span class="sb${mult>1?' act':''}">${mult>1?'+'+Math.round((mult-1)*100)+'%':n+'/2'}</span></div>`;}).join('');
+    return `<div class="srow"><div class="sn">${BRN[b][0]}<small>${mem.filter(m=>S.owned[m.id]).length}/${mem.length}</small></div><div class="sm">${mem.map(m=>`<img src="${m.f}.webp" class="${!S.owned[m.id]?'no':(slotOf(m.id)&&openSlots().includes(slotOf(m.id))?'on':'')}" alt="" title="${esc(m.name)}">`).join('')}</div><span class="sb${mult>1?' act':''}">${mult>1?'+'+Math.round((mult-1)*100)+'%':n+'/2'}</span>${PERKS[b]?`<span class="perk${n>=BAL.perkN?' on':''}">${n>=BAL.perkN?t('perkOn'):t('perkOff')}${PERKS[b][L()]}</span>`:''}</div>`;}).join('');
   const col=!!S.setsCol,sum=act.length?t('setsOn')+act.map(([b,n,m])=>`${BRN[b][0]} +${Math.round((m-1)*100)}%`).join(', '):t('setsNone');
   $('setsCard').innerHTML=`<button class="colh" id="setsTg" aria-expanded="${!col}"><h4>${I('link')}${t('setsT')}</h4><svg class="chev${col?' up':''}" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>${col?`<div class="gsub">${sum}</div>`:`<div class="gsub">${t('setsSub')}</div>${rows}`}`;
   $('setsTg').onclick=()=>{S.setsCol=!S.setsCol;save();haptic('light');renderSets();};
@@ -1715,14 +1805,14 @@ function openSynth(){
 const synLv=ids=>ids.length?Math.max(1,Math.round(ids.reduce((a,id)=>a+((S.owned[id]||{}).lvl||1),0)/ids.length)):1;
 function doSynth(){
   if(synPick.length!==3)return;
-  const used=synPick.map(id=>MB[id]),nr=RORD[RORD.indexOf(synR)+1],LV=synLv(synPick);
+  const used=synPick.map(id=>MB[id]),nr=RORD[RORD.indexOf(synR)+1],LV=Math.min(MAXLV,synLv(synPick)+(perkOn('stability')&&Math.random()<.3?1:0));
   used.forEach(m=>{delete S.owned[m.id];Object.keys(S.slots).forEach(k=>{if(S.slots[k]===m.id)delete S.slots[k];});});
-  const pool=MODELS.filter(m=>m.r===nr),fresh_=pool.filter(m=>!S.owned[m.id]),w=(fresh_.length?fresh_:pool)[Math.floor(Math.random()*(fresh_.length||pool.length))];
+  const pool=MODELS.filter(m=>m.r===nr&&!(CASEOF[m.id]&&CASEOF[m.id].id==='leak')),fresh_=pool.filter(m=>!S.owned[m.id]),w=(fresh_.length?fresh_:pool)[Math.floor(Math.random()*(fresh_.length||pool.length))];
   // уровни не сгорают: новая модель получает средний уровень трёх сливаемых
   let res;const own=S.owned[w.id];S.got=S.got||{};S.got[w.r]=true;
   if(!own){S.owned[w.id]={lvl:LV,new:true};res={k:'new',l:LV};}
-  else{const nl=Math.min(MAXLV,own.lvl+LV),over=own.lvl+LV-nl;own.lvl=nl;if(over>0){const v=minInc(5*over);earn(v);res={k:'max',v,l:nl};}else res={k:'up',l:nl};}
-  S.synth=(S.synth||0)+1;synPick=[];changed();save();closeS();
+  else{const nl=Math.min(MAXLV,own.lvl+LV),over=own.lvl+LV-nl;own.lvl=nl;if(over>0){const v=BAL.shard[w.r]*over;addSh(v);res={k:'sh',v,l:nl};}else res={k:'up',l:nl};}
+  S.synth=(S.synth||0)+1;synPick=[];poolCheck();changed();save();closeS();
   timers.forEach(clearTimeout);timers=[];fxRun++;
   ov.style.setProperty('--glow',RC[nr]);
   ov.innerHTML=`<div class="flash" id="flash"></div>`+used.map((m,i)=>{const a=i*2.094-1.57;return `<div class="mi" style="--x:${Math.cos(a)*120}px;--y:${Math.sin(a)*120}px;--k:${RC[m.r]}"><img src="${m.f}.webp" alt=""></div>`;}).join('');
@@ -1763,7 +1853,7 @@ function evNextWindow(){let n=S.evWin+EVWIN;const now=Date.now();while(n+EVWIN<=
 function evSpawn(){
   const ids=Object.keys(MG).filter(k=>!evHist.includes(k));const id=ids[Math.floor(Math.random()*ids.length)];lastEv=id;evHist=[id,...evHist].slice(0,4);
   const inc=evInc();
-  EV={id,start:Date.now(),until:Date.now()+EVWAIT,win:Math.max(100,inc*BAL.ev.win),lose:Math.max(50,inc*BAL.ev.lose),ign:Math.max(25,inc*BAL.ev.ignore)};
+  EV={id,start:Date.now(),until:Date.now()+EVWAIT,win:Math.max(100,inc*BAL.ev.win),lose:Math.max(50,inc*BAL.ev.lose),ign:Math.max(25,inc*BAL.ev.ignore)};if(perkOn('xai')){EV.win*=1.5;EV.lose*=1.5;EV.ign*=1.5;}
   haptic('heavy');sfx('alert');evCard();
 }
 function evCard(){
@@ -1961,7 +2051,7 @@ const ACH=[
  ['legend','star',['Легенда!','Legend!'],()=>[S.got&&S.got.l?1:0,1],{t:'case',c:'pro',n:1}],
  ['mythic','star',['Мифическая удача','Mythic luck'],()=>[S.got&&S.got.m?1:0,1],{t:'case',c:'team',n:1}],
  ['coll20','layers',['20 моделей','20 models'],()=>[Object.keys(S.owned).length,20],{t:'case',c:'pro',n:1}],
- ['coll54','layers',['Вся коллекция','Full collection'],()=>[Object.keys(S.owned).length,MODELS.length],{t:'epic'}],
+ ['coll54','layers',['Вся коллекция','Full collection'],()=>[S.c54?MODELS.length:Object.keys(S.owned).length,MODELS.length],{t:'epic'}],
  ['tap1k','tap',['1 000 тапов','1,000 taps'],()=>[S.taps,1000],{t:'money',m:10}],
  ['tap10k','tap',['10 000 тапов','10,000 taps'],()=>[S.taps,10000],{t:'case',c:'pro',n:1}],
  ['crit25','target',['Меткий','Sharpshooter'],()=>[S.crits||0,25],{t:'money',m:15}],
@@ -1972,7 +2062,17 @@ const ACH=[
  ['ev10','shield',['Пожарный','Firefighter'],()=>[S.evWon||0,10],{t:'case',c:'pro',n:1}],
  ['burn1','flame',['Первое выгорание','First burnout'],()=>[S.burns,1],{t:'case',c:'pro',n:2}],
  ['burn5','flame',['Ветеран','Veteran'],()=>[S.burns,5],{t:'epic'}],
+ ['synth1','flask',['Первый синтез','First synthesis'],()=>[S.synth||0,1],{t:'money',m:10}],
+ ['synth25','flask',['Алхимик','Alchemist'],()=>[S.synth||0,25],{t:'case',c:'team',n:1}],
+ ['max5','star',['Максимум','Maxed out'],()=>[Object.values(S.owned).some(o=>o.lvl>=MAXLV)?1:0,1],{t:'case',c:'pro',n:1}],
+ ['set','link',['Полный сет','Full set'],()=>[Math.max(0,...Object.keys(BRN).map(b=>setCount(b,S.slots))),4],{t:'case',c:'team',n:1}],
+ ['team5','star',['Команда мечты','Dream team'],()=>[Math.round((S.teamB||0)*100),5],{t:'money',m:30}],
+ ['shards','star',['Собиратель осколков','Shard collector'],()=>[S.shTot||0,100],{t:'case',c:'team',n:1}],
+ ['founder','star',['Фаундер','Founder'],()=>[gradeIdx(S.xp||0),GRADES.length-1],{t:'epic'}],
+ ['beta','star',['Бета-тестер','Beta tester'],()=>[S.beta?1:0,1],{t:'case',c:'pro',n:2}],
+ ...[['free','free'],['pro','pro'],['team','team'],['studio','studio'],['ent','enterprise'],['east','east'],['front','frontier'],['leak','leak']].map(([c,f])=>['pool_'+c,'box',[`Кейс «${CB[c].n[0]}» собран`,`${CB[c].n[1]} case complete`],()=>{const n=CB[c].pool.length;return [(S.pools||{})[c]?n:CB[c].pool.filter(m=>S.owned[m.id]).length,n];},c==='leak'?{t:'epic'}:{t:'money',m:20},'pool-'+f]),
 ];
+const achImg=a=>''+(a[5]||'ach-'+(a[0]==='coll54'?'coll':a[0]))+'.webp';
 function rewLabel(r){
   if(r.t==='money')return `+$${fmt(minInc(r.m))}`;
   if(r.t==='case')return `${CB[r.c].n[L()]}${r.n>1?' ×'+r.n:''}`;
@@ -2008,7 +2108,7 @@ function renderGoals(){
    +`<div class="qrow${all?' qdone':''}${all&&!Q.bonus?' ready':''}"><div class="qi">${I('gift')}</div><div class="qt"><b>${t('bonusQ')}</b><small>${rewLabel(QBONUS)}</small></div>${Q.bonus?`<span class="qok">${I('check')}</span>`:`<button class="qb" data-q="b" ${all?'':'disabled'}>${t('claim')}</button>`}</div>`;
   S.ach=S.ach||{};
   const rows=ACH.map(a=>{const [h,n]=a[3](),done=h>=n,cl=S.ach[a[0]];return {a,h,n,done,cl};}).sort((x,y)=>(y.done&&!y.cl)-(x.done&&!x.cl)||(x.cl-y.cl));
-  $('achCard').innerHTML=`<h4>${I('trophy')}${t('achT')}<small>${Object.keys(S.ach).length}/${ACH.length}</small></h4>`+rows.map(({a,h,n,done,cl})=>`<div class="qrow ach${done?' qdone':' lock'}${done&&!cl?' ready':''}"><div class="qi">${I(a[1])}</div><div class="qt"><b>${a[2][L()]}</b><small>${fmt(Math.min(h,n))} / ${fmt(n)} · ${rewLabel(a[4])}</small>${done?'':`<div class="qbar"><i style="width:${Math.min(100,h/n*100)}%"></i></div>`}</div>${cl?`<span class="qok">${I('check')}</span>`:`<button class="qb" data-a="${a[0]}" ${done?'':'disabled'}>${t('claim')}</button>`}</div>`).join('');
+  $('achCard').innerHTML=`<h4>${I('trophy')}${t('achT')}<small>${Object.keys(S.ach).length}/${ACH.length}</small></h4>`+rows.map(({a,h,n,done,cl})=>`<div class="qrow ach${done?' qdone':' lock'}${done&&!cl?' ready':''}"><div class="qi"><img src="${achImg(a)}" alt=""></div><div class="qt"><b>${a[2][L()]}</b><small>${fmt(Math.min(h,n))} / ${fmt(n)} · ${rewLabel(a[4])}</small>${done?'':`<div class="qbar"><i style="width:${Math.min(100,h/n*100)}%"></i></div>`}</div>${cl?`<span class="qok">${I('check')}</span>`:`<button class="qb" data-a="${a[0]}" ${done?'':'disabled'}>${t('claim')}</button>`}</div>`).join('');
   qDirty=false;
 }
 document.addEventListener('click',e=>{
@@ -2108,7 +2208,7 @@ function update(){
   if((curView==='me'||curView==='career')&&(update._m=(update._m||0)+1)%4===0)renderMe();
   if(!update._g||Date.now()-update._g>1000){update._g=Date.now();$('dotGoals').classList.toggle('show',curView!=='goals'&&goalsClaimable());if(curView==='goals'){const ms=864e5-((Date.now()-new Date().getTimezoneOffset()*60000)%864e5);$('gReset').textContent=t('newIn')+' '+Math.floor(ms/36e5)+':'+String(Math.floor(ms/6e4)%60).padStart(2,'0');const sg=goalsSig();if(qDirty||sg!==update._gs){update._gs=sg;renderGoals();}}}
 }
-function renderAll(){renderSync();renderTeamC();$('sndV').textContent=S.snd===false?t('off'):t('on');renderSets();$('burnI1').innerHTML=I('flame');$('burnI2').innerHTML=I('flame');$('starI').innerHTML=I('star');applyTheme();renderTU();renderSkins();renderTerm();renderTeam();renderProjects();renderCases();renderBook();renderMe();renderTop();renderPrompt();update();}
+function renderAll(){renderSync();renderProf();renderTeamC();$('sndV').textContent=S.snd===false?t('off'):t('on');renderSets();$('burnI1').innerHTML=I('flame');$('burnI2').innerHTML=I('flame');$('starI').innerHTML=I('star');applyTheme();renderTU();renderSkins();renderTerm();renderTeam();renderProjects();renderCases();renderBook();renderMe();renderTop();renderPrompt();update();}
 function applyLang(){
   document.documentElement.lang=S.lang;
   document.querySelectorAll('[data-t]').forEach(el=>el.textContent=t(el.dataset.t));
@@ -2127,7 +2227,7 @@ function go(v){
 /* ================= OFFLINE / LOOP ================= */
 function offline(){
   const dt=Math.min(OFFLINE_CAP,(Date.now()-S.last)/1000),inc=income();tokRegen(Math.max(0,dt));
-  if(dt>60&&inc>0){const e=inc*dt*BAL.offRate;earn(e);openS(`<h3>${t('offT')}</h3><p class="sub">${t('offP')} · ${dur(dt)}</p><div class="big">+$${fmt(e)}</div><p class="proto">${t('offMax')}</p><button class="cta" id="ok">${t('collect')}</button>`);$('ok').onclick=()=>{haptic('ok');closeS();};}
+  if(dt>60&&inc>0){const e=inc*dt*BAL.offRate*(perkOn('meta')?1.5:1);earn(e);openS(`<h3>${t('offT')}</h3><p class="sub">${t('offP')} · ${dur(dt)}</p><div class="big">+$${fmt(e)}</div><p class="proto">${t('offMax')}</p><button class="cta" id="ok">${t('collect')}</button>`);$('ok').onclick=()=>{haptic('ok');closeS();};}
 }
 let lastT=performance.now(),acc=0;
 let dispBal=null;
