@@ -721,7 +721,7 @@ textarea.field{min-height:110px;resize:none}
       <div><span data-t="sEv"></span><b id="sEv">0</b></div>
       <div><span data-t="sEvL"></span><b id="sEvL">0</b></div>
     </div>
-    <p class="ver">Vibe Tycoon · v0.38</p>
+    <p class="ver">Vibe Tycoon · v0.39</p>
   </section>
 
   <div class="nav" id="nav"><button data-go="code" class="on"><svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg><span class="lb" data-t="nCode"></span></button><button data-go="proj"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="3"/><path d="M9 7V5.5A1.5 1.5 0 0110.5 4h3A1.5 1.5 0 0115 5.5V7"/></svg><span class="lb" data-t="nProj"></span><i class="dot" id="dotProj"></i></button><button data-go="cases"><svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="12" rx="2"/><path d="M2 9h20M12 9v12M12 9c-2-4-7-5-7-2s5 2 7 2zm0 0c2-4 7-5 7-2s-5 2-7 2z"/></svg><span class="lb" data-t="nCases"></span><i class="dot" id="dotCases"></i></button><button data-go="goals"><svg viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 01-8 0zM8 6H5a3 3 0 003 4.5M16 6h3a3 3 0 01-3 4.5M12 13v4M8.5 21h7M10 17h4"/></svg><span class="lb" data-t="nGoals"></span><i class="dot" id="dotGoals"></i></button><button data-go="book"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M9 3v18M13 8h3M13 12h3"/></svg><span class="lb" data-t="nBook"></span><i class="dot" id="dotBook"></i></button></div>
@@ -864,7 +864,7 @@ const MODELS=[
  ['mj','Midjorney v7','midjourney','e','v7',['design','front']],['lovable','Lovabel','lovable','e','',['front','design','mobile']],['replit','Replitt Agent','replit-agent','e','',['front','back','mobile']],['cline','Klain','cline','e','',['code']],['suno','Soono v5','suno','e','v5',['media']],['kimi','Kimee K2','kimi','e','K2',['code','ml']],
  ['devin','Devvin','devin','l','',['code','back','mobile']],['sora','Sorra 2','sora','l','2',['media','design']],['codex','Kodexx','codex','l','',['code','back']],
 ].map(([id,name,f,r,v,s])=>({id,name,f,r,v,s}));
-const BRAND={gpt:'openai','openai-o-series':'openai',claude:'anthropic',gemini:'google',bard:'google',gemma:'google','nano-banana':'google',llama:'meta',mistral:'mistral',mixtral:'mistral','le-chat':'mistral',deepseek:'deepseek',grok:'xai',qwen:'alibaba',cursor:'cursor',gigachat:'sber','stable-diffusion':'stability','stable-audio':'stability'};
+const BRAND={gpt:'openai','openai-o-series':'openai',sora:'openai',codex:'openai',whisper:'openai',claude:'anthropic',gemini:'google',bard:'google',gemma:'google','nano-banana':'google',llama:'meta',mistral:'mistral',mixtral:'mistral','le-chat':'mistral',deepseek:'deepseek',grok:'xai',qwen:'alibaba',cursor:'cursor',gigachat:'sber','stable-diffusion':'stability','stable-audio':'stability'};
 const BRN={openai:['ChadGPT','gpt'],anthropic:['Clawd','claude'],google:['Gemenai','gemini'],meta:['Lamba','llama'],mistral:['Mistrall','mistral'],deepseek:['DeepSik','deepseek'],xai:['Grokk','grok'],alibaba:['Kwen','qwen'],cursor:['Kursor','cursor'],sber:['GigaChad','gigachat'],stability:['Stabl','stable-diffusion']};
 MODELS.forEach(m=>m.b=BRAND[m.f]||null);
 const MB=Object.fromEntries(MODELS.map(m=>[m.id,m]));
